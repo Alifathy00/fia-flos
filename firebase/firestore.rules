@@ -1,0 +1,76 @@
+rules_version = '2';
+// Feiha Flous (فيها فلوس) Firestore security rules.
+// Deploy: Firebase Console > Firestore Database > Rules > paste > Publish.
+//
+// Model:
+//   atms/{id}     user-added machines: uid, name, lat, lng, photoId?, osmKey?, createdAt, updatedAt
+//   reports/{id}  status reports: uid, atmKey, status ('full'|'empty'|'broken'), createdAt
+//   photos/{id}   ATM photo: uid, data (base64 JPEG, <= ~300KB), createdAt
+//   users/{uid}   per-user backup/settings (owner only)
+//
+// Everything requires a signed-in user. Nobody writes as someone else.
+// Shared collections are readable by any signed-in user (that is the app's purpose);
+// only the owner can change or delete their own documents.
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    function signedIn() {
+      return request.auth != null;
+    }
+    // Real account (email/password) only: anonymous guests can read but not write.
+    function realUser() {
+      return signedIn() && request.auth.token.firebase.sign_in_provider != 'anonymous';
+    }
+    function isOwner(uid) {
+      return signedIn() && request.auth.uid == uid;
+    }
+    function validLatLng(d) {
+      return d.lat is number && d.lat >= -90 && d.lat <= 90
+          && d.lng is number && d.lng >= -180 && d.lng <= 180;
+    }
+
+    match /atms/{atmId} {
+      allow read: if signedIn();
+      allow create: if realUser()
+        && request.resource.data.uid == request.auth.uid
+        && validLatLng(request.resource.data)
+        && request.resource.data.name is string
+        && request.resource.data.name.size() <= 120
+        && request.resource.data.keys().hasOnly(
+             ['uid', 'name', 'lat', 'lng', 'photoId', 'osmKey', 'createdAt', 'updatedAt']);
+      allow update: if realUser() && isOwner(resource.data.uid)
+        && request.resource.data.uid == resource.data.uid
+        && validLatLng(request.resource.data);
+      allow delete: if realUser() && isOwner(resource.data.uid);
+    }
+
+    match /reports/{reportId} {
+      allow read: if signedIn();
+      allow create: if realUser()
+        && request.resource.data.uid == request.auth.uid
+        && request.resource.data.status in ['full', 'empty', 'broken']
+        && request.resource.data.atmKey is string
+        && request.resource.data.atmKey.size() <= 200
+        && request.resource.data.keys().hasOnly(['uid', 'atmKey', 'status', 'createdAt']);
+      allow update, delete: if realUser() && isOwner(resource.data.uid);
+    }
+
+    match /photos/{photoId} {
+      allow read: if signedIn();
+      allow create: if realUser()
+        && request.resource.data.uid == request.auth.uid
+        && request.resource.data.data is string
+        && request.resource.data.data.size() <= 400000
+        && request.resource.data.keys().hasOnly(['uid', 'data', 'createdAt']);
+      allow update, delete: if realUser() && isOwner(resource.data.uid);
+    }
+
+    match /users/{uid} {
+      allow read, write: if isOwner(uid);
+    }
+
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}

@@ -1,0 +1,6295 @@
+{
+  "version": 0.6,
+  "generator": "Overpass API 0.7.62.7 375dc00a",
+  "osm3s": {
+    "timestamp_osm_base": "2026-11-23T12:24:03Z",
+    "timestamp_areas_base": "2026-11-23T08:18:33Z",
+    "copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL."
+  },
+  "elements": [
+
+{
+  "type": "node",
+  "id": 280144939,
+  "lat": 28.4950298,
+  "lon": 34.5166710,
+  "tags": {
+    "amenity": "atm",
+    "source": "local_knowledge"
+  }
+},
+{
+  "type": "node",
+  "id": 355152999,
+  "lat": 27.8653995,
+  "lon": 34.2955876,
+  "tags": {
+    "amenity": "atm"
+  }
+},
+{
+  "type": "node",
+  "id": 392323775,
+  "lat": 29.9757395,
+  "lon": 31.1403213,
+  "tags": {
+    "amenity": "atm"
+  }
+},
+{
+  "type": "node",
+  "id": 392324310,
+  "lat": 30.0522977,
+  "lon": 31.2405480,
+  "tags": {
+    "amenity": "atm"
+  }
+},
+{
+  "type": "node",
+  "id": 454368640,
+  "lat": 27.8707963,
+  "lon": 34.3114292,
+  "tags": {
+    "amenity": "atm"
+  }
+},
+{
+  "type": "node",
+  "id": 493179946,
+  "lat": 30.0621067,
+  "lon": 31.2163074,
+  "tags": {
+    "amenity": "atm"
+  }
+},
+{
+  "type": "node",
+  "id": 517472964,
+  "lat": 28.4940271,
+  "lon": 34.5162771,
+  "tags": {
+    "amenity": "atm",
+    "operator": "National Bank of Egypt"
+  }
+},
+{
+  "type": "node",
+  "id": 517472966,
+  "lat": 28.4983392,
+  "lon": 34.5176438,
+  "tags": {
+    "amenity": "atm"
+  }
+},
+{
+  "type": "node",
+  "id": 676063353,
+  "lat": 29.9624117,
+  "lon": 31.2770336,
+  "tags": {
+    "amenity": "atm",
+    "check_date": "2025-10-01",
+    "operator": "QNB AL Ahly"
+  }
+},
+{
+  "type": "node",
+  "id": 820771840,
+  "lat": 30.0471180,
+  "lon": 31.2372503,
+  "tags": {
+    "amenity": "atm",
+    "brand": "HSBC",
+    "brand:wikidata": "Q190464",
+    "brand:wikipedia": "en:HSBC",
+    "name": "HSBC",
+    "operator": "HSBC",
+    "operator:wikidata": "Q190464",
+    "operator:wikipedia": "en:HSBC"
+  }
+},
+{
+  "type": "node",
+  "id": 838468297,
+  "lat": 30.0613421,
+  "lon": 31.4819574,
+  "tags": {
+    "amenity": "atm"
+  }
+},
+{
+  "type": "node",
+  "id": 1338005128,
+  "lat": 30.0858295,
+  "lon": 31.3356981,
+  "tags": {
+    "amenity": "atm",
+    "ele": "66"
+  }
+},
+{
+  "type": "node",
+  "id": 1338005131,
+  "lat": 30.0871193,
+  "lon": 31.3343234,
+  "tags": {
+    "amenity": "atm",
+    "ele": "63",
+    "name": "الأهلي",
+    "name:ar": "الأهلي",
+    "name:en": "Al-Ahly"
+  }
+},
+{
+  "type": "node",
+  "id": 1377956082,
+  "lat": 30.0838447,
+  "lon": 31.3283513,
+  "tags": {
+    "addr:country": "EG",
+    "addr:district": "اول مدينة نصر",
+    "addr:district:en": "First Nasr City",
+    "addr:housenumber": "15",
+    "addr:postcode": "11765",
+    "addr:province": "القاهرة",
+    "addr:province:en": "Cairo",
+    "addr:street": "شارع احمد تيسير",
+    "addr:street:en": "Ahmed Taysir Street",
+    "addr:subdistrict": "الجولف",
+    "addr:subdistrict:en": "El Golf",
+    "amenity": "atm",
+    "operator": "سي أي بي"
+  }
+},
+{
+  "type": "node",
+  "id": 1481074058,
+  "lat": 28.5019309,
+  "lon": 34.5187017,
+  "tags": {
+    "amenity": "atm"
+  }
+},
+{
+  "type": "node",
+  "id": 1511833604,
+  "lat": 29.1572255,
+  "lon": 34.6891267,
+  "tags": {
+    "amenity": "atm"
+  }
+},
+{
+  "type": "node",
+  "id": 1544105909,
+  "lat": 29.9970859,
+  "lon": 31.4072429,
+  "tags": {
+    "amenity": "atm",
+    "name": "HSBC"
+  }
+},
+{
+  "type": "node",
+  "id": 1559178567,
+  "lat": 27.0963217,
+  "lon": 33.8353090,
+  "tags": {
+    "amenity": "atm",
+    "operator": "National Bank Of Egypt ATM"
+  }
+},
+{
+  "type": "node",
+  "id": 1710176027,
+  "lat": 25.6948299,
+  "lon": 32.6353329,
+  "tags": {
+    "amenity": "atm"
+  }
+},
+{
+  "type": "node",
+  "id": 1744740905,
+  "lat": 28.4915254,
+  "lon": 34.5155658,
+  "tags": {
+    "amenity": "atm"
+  }
+},
+{
+  "type": "node",
+  "id": 1746761925,
+  "lat": 28.4828833,
+  "lon": 34.4918093,
+  "tags": {
+    "amenity": "atm"
+  }
+},
+{
+  "type": "node",
+  "id": 1755565017,
+  "lat": 28.5064144,
+  "lon": 34.5176409,
+  "tags": {
+    "amenity": "atm"
+  }
+},
+{
+  "type": "node",
+  "id": 1758881760,
+  "lat": 28.4975829,
+  "lon": 34.5170179,
+  "tags": {
+    "amenity": "atm"
+  }
+},
+{
+  "type": "node",
+  "id": 1762657590,
+  "lat": 28.4968217,
+  "lon": 34.5165968,
+  "tags": {
+    "amenity": "atm"
+  }
+},
+{
+  "type": "node",
+  "id": 1784962207,
+  "lat": 29.5901963,
+  "lon": 32.7222853,
+  "tags": {
+    "amenity": "atm"
+  }
+},
+{
+  "type": "node",
+  "id": 1822968211,
+  "lat": 27.1877198,
+  "lon": 33.8306175,
+  "tags": {
+    "amenity": "atm"
+  }
+},
+{
+  "type": "node",
+  "id": 1822982158,
+  "lat": 27.2201772,
+  "lon": 33.8379829,
+  "tags": {
+    "amenity": "atm",
+    "operator": "Bank of Egypt"
+  }
+},
+{
+  "type": "node",
+  "id": 1823996175,
+  "lat": 27.2468756,
+  "lon": 33.8242084,
+  "tags": {
+    "amenity": "atm"
+  }
+},
+{
+  "type": "node",
+  "id": 1825073871,
+  "lat": 27.2198425,
+  "lon": 33.8379811,
+  "tags": {
+    "amenity": "atm"
+  }
+},
+{
+  "type": "node",
+  "id": 1825074511,
+  "lat": 27.2270741,
+  "lon": 33.8381099,
+  "tags": {
+    "amenity": "atm"
+  }
+},
+{
+  "type": "node",
+  "id": 1825090030,
+  "lat": 27.2258387,
+  "lon": 33.8408350,
+  "tags": {
+    "amenity": "atm"
+  }
+},
+{
+  "type": "node",
+  "id": 1829122679,
+  "lat": 27.1900517,
+  "lon": 33.8320735,
+  "tags": {
+    "amenity": "atm"
+  }
+},
+{
+  "type": "node",
+  "id": 1939146714,
+  "lat": 29.9758672,
+  "lon": 30.9447687,
+  "tags": {
+    "amenity": "atm"
+  }
+},
+{
+  "type": "node",
+  "id": 1947148820,
+  "lat": 29.9598191,
+  "lon": 32.5607700,
+  "tags": {
+    "amenity": "atm"
+  }
+},
+{
+  "type": "node",
+  "id": 1947205630,
+  "lat": 29.9604534,
+  "lon": 32.5446000,
+  "tags": {
+    "amenity": "atm"
+  }
+},
+{
+  "type": "node",
+  "id": 2018209057,
+  "lat": 27.9627812,
+  "lon": 34.3935050,
+  "tags": {
+    "amenity": "atm",
+    "brand": "Arab African International Bank",
+    "brand:ar": "البنك العربي الإفريقي الدولي",
+    "brand:en": "Arab African International Bank",
+    "brand:wikidata": "Q126391861",
+    "operator": "Arab African International Bank",
+    "operator:wikidata": "Q126391861"
+  }
+},
+{
+  "type": "node",
+  "id": 2018209066,
+  "lat": 27.9628039,
+  "lon": 34.3935210,
+  "tags": {
+    "amenity": "atm",
+    "brand": "HSBC",
+    "brand:wikidata": "Q190464",
+    "operator": "HSBC",
+    "operator:wikidata": "Q190464"
+  }
+},
+{
+  "type": "node",
+  "id": 2018209074,
+  "lat": 27.9628269,
+  "lon": 34.3935379,
+  "tags": {
+    "amenity": "atm",
+    "operator": "Union National Bank"
+  }
+},
+{
+  "type": "node",
+  "id": 2021530579,
+  "lat": 28.0447172,
+  "lon": 34.4305774,
+  "tags": {
+    "amenity": "atm",
+    "check_date": "2026-09-19",
+    "operator": "HSBC"
+  }
+},
+{
+  "type": "node",
+  "id": 2021530613,
+  "lat": 28.0450217,
+  "lon": 34.4306132,
+  "tags": {
+    "amenity": "atm",
+    "brand": "HSBC",
+    "brand:wikidata": "Q190464",
+    "brand:wikipedia": "en:HSBC",
+    "name": "HSBC",
+    "operator": "HSBC",
+    "operator:wikidata": "Q190464",
+    "operator:wikipedia": "en:HSBC"
+  }
+},
+{
+  "type": "node",
+  "id": 2025128602,
+  "lat": 30.0402130,
+  "lon": 31.3503520,
+  "tags": {
+    "amenity": "atm",
+    "name": "BNP Paribas",
+    "operator": "BNP Paribas"
+  }
+},
+{
+  "type": "node",
+  "id": 2070505658,
+  "lat": 27.9690974,
+  "lon": 34.4138157,
+  "tags": {
+    "amenity": "atm",
+    "brand": "Commercial International Bank",
+    "brand:ar": "البنك التجاري الدولي",
+    "brand:en": "Commercial International Bank",
+    "brand:wikidata": "Q5152506",
+    "operator": "Commercial International Bank",
+    "operator:wikidata": "Q5152506"
+  }
+},
+{
+  "type": "node",
+  "id": 2075962958,
+  "lat": 27.9573158,
+  "lon": 34.3662428,
+  "tags": {
+    "amenity": "atm"
+  }
+},
+{
+  "type": "node",
+  "id": 2131180085,
+  "lat": 27.9670798,
+  "lon": 34.4163053,
+  "tags": {
+    "amenity": "atm"
+  }
+},
+{
+  "type": "node",
+  "id": 2157120632,
+  "lat": 27.1926383,
+  "lon": 33.8345002,
+  "tags": {
+    "amenity": "atm",
+    "operator": "National bank of Egypt"
+  }
+},
+{
+  "type": "node",
+  "id": 2196984174,
+  "lat": 29.9590257,
+  "lon": 31.2594490,
+  "tags": {
+    "amenity": "atm",
+    "brand": "Banque Misr",
+    "brand:wikidata": "Q2060638",
+    "check_date": "2025-09-04",
+    "operator": "Banque Misr",
+    "operator:wikidata": "Q2060638"
+  }
+},
+{
+  "type": "node",
+  "id": 2207998093,
+  "lat": 29.9591384,
+  "lon": 31.2603195,
+  "tags": {
+    "amenity": "atm",
+    "check_date": "2025-09-18",
+    "operator": "The United Bank"
+  }
+},
+{
+  "type": "node",
+  "id": 2217992566,
+  "lat": 29.9617220,
+  "lon": 31.2757370,
+  "tags": {
+    "amenity": "atm",
+    "cash_in": "yes",
+    "check_date": "2025-12-01",
+    "operator": "HSBC"
+  }
+},
+{
+  "type": "node",
+  "id": 2229244927,
+  "lat": 30.0570091,
+  "lon": 31.2226478,
+  "tags": {
+    "amenity": "atm",
+    "operator": "CIB"
+  }
+},
+{
+  "type": "node",
+  "id": 2229263083,
+  "lat": 30.0601211,
+  "lon": 31.2189091,
+  "tags": {
+    "amenity": "atm",
+    "operator": "CIB"
+  }
+},
+{
+  "type": "node",
+  "id": 2284039538,
+  "lat": 31.2083785,
+  "lon": 29.9089001,
+  "tags": {
+    "amenity": "atm",
+    "name": "ماكينة صرافة آلية",
+    "name:ar": "ماكينة صرافة آلية",
+    "operator": "Commercial International Bank CIB - البنك التجاري الدولي"
+  }
+},
+{
+  "type": "node",
+  "id": 2315311459,
+  "lat": 27.1915925,
+  "lon": 31.1897708,
+  "tags": {
+    "amenity": "atm"
+  }
+},
+{
+  "type": "node",
+  "id": 2379866607,
+  "lat": 25.6041480,
+  "lon": 34.6031918,
+  "tags": {
+    "amenity": "atm",
+    "check_date": "2025-12-04",
+    "currency:EGP": "yes",
+    "fee": "unknown",
+    "operator": "Commercial International Bank",
+    "source": "survey",
+    "speech_output:en": "yes"
+  }
+},
+{
+  "type": "node",
+  "id": 2404690006,
+  "lat": 29.3883136,
+  "lon": 34.8084607,
+  "tags": {
+    "amenity": "atm"
+  }
+},
+{
+  "type": "node",
+  "id": 2445781981,
+  "lat": 28.1032606,
+  "lon": 30.7517646,
+  "tags": {
+    "amenity": "atm",
+    "name": "Piraeus",
+    "name:ar": "بيريوس"
+  }
+},
+{
+  "type": "node",
+  "id": 2445781982,
+  "lat": 28.1035065,
+  "lon": 30.7538487,
+  "tags": {
+    "amenity": "atm",
+    "name": "Piraeus"
+  }
+},
+{
+  "type": "node",
+  "id": 2505763475,
+  "lat": 25.5997648,
+  "lon": 34.6096837,
+  "tags": {
+    "amenity": "atm",
+    "currency:EGP": "yes",
+    "fee": "unknown",
+    "operator": "Commercial International Bank",
+    "speech_output:en": "yes"
+  }
+},
+{
+  "type": "node",
+  "id": 2550072317,
+  "lat": 29.9724377,
+  "lon": 30.9394523,
+  "tags": {
+    "amenity": "atm",
+    "branch": "bank ATM",
+    "brand": "HSBC",
+    "brand:wikidata": "Q190464",
+    "name": "HSBC",
+    "operator": "HSBC",
+    "operator:wikidata": "Q190464"
+  }
+},
+{
+  "type": "node",
+  "id": 2586291660,
+  "lat": 28.4907103,
+  "lon": 34.5152218,
+  "tags": {
+    "amenity": "atm"
+  }
+},
+{
+  "type": "node",
+  "id": 2691796227,
+  "lat": 24.0913250,
+  "lon": 32.8958856,
+  "tags": {
+    "amenity": "atm",
+    "name": "BNP Paribas"
+  }
+},
+{
+  "type": "node",
+  "id": 2789856759,
+  "lat": 30.0479301,
+  "lon": 31.2422402,
+  "tags": {
+    "amenity": "atm",
+    "operator": "Bank of Egypt"
+  }
+},
+{
+  "type": "node",
+  "id": 2789856760,
+  "lat": 30.0485084,
+  "lon": 31.2440664,
+  "tags": {
+    "amenity": "atm",
+    "operator": "Bank Masr"
+  }
+},
+{
+  "type": "node",
+  "id": 2789857540,
+  "lat": 30.0476437,
+  "lon": 31.2422072,
+  "tags": {
+    "amenity": "atm",
+    "operator": "Bank of Egypt"
+  }
+},
+{
+  "type": "node",
+  "id": 2789858664,
+  "lat": 30.0485840,
+  "lon": 31.2440525,
+  "tags": {
+    "amenity": "atm"
+  }
+},
+{
+  "type": "node",
+  "id": 2789858680,
+  "lat": 30.0492527,
+  "lon": 31.2443690,
+  "tags": {
+    "amenity": "atm"
+  }
+},
+{
+  "type": "node",
+  "id": 2798572881,
+  "lat": 29.9843389,
+  "lon": 31.1344130,
+  "tags": {
+    "amenity": "atm",
+    "fixme": "2026-01-06 not visible from outside, from inside the walls?"
+  }
+},
+{
+  "type": "node",
+  "id": 2805885503,
+  "lat": 24.1003264,
+  "lon": 32.9019088,
+  "tags": {
+    "amenity": "atm"
+  }
+},
+{
+  "type": "node",
+  "id": 3075237762,
+  "lat": 31.2461638,
+  "lon": 29.9661396,
+  "tags": {
+    "amenity": "atm",
+    "cash_in": "yes",
+    "check_date": "2024-05-14",
+    "operator": "البنك الأهلي المصري"
+  }
+},
+{
+  "type": "node",
+  "id": 3106935419,
+  "lat": 29.9957276,
+  "lon": 30.9665058,
+  "tags": {
+    "amenity": "atm",
+    "name": "ماكينة صرافة بنك مصر",
+    "name:ar": "ماكينة صرافة بنك مصر",
+    "name:en": "Banque Misr ATM"
+  }
+},
+{
+  "type": "node",
+  "id": 3118454622,
+  "lat": 31.0452969,
+  "lon": 31.3612266,
+  "tags": {
+    "amenity": "atm",
+    "name": "Alex Bank"
+  }
+},
+{
+  "type": "node",
+  "id": 3171940272,
+  "lat": 28.4894422,
+  "lon": 34.5149896,
+  "tags": {
+    "amenity": "atm"
+  }
+},
+{
+  "type": "node",
+  "id": 3171940273,
+  "lat": 28.4895259,
+  "lon": 34.5150218,
+  "tags": {
+    "amenity": "atm"
+  }
+},
+{
+  "type": "node",
+  "id": 3204594291,
+  "lat": 28.4865421,
+  "lon": 34.5129507,
+  "tags": {
+    "amenity": "atm"
+  }
+},
+{
+  "type": "node",
+  "id": 3222658720,
+  "lat": 30.3576513,
+  "lon": 30.5198967,
+  "tags": {
+    "amenity": "atm",
+    "operator": "بنك الإسكان والتعمير"
+  }
+},
+{
+  "type": "node",
+  "id": 3227144640,
+  "lat": 28.4865912,
+  "lon": 34.5088449,
+  "tags": {
+    "amenity": "atm"
+  }
+},
+{
+  "type": "node",
+  "id": 3227144642,
+  "lat": 28.4862072,
+  "lon": 34.5110907,
+  "tags": {
+    "amenity": "atm"
+  }
+},
+{
+  "type": "node",
+  "id": 3237397971,
+  "lat": 30.3729391,
+  "lon": 30.4989710,
+  "tags": {
+    "amenity": "atm"
+  }
+},
+{
+  "type": "node",
+  "id": 3237397972,
+  "lat": 30.3730062,
+  "lon": 30.4989690,
+  "tags": {
+    "amenity": "atm"
+  }
+},
+{
+  "type": "node",
+  "id": 3237397973,
+  "lat": 30.3735350,
+  "lon": 30.4995725,
+  "tags": {
+    "amenity": "atm"
+  }
+},
+{
+  "type": "node",
+  "id": 3237397974,
+  "lat": 30.3735500,
+  "lon": 30.4995899,
+  "tags": {
+    "amenity": "atm"
+  }
+},
+{
+  "type": "node",
+  "id": 3256377852,
+  "lat": 28.2408981,
+  "lon": 33.6279218,
+  "tags": {
+    "amenity": "atm"
+  }
+},
+{
+  "type": "node",
+  "id": 3276573952,
+  "lat": 28.4931366,
+  "lon": 34.5161102,
+  "tags": {
+    "amenity": "atm"
+  }
+},
+{
+  "type": "node",
+  "id": 3379211080,
+  "lat": 27.8619745,
+  "lon": 34.2890970,
+  "tags": {
+    "amenity": "atm"
+  }
+},
+{
+  "type": "node",
+  "id": 3386539134,
+  "lat": 28.2409860,
+  "lon": 33.6272541,
+  "tags": {
+    "amenity": "atm"
+  }
+},
+{
+  "type": "node",
+  "id": 3905349876,
+  "lat": 30.0588382,
+  "lon": 31.2441619,
+  "tags": {
+    "amenity": "atm",
+    "name": "ماكينة صرافة البنك الأهلي",
+    "name:ar": "ماكينة صرافة البنك الأهلي",
+    "operator": "البنك الأهلي المصري"
+  }
+},
+{
+  "type": "node",
+  "id": 3905349877,
+  "lat": 30.0588153,
+  "lon": 31.2441451,
+  "tags": {
+    "amenity": "atm",
+    "name": "ماكينة صرافة بنك مصر",
+    "name:ar": "ماكينة صرافة بنك مصر",
+    "operator": "بنك مصر"
+  }
+},
+{
+  "type": "node",
+  "id": 3905349889,
+  "lat": 30.0571632,
+  "lon": 31.2423949,
+  "tags": {
+    "amenity": "atm",
+    "name": "ماكينة صرافة البنك الأهلي",
+    "name:ar": "ماكينة صرافة البنك الأهلي",
+    "name:en": "Al Ahly Bank ATM"
+  }
+},
+{
+  "type": "node",
+  "id": 3905387799,
+  "lat": 30.0574961,
+  "lon": 31.2425382,
+  "tags": {
+    "amenity": "atm",
+    "name": "ماكينة صرافة بنك الامارات دبي الوطني",
+    "name:ar": "ماكينة صرافة بنك الامارات دبي الوطني",
+    "operator": "بنك الإمارات دبي الوطني"
+  }
+},
+{
+  "type": "node",
+  "id": 3905966062,
+  "lat": 31.2646026,
+  "lon": 29.9984413,
+  "tags": {
+    "amenity": "atm",
+    "name": "ماكينة صرافة البنك الأهلي المصري",
+    "name:ar": "ماكينة صرافة البنك الأهلي المصري",
+    "operator": "البنك الأهلي المصري"
+  }
+},
+{
+  "type": "node",
+  "id": 3909135635,
+  "lat": 31.2500235,
+  "lon": 29.9754797,
+  "tags": {
+    "amenity": "atm",
+    "name": "ماكينة صرافة البنك الأهلي المصري",
+    "name:ar": "ماكينة صرافة البنك الأهلي المصري",
+    "name:en": "ATM Al Ahly Bank",
+    "operator": "البنك الأهلي المصري"
+  }
+},
+{
+  "type": "node",
+  "id": 3996242510,
+  "lat": 31.2559088,
+  "lon": 29.9964648,
+  "tags": {
+    "amenity": "atm",
+    "name": "ماكينة صرافة البنك الأهلي المصري",
+    "name:ar": "ماكينة صرافة البنك الأهلي المصري",
+    "operator": "البنك الأهلي المصري"
+  }
+},
+{
+  "type": "node",
+  "id": 4012637614,
+  "lat": 31.2364436,
+  "lon": 29.9509626,
+  "tags": {
+    "amenity": "atm",
+    "name": "ماكينة صرافة البنك الأهلي المصري",
+    "name:ar": "ماكينة صرافة البنك الأهلي المصري",
+    "opening_hours": "Sa-We 07:00-15:00",
+    "operator": "البنك الأهلي المصري"
+  }
+},
+{
+  "type": "node",
+  "id": 4012657057,
+  "lat": 31.2004189,
+  "lon": 29.8726843,
+  "tags": {
+    "amenity": "atm",
+    "name": "ماكينة صرافة البنك الاهلي المصري",
+    "name:ar": "ماكينة صرافة البنك الاهلي المصري",
+    "operator": "البنك الأهلي المصري"
+  }
+},
+{
+  "type": "node",
+  "id": 4012657058,
+  "lat": 31.1963609,
+  "lon": 29.8637845,
+  "tags": {
+    "amenity": "atm",
+    "name": "ماكينة صرافة البنك الأهلي المصري",
+    "name:ar": "ماكينة صرافة البنك الأهلي المصري",
+    "operator": "البنك الأهلي المصري"
+  }
+},
+{
+  "type": "node",
+  "id": 4052210111,
+  "lat": 27.3978646,
+  "lon": 33.6746120,
+  "tags": {
+    "amenity": "atm",
+    "brand": "Banque Misr",
+    "brand:wikidata": "Q2060638",
+    "cash_in": "yes",
+    "check_date": "2025-11-08",
+    "operator": "Banque Misr",
+    "operator:wikidata": "Q2060638"
+  }
+},
+{
+  "type": "node",
+  "id": 4052210112,
+  "lat": 27.3968577,
+  "lon": 33.6756885,
+  "tags": {
+    "amenity": "atm",
+    "cash_in": "no",
+    "check_date": "2024-09-29",
+    "operator": "FABMISR"
+  }
+},
+{
+  "type": "node",
+  "id": 4053125289,
+  "lat": 31.2492368,
+  "lon": 29.9809600,
+  "tags": {
+    "amenity": "atm",
+    "name": "ماكينة صرافة آلية بنك الإسكندرية",
+    "name:ar": "ماكينة صرافة آلية بنك الإسكندرية",
+    "opening_hours": "24/7",
+    "operator": "بنك الإسكندرية"
+  }
+},
+{
+  "type": "node",
+  "id": 4058689511,
+  "lat": 31.2125518,
+  "lon": 29.9483724,
+  "tags": {
+    "amenity": "atm",
+    "name": "ماكينة صرافة آلية البنك الأهلي المصري",
+    "name:ar": "ماكينة صرافة آلية البنك الأهلي المصري",
+    "operator": "البنك الأهلي المصري"
+  }
+},
+{
+  "type": "node",
+  "id": 4058932202,
+  "lat": 31.2119262,
+  "lon": 29.9473141,
+  "tags": {
+    "amenity": "atm"
+  }
+},
+{
+  "type": "node",
+  "id": 4115147823,
+  "lat": 31.1046938,
+  "lon": 30.9465750,
+  "tags": {
+    "amenity": "atm"
+  }
+},
+{
+  "type": "node",
+  "id": 4138451898,
+  "lat": 31.2038378,
+  "lon": 29.8853622,
+  "tags": {
+    "amenity": "atm",
+    "opening_hours": "24/7",
+    "wheelchair": "no"
+  }
+},
+{
+  "type": "node",
+  "id": 4151004089,
+  "lat": 31.2382005,
+  "lon": 29.9547488,
+  "tags": {
+    "amenity": "atm",
+    "opening_hours": "24/7",
+    "operator": "البنك الأهلي المصري"
+  }
+},
+{
+  "type": "node",
+  "id": 4194979301,
+  "lat": 27.3979371,
+  "lon": 33.6744914,
+  "tags": {
+    "amenity": "atm",
+    "brand": "Banque Misr",
+    "brand:wikidata": "Q2060638",
+    "cash_in": "yes",
+    "check_date": "2025-11-08",
+    "operator": "Banque Misr",
+    "operator:wikidata": "Q2060638"
+  }
+},
+{
+  "type": "node",
+  "id": 4194979302,
+  "lat": 27.3969680,
+  "lon": 33.6747557,
+  "tags": {
+    "amenity": "atm",
+    "brand": "National Bank of Egypt",
+    "brand:ar": "البنك الأهلي المصري",
+    "brand:en": "National Bank of Egypt",
+    "brand:wikidata": "Q4119563",
+    "cash_in": "yes",
+    "check_date": "2024-01-05",
+    "operator": "National Bank of Egypt",
+    "operator:wikidata": "Q4119563"
+  }
+},
+{
+  "type": "node",
+  "id": 4194979303,
+  "lat": 27.3967941,
+  "lon": 33.6759240,
+  "tags": {
+    "amenity": "atm",
+    "brand": "Arab African International Bank",
+    "brand:ar": "البنك العربي الإفريقي الدولي",
+    "brand:en": "Arab African International Bank",
+    "brand:wikidata": "Q126391861",
+    "cash_in": "no",
+    "check_date": "2024-09-29",
+    "operator": "Arab African International Bank",
+    "operator:wikidata": "Q126391861"
+  }
+},
+{
+  "type": "node",
+  "id": 4270343990,
+  "lat": 30.0562380,
+  "lon": 31.3366032,
+  "tags": {
+    "amenity": "atm"
+  }
+},
+{
+  "type": "node",
+  "id": 4327715509,
+  "lat": 31.2065314,
+  "lon": 29.8824911,
+  "tags": {
+    "amenity": "atm",
+    "covered": "yes",
+    "indoor": "no",
+    "operator": "البنك الأهلي المصري"
+  }
+},
+{
+  "type": "node",
+  "id": 4341930794,
+  "lat": 30.2599050,
+  "lon": 31.4826934,
+  "tags": {
+    "amenity": "atm",
+    "wheelchair": "no"
+  }
+},
+{
+  "type": "node",
+  "id": 4342968160,
+  "lat": 27.9398950,
+  "lon": 34.3822887,
+  "tags": {
+    "amenity": "atm"
+  }
+},
+{
+  "type": "node",
+  "id": 4358103991,
+  "lat": 29.9912132,
+  "lon": 31.3180936,
+  "tags": {
+    "amenity": "atm",
+    "cash_in": "yes",
+    "name:ar": "ماكينة صراف البنك الأهلي",
+    "name:en": "National Bank of Egypt NBE",
+    "opening_hours": "Sa-Th 10:00-22:00",
+    "operator": "NBE"
+  }
+},
+{
+  "type": "node",
+  "id": 4358917091,
+  "lat": 30.0384402,
+  "lon": 31.2011816,
+  "tags": {
+    "amenity": "atm",
+    "check_date": "2021-06-13",
+    "name:en": "CIB"
+  }
+},
+{
+  "type": "node",
+  "id": 4373317299,
+  "lat": 30.7791033,
+  "lon": 29.3830617,
+  "tags": {
+    "amenity": "atm",
+    "name": "نثل ابسيس",
+    "name:ar": "نثل ابسيس"
+  }
+},
+{
+  "type": "node",
+  "id": 4409264195,
+  "lat": 31.2005370,
+  "lon": 29.8972529,
+  "tags": {
+    "amenity": "atm",
+    "check_date": "2024-10-28",
+    "name": "Lloyds Class",
+    "name:ar": "Lloyds Class",
+    "wheelchair": "no"
+  }
+},
+{
+  "type": "node",
+  "id": 4415137694,
+  "lat": 31.0937515,
+  "lon": 29.7310064,
+  "tags": {
+    "amenity": "atm"
+  }
+},
+{
+  "type": "node",
+  "id": 4450610891,
+  "lat": 30.0263529,
+  "lon": 31.4963711,
+  "tags": {
+    "amenity": "atm",
+    "operator": "CIB"
+  }
+},
+{
+  "type": "node",
+  "id": 4450656389,
+  "lat": 30.0260925,
+  "lon": 31.4899032,
+  "tags": {
+    "amenity": "atm",
+    "operator": "CIB"
+  }
+},
+{
+  "type": "node",
+  "id": 4461053992,
+  "lat": 30.5596220,
+  "lon": 31.7798444,
+  "tags": {
+    "amenity": "atm",
+    "man_made": "chimney",
+    "operator": "الشركة الوطنية البطاريات"
+  }
+},
+{
+  "type": "node",
+  "id": 4467668026,
+  "lat": 29.6702057,
+  "lon": 32.3121173,
+  "tags": {
+    "amenity": "atm",
+    "name": "CIB ATM"
+  }
+},
+{
+  "type": "node",
+  "id": 4478991997,
+  "lat": 30.9134400,
+  "lon": 30.2909263,
+  "tags": {
+    "amenity": "atm",
+    "operator": "2660"
+  }
+},
+{
+  "type": "node",
+  "id": 4485617464,
+  "lat": 26.7635351,
+  "lon": 33.9415606,
+  "tags": {
+    "amenity": "atm",
+    "operator": "Banque du Caire"
+  }
+},
+{
+  "type": "node",
+  "id": 4487346290,
+  "lat": 26.7523140,
+  "lon": 33.9417301,
+  "tags": {
+    "amenity": "atm",
+    "operator": "AlexBank"
+  }
+},
+{
+  "type": "node",
+  "id": 4515802090,
+  "lat": 29.9638431,
+  "lon": 31.2858019,
+  "tags": {
+    "amenity": "atm"
+  }
+},
+{
+  "type": "node",
+  "id": 4515802690,
+  "lat": 29.9579613,
+  "lon": 31.2619134,
+  "tags": {
+    "amenity": "atm"
+  }
+},
+{
+  "type": "node",
+  "id": 4544823289,
+  "lat": 30.0536793,
+  "lon": 31.2422564,
+  "tags": {
+    "amenity": "atm"
+  }
+},
+{
+  "type": "node",
+  "id": 4601472090,
+  "lat": 31.0462191,
+  "lon": 31.3583797,
+  "tags": {
+    "amenity": "atm",
+    "operator": "national Bank of Egypt"
+  }
+},
+{
+  "type": "node",
+  "id": 4658648389,
+  "lat": 30.5866961,
+  "lon": 31.4913648,
+  "tags": {
+    "amenity": "atm",
+    "operator": "بنك مصر"
+  }
+},
+{
+  "type": "node",
+  "id": 4682019712,
+  "lat": 31.2348512,
+  "lon": 29.9506871,
+  "tags": {
+    "amenity": "atm",
+    "check_date": "2024-10-28",
+    "opening_hours": "24/7",
+    "operator": "Egypt Bank"
+  }
+},
+{
+  "type": "node",
+  "id": 4683149389,
+  "lat": 31.2133807,
+  "lon": 29.9499118,
+  "tags": {
+    "amenity": "atm",
+    "operator": "البنك الأهلي المصري"
+  }
+},
+{
+  "type": "node",
+  "id": 4696040190,
+  "lat": 29.9760755,
+  "lon": 30.9446634,
+  "tags": {
+    "amenity": "atm",
+    "opening_hours": "24/7",
+    "operator": "CIB"
+  }
+},
+{
+  "type": "node",
+  "id": 4702666845,
+  "lat": 25.6959786,
+  "lon": 32.6360442,
+  "tags": {
+    "amenity": "atm",
+    "name": "Banque du Caire"
+  }
+},
+{
+  "type": "node",
+  "id": 4710428990,
+  "lat": 31.2613784,
+  "lon": 29.9912925,
+  "tags": {
+    "amenity": "atm",
+    "operator": "G-966595"
+  }
+},
+{
+  "type": "node",
+  "id": 4710438391,
+  "lat": 31.2613149,
+  "lon": 29.9911562,
+  "tags": {
+    "amenity": "atm",
+    "operator": "G-956595"
+  }
+},
+{
+  "type": "node",
+  "id": 4714176789,
+  "lat": 30.5327647,
+  "lon": 31.6733030,
+  "tags": {
+    "amenity": "atm"
+  }
+},
+{
+  "type": "node",
+  "id": 4735372721,
+  "lat": 30.2900051,
+  "lon": 31.7402472,
+  "tags": {
+    "amenity": "atm",
+    "operator": "بين سبورت"
+  }
+},
+{
+  "type": "node",
+  "id": 4736826023,
+  "lat": 31.2569599,
+  "lon": 29.9914188,
+  "tags": {
+    "amenity": "atm",
+    "opening_hours": "Sa-Th 10:00-00:00; Fr 12:00-00:00",
+    "operator": "البنك الأهلي المصري"
+  }
+},
+{
+  "type": "node",
+  "id": 4736909421,
+  "lat": 31.2580293,
+  "lon": 29.9876038,
+  "tags": {
+    "amenity": "atm",
+    "opening_hours": "Sa-Th 10:00-23:00; Fr 13:00-23:00",
+    "operator": "البنك الأهلي المصري"
+  }
+},
+{
+  "type": "node",
+  "id": 4741441624,
+  "lat": 29.9798406,
+  "lon": 30.9871824,
+  "tags": {
+    "amenity": "atm",
+    "operator": "فيلا عمر عزب"
+  }
+},
+{
+  "type": "node",
+  "id": 4743090026,
+  "lat": 26.5550425,
+  "lon": 31.6938027,
+  "tags": {
+    "amenity": "atm"
+  }
+},
+{
+  "type": "node",
+  "id": 4743134321,
+  "lat": 26.7669196,
+  "lon": 31.5022554,
+  "tags": {
+    "amenity": "atm",
+    "check_date": "2024-10-29",
+    "operator": "بنك مصر"
+  }
+},
+{
+  "type": "node",
+  "id": 4744186021,
+  "lat": 29.9928369,
+  "lon": 31.3114055,
+  "tags": {
+    "amenity": "atm"
+  }
+},
+{
+  "type": "node",
+  "id": 4759392323,
+  "lat": 31.2086366,
+  "lon": 29.8824907,
+  "tags": {
+    "amenity": "atm",
+    "opening_hours": "24/7",
+    "operator": "بنك مصر",
+    "wheelchair": "no"
+  }
+},
+{
+  "type": "node",
+  "id": 4769012721,
+  "lat": 31.2050375,
+  "lon": 29.8779286,
+  "tags": {
+    "amenity": "atm",
+    "operator": "البنك الأهلي المصري",
+    "wheelchair": "yes"
+  }
+},
+{
+  "type": "node",
+  "id": 4770565723,
+  "lat": 31.2389273,
+  "lon": 29.9538697,
+  "tags": {
+    "amenity": "atm",
+    "operator": "البنك الأهلي المصري"
+  }
+},
+{
+  "type": "node",
+  "id": 4770578821,
+  "lat": 31.2389670,
+  "lon": 29.9538903,
+  "tags": {
+    "amenity": "atm",
+    "operator": "بنك فيصل الإسلامي المصري"
+  }
+},
+{
+  "type": "node",
+  "id": 4770664421,
+  "lat": 31.2686949,
+  "lon": 29.9948668,
+  "tags": {
+    "amenity": "atm",
+    "opening_hours": "24/7",
+    "operator": "البنك الأهلي المصري"
+  }
+},
+{
+  "type": "node",
+  "id": 4771853222,
+  "lat": 31.2725506,
+  "lon": 30.0040235,
+  "tags": {
+    "amenity": "atm",
+    "opening_hours": "24/7",
+    "operator": "بنك عوده"
+  }
+},
+{
+  "type": "node",
+  "id": 4778266166,
+  "lat": 27.9741930,
+  "lon": 34.4231802,
+  "tags": {
+    "amenity": "atm"
+  }
+},
+{
+  "type": "node",
+  "id": 4783831629,
+  "lat": 27.2137726,
+  "lon": 33.8400802,
+  "tags": {
+    "amenity": "atm",
+    "cash_in": "yes",
+    "check_date": "2023-03-19",
+    "operator": "FABMisr"
+  }
+},
+{
+  "type": "node",
+  "id": 4792273722,
+  "lat": 27.3106176,
+  "lon": 33.7170593,
+  "tags": {
+    "amenity": "atm",
+    "check_date": "2021-12-29"
+  }
+},
+{
+  "type": "node",
+  "id": 4802957724,
+  "lat": 31.2086977,
+  "lon": 29.9130622,
+  "tags": {
+    "amenity": "atm",
+    "opening_hours": "24/7",
+    "operator": "بنك مصر"
+  }
+},
+{
+  "type": "node",
+  "id": 4807879021,
+  "lat": 31.2566184,
+  "lon": 29.9919342,
+  "tags": {
+    "amenity": "atm",
+    "check_date": "2024-04-12",
+    "opening_hours": "24/7",
+    "operator": "بنك مصر"
+  }
+},
+{
+  "type": "node",
+  "id": 4811561221,
+  "lat": 31.2285947,
+  "lon": 29.9471573,
+  "tags": {
+    "amenity": "atm",
+    "opening_hours": "24/7",
+    "operator": "CIB"
+  }
+},
+{
+  "type": "node",
+  "id": 4833291722,
+  "lat": 31.2265117,
+  "lon": 29.9451616,
+  "tags": {
+    "amenity": "atm",
+    "operator": "البنك الأهلي المصري"
+  }
+},
+{
+  "type": "node",
+  "id": 4833303022,
+  "lat": 31.2209511,
+  "lon": 29.9423422,
+  "tags": {
+    "amenity": "atm",
+    "opening_hours": "24/7",
+    "operator": "بنك مصر"
+  }
+},
+{
+  "type": "node",
+  "id": 4833309221,
+  "lat": 31.2271322,
+  "lon": 29.9456646,
+  "tags": {
+    "amenity": "atm",
+    "opening_hours": "24/7",
+    "operator": "بنك مصر"
+  }
+},
+{
+  "type": "node",
+  "id": 4833309222,
+  "lat": 31.2227405,
+  "lon": 29.9419888,
+  "tags": {
+    "amenity": "atm",
+    "operator": "البنك الأهلي المصري"
+  }
+},
+{
+  "type": "node",
+  "id": 4839422793,
+  "lat": 31.2412541,
+  "lon": 29.9976000,
+  "tags": {
+    "amenity": "atm",
+    "currency:EGP": "yes",
+    "operator": "البنك الأهلي المصري"
+  }
+},
+{
+  "type": "node",
+  "id": 4839422794,
+  "lat": 31.2413892,
+  "lon": 29.9974562,
+  "tags": {
+    "amenity": "atm",
+    "currency:EGP": "yes",
+    "operator": "البنك الأهلي المصري"
+  }
+},
+{
+  "type": "node",
+  "id": 4839422795,
+  "lat": 31.2413277,
+  "lon": 29.9974562,
+  "tags": {
+    "amenity": "atm",
+    "currency:EGP": "yes",
+    "operator": "البنك الأهلي المصري"
+  }
+},
+{
+  "type": "node",
+  "id": 4841793621,
+  "lat": 31.2529145,
+  "lon": 29.9759674,
+  "tags": {
+    "amenity": "atm",
+    "opening_hours": "24/7",
+    "operator": "بنك مصر"
+  }
+},
+{
+  "type": "node",
+  "id": 4842632821,
+  "lat": 29.9717309,
+  "lon": 31.2472459,
+  "tags": {
+    "amenity": "atm",
+    "opening_hours": "24/7",
+    "operator": "البنك الأهلي المصري"
+  }
+},
+{
+  "type": "node",
+  "id": 4858907321,
+  "lat": 31.2534216,
+  "lon": 29.9824819,
+  "tags": {
+    "amenity": "atm",
+    "operator": "البنك الأهلي المصري"
+  }
+},
+{
+  "type": "node",
+  "id": 4884245721,
+  "lat": 31.2616968,
+  "lon": 29.9926808,
+  "tags": {
+    "amenity": "atm",
+    "operator": "بنك مصر"
+  }
+},
+{
+  "type": "node",
+  "id": 4893727529,
+  "lat": 31.2472744,
+  "lon": 29.9793237,
+  "tags": {
+    "amenity": "atm",
+    "name": "بنك فيصل الإسلامي المصري",
+    "name:ar": "بنك فيصل الإسلامي المصري"
+  }
+},
+{
+  "type": "node",
+  "id": 4903966022,
+  "lat": 31.2366819,
+  "lon": 29.9522279,
+  "tags": {
+    "amenity": "atm",
+    "opening_hours": "24/7",
+    "operator": "QNB"
+  }
+},
+{
+  "type": "node",
+  "id": 4905481621,
+  "lat": 31.2436965,
+  "lon": 29.9692247,
+  "tags": {
+    "amenity": "atm",
+    "operator": "البنك الأهلي المصري"
+  }
+},
+{
+  "type": "node",
+  "id": 4905481721,
+  "lat": 31.2498892,
+  "lon": 29.9755413,
+  "tags": {
+    "amenity": "atm",
+    "operator": "البنك الأهلي المصري"
+  }
+},
+{
+  "type": "node",
+  "id": 4913505821,
+  "lat": 29.9907569,
+  "lon": 31.2791923,
+  "tags": {
+    "amenity": "atm",
+    "opening_hours": "24/7",
+    "operator": "البنك الاهلي ابراج جابكو"
+  }
+},
+{
+  "type": "node",
+  "id": 4924353721,
+  "lat": 31.2450120,
+  "lon": 29.9654065,
+  "tags": {
+    "amenity": "atm",
+    "opening_hours": "24/7",
+    "operator": "بنك فيصل الإسلامي المصري"
+  }
+},
+{
+  "type": "node",
+  "id": 4934654122,
+  "lat": 31.2528591,
+  "lon": 29.9762748,
+  "tags": {
+    "amenity": "atm",
+    "operator": "البريد المصري"
+  }
+},
+{
+  "type": "node",
+  "id": 4937236024,
+  "lat": 30.0455581,
+  "lon": 31.2376702,
+  "tags": {
+    "amenity": "atm",
+    "brand": "Banque Misr",
+    "brand:wikidata": "Q2060638",
+    "operator": "Banque Misr",
+    "operator:wikidata": "Q2060638"
+  }
+},
+{
+  "type": "node",
+  "id": 4945644211,
+  "lat": 27.4088067,
+  "lon": 33.6743343,
+  "tags": {
+    "amenity": "atm",
+    "check_date": "2022-03-21"
+  }
+},
+{
+  "type": "node",
+  "id": 4947069521,
+  "lat": 31.2114638,
+  "lon": 29.9176283,
+  "tags": {
+    "amenity": "atm",
+    "opening_hours": "24/7",
+    "operator": "البنك الأهلي المصري"
+  }
+},
+{
+  "type": "node",
+  "id": 4959644921,
+  "lat": 30.0397792,
+  "lon": 31.2404531,
+  "tags": {
+    "amenity": "atm",
+    "opening_hours": "24/7",
+    "operator": "البنك الأهلي المصري"
+  }
+},
+{
+  "type": "node",
+  "id": 4959644922,
+  "lat": 30.0391138,
+  "lon": 31.2406391,
+  "tags": {
+    "amenity": "atm"
+  }
+},
+{
+  "type": "node",
+  "id": 4970320122,
+  "lat": 30.0350399,
+  "lon": 31.4301824,
+  "tags": {
+    "amenity": "atm",
+    "operator": "banque de egypte"
+  }
+},
+{
+  "type": "node",
+  "id": 4992471321,
+  "lat": 30.0450800,
+  "lon": 30.9810109,
+  "tags": {
+    "amenity": "atm",
+    "operator": "حضانة مدام دينا بيزى بيز"
+  }
+},
+{
+  "type": "node",
+  "id": 5006014323,
+  "lat": 31.2449880,
+  "lon": 29.9795796,
+  "tags": {
+    "amenity": "atm"
+  }
+},
+{
+  "type": "node",
+  "id": 5009256821,
+  "lat": 31.2458082,
+  "lon": 29.9744462,
+  "tags": {
+    "amenity": "atm",
+    "opening_hours": "24/7",
+    "operator": "بنك فيصل الإسلامي المصري"
+  }
+},
+{
+  "type": "node",
+  "id": 5018714222,
+  "lat": 31.2473131,
+  "lon": 29.9687202,
+  "tags": {
+    "amenity": "atm"
+  }
+},
+{
+  "type": "node",
+  "id": 5018919921,
+  "lat": 30.9322891,
+  "lon": 29.6960810,
+  "tags": {
+    "amenity": "atm",
+    "opening_hours": "24/7",
+    "operator": "بنك مصر"
+  }
+},
+{
+  "type": "node",
+  "id": 5037355021,
+  "lat": 29.9795775,
+  "lon": 31.2869474,
+  "tags": {
+    "amenity": "atm"
+  }
+},
+{
+  "type": "node",
+  "id": 5050175332,
+  "lat": 25.4527601,
+  "lon": 30.5422834,
+  "tags": {
+    "amenity": "atm",
+    "operator": "بنك مصر"
+  }
+},
+{
+  "type": "node",
+  "id": 5054710624,
+  "lat": 30.5009747,
+  "lon": 31.1529696,
+  "tags": {
+    "amenity": "atm",
+    "historic": "castle",
+    "name": "العجل",
+    "name:ar": "العجل",
+    "operator": "العجل دملو"
+  }
+},
+{
+  "type": "node",
+  "id": 5129741025,
+  "lat": 30.0541963,
+  "lon": 31.3119153,
+  "tags": {
+    "amenity": "atm",
+    "opening_hours": "24/7"
+  }
+},
+{
+  "type": "node",
+  "id": 5129741226,
+  "lat": 30.0560875,
+  "lon": 31.3121833,
+  "tags": {
+    "amenity": "atm"
+  }
+},
+{
+  "type": "node",
+  "id": 5134665948,
+  "lat": 30.0585600,
+  "lon": 31.3109605,
+  "tags": {
+    "amenity": "atm"
+  }
+},
+{
+  "type": "node",
+  "id": 5134667537,
+  "lat": 29.9824822,
+  "lon": 31.2306135,
+  "tags": {
+    "amenity": "atm"
+  }
+},
+{
+  "type": "node",
+  "id": 5136139221,
+  "lat": 30.3181732,
+  "lon": 31.0909542,
+  "tags": {
+    "amenity": "atm",
+    "operator": "البلد ساقية ابو شعرة"
+  }
+},
+{
+  "type": "node",
+  "id": 5146908821,
+  "lat": 31.3178446,
+  "lon": 27.2927564,
+  "tags": {
+    "amenity": "atm"
+  }
+},
+{
+  "type": "node",
+  "id": 5169641325,
+  "lat": 31.2646123,
+  "lon": 29.9964867,
+  "tags": {
+    "amenity": "atm",
+    "operator": "البنك الأهلي المصري"
+  }
+},
+{
+  "type": "node",
+  "id": 5169641326,
+  "lat": 31.2645702,
+  "lon": 29.9965320,
+  "tags": {
+    "amenity": "atm",
+    "operator": "بنك الامارات دبي الوطني"
+  }
+},
+{
+  "type": "node",
+  "id": 5169662221,
+  "lat": 31.2646493,
+  "lon": 29.9969200,
+  "tags": {
+    "amenity": "atm",
+    "operator": "كريدي اجريكول"
+  }
+},
+{
+  "type": "node",
+  "id": 5170742234,
+  "lat": 31.2617245,
+  "lon": 29.9927221,
+  "tags": {
+    "amenity": "atm",
+    "operator": "البنك الأهلي المصري"
+  }
+},
+{
+  "type": "node",
+  "id": 5170745023,
+  "lat": 31.2648519,
+  "lon": 29.9972030,
+  "tags": {
+    "amenity": "atm",
+    "operator": "بنك الاسكندرية"
+  }
+},
+{
+  "type": "node",
+  "id": 5170748422,
+  "lat": 31.2657746,
+  "lon": 29.9972445,
+  "tags": {
+    "amenity": "atm",
+    "operator": "البنك الأهلي المصري"
+  }
+},
+{
+  "type": "node",
+  "id": 5170758031,
+  "lat": 31.2607182,
+  "lon": 29.9912446,
+  "tags": {
+    "amenity": "atm",
+    "operator": "بنك القاهرة"
+  }
+},
+{
+  "type": "node",
+  "id": 5181650824,
+  "lat": 30.4814233,
+  "lon": 29.3473333,
+  "tags": {
+    "amenity": "atm",
+    "operator": "تقاطع الضبعه مع طريق الهجف"
+  }
+},
+{
+  "type": "node",
+  "id": 5228831380,
+  "lat": 26.9884278,
+  "lon": 33.8995637,
+  "tags": {
+    "amenity": "atm",
+    "cash_in": "no",
+    "check_date": "2025-10-13",
+    "operator": "Banque Mist"
+  }
+},
+{
+  "type": "node",
+  "id": 5292045056,
+  "lat": 29.9576870,
+  "lon": 31.0891962,
+  "tags": {
+    "amenity": "atm",
+    "operator": "NBE"
+  }
+},
+{
+  "type": "node",
+  "id": 5312102323,
+  "lat": 31.2629747,
+  "lon": 29.9956598,
+  "tags": {
+    "amenity": "atm",
+    "operator": "البنك الأهلي المصري"
+  }
+},
+{
+  "type": "node",
+  "id": 5324343321,
+  "lat": 31.2650197,
+  "lon": 32.3112332,
+  "tags": {
+    "amenity": "atm",
+    "operator": "hsbc atm"
+  }
+},
+{
+  "type": "node",
+  "id": 5340760821,
+  "lat": 29.2046279,
+  "lon": 25.5198449,
+  "tags": {
+    "amenity": "atm",
+    "brand": "بنك القاهرة",
+    "brand:ar": "بنك القاهرة",
+    "name": "بنك القاهرة",
+    "name:ar": "بنك القاهرة",
+    "operator": "بنك القاهرة",
+    "operator:ar": "بنك القاهرة"
+  }
+},
+{
+  "type": "node",
+  "id": 5497150231,
+  "lat": 28.4992210,
+  "lon": 34.5189949,
+  "tags": {
+    "amenity": "atm"
+  }
+},
+{
+  "type": "node",
+  "id": 5497204865,
+  "lat": 28.4950959,
+  "lon": 34.5168604,
+  "tags": {
+    "amenity": "atm"
+  }
+},
+{
+  "type": "node",
+  "id": 5497601230,
+  "lat": 29.9759951,
+  "lon": 31.1416045,
+  "tags": {
+    "amenity": "atm",
+    "check_date": "2026-01-07",
+    "name": "Misr Bank"
+  }
+},
+{
+  "type": "node",
+  "id": 5554064221,
+  "lat": 31.2389929,
+  "lon": 29.9660991,
+  "tags": {
+    "amenity": "atm",
+    "operator": "البنك الأهلي المصري"
+  }
+},
+{
+  "type": "node",
+  "id": 5603908624,
+  "lat": 27.8651855,
+  "lon": 34.2949094,
+  "tags": {
+    "amenity": "atm"
+  }
+},
+{
+  "type": "node",
+  "id": 5638078827,
+  "lat": 31.2407975,
+  "lon": 29.9914686,
+  "tags": {
+    "amenity": "atm",
+    "opening_hours": "24/7",
+    "operator": "البنك الأهلي المصري"
+  }
+},
+{
+  "type": "node",
+  "id": 5670707922,
+  "lat": 31.2399493,
+  "lon": 29.9925750,
+  "tags": {
+    "amenity": "atm",
+    "opening_hours": "24/7",
+    "operator": "البنك الأهلي المصري"
+  }
+},
+{
+  "type": "node",
+  "id": 5697440221,
+  "lat": 31.2635262,
+  "lon": 29.9918660,
+  "tags": {
+    "amenity": "atm",
+    "currency:EGP": "yes",
+    "opening_hours": "24/7",
+    "operator": "البنك الأهلي المصري"
+  }
+},
+{
+  "type": "node",
+  "id": 5727085821,
+  "lat": 31.2108783,
+  "lon": 29.9379463,
+  "tags": {
+    "amenity": "atm"
+  }
+},
+{
+  "type": "node",
+  "id": 5729578421,
+  "lat": 31.2744851,
+  "lon": 30.0058838,
+  "tags": {
+    "amenity": "atm",
+    "opening_hours": "24/7",
+    "operator": "بنك مصر"
+  }
+},
+{
+  "type": "node",
+  "id": 5774628154,
+  "lat": 27.2510176,
+  "lon": 33.8168302,
+  "tags": {
+    "amenity": "atm",
+    "check_date": "2023-03-03",
+    "operator": "NBE"
+  }
+},
+{
+  "type": "node",
+  "id": 5774746853,
+  "lat": 27.2510755,
+  "lon": 33.8166626,
+  "tags": {
+    "amenity": "atm",
+    "operator": "MISR"
+  }
+},
+{
+  "type": "node",
+  "id": 5934003685,
+  "lat": 31.2351856,
+  "lon": 29.9673337,
+  "tags": {
+    "amenity": "atm",
+    "operator": "البنك الأهلي المصري"
+  }
+},
+{
+  "type": "node",
+  "id": 5948076988,
+  "lat": 31.1994786,
+  "lon": 29.8931802,
+  "tags": {
+    "amenity": "atm",
+    "indoor": "no",
+    "operator": "البنك التجاري الدولي CIB",
+    "wheelchair": "no"
+  }
+},
+{
+  "type": "node",
+  "id": 5948108985,
+  "lat": 31.1976087,
+  "lon": 29.8931045,
+  "tags": {
+    "amenity": "atm",
+    "operator": "البنك التجاري الدولي CIB"
+  }
+},
+{
+  "type": "node",
+  "id": 5948124622,
+  "lat": 31.2104450,
+  "lon": 29.9134707,
+  "tags": {
+    "amenity": "atm",
+    "operator": "بنك مصر"
+  }
+},
+{
+  "type": "node",
+  "id": 5948125247,
+  "lat": 31.2079346,
+  "lon": 29.9094167,
+  "tags": {
+    "amenity": "atm",
+    "operator": "المصرف المتحد"
+  }
+},
+{
+  "type": "node",
+  "id": 5948125248,
+  "lat": 31.1983363,
+  "lon": 29.8934217,
+  "tags": {
+    "amenity": "atm",
+    "operator": "البنك العربي الافريقي الدولي"
+  }
+},
+{
+  "type": "node",
+  "id": 5961969086,
+  "lat": 29.9872586,
+  "lon": 31.2846420,
+  "tags": {
+    "amenity": "atm"
+  }
+},
+{
+  "type": "node",
+  "id": 5965589985,
+  "lat": 31.2061929,
+  "lon": 29.8826737,
+  "tags": {
+    "amenity": "atm",
+    "operator": "بنك مصر"
+  }
+},
+{
+  "type": "node",
+  "id": 6046894901,
+  "lat": 27.2537823,
+  "lon": 33.8169053,
+  "tags": {
+    "amenity": "atm"
+  }
+},
+{
+  "type": "node",
+  "id": 6052754492,
+  "lat": 31.2182128,
+  "lon": 29.9331646,
+  "tags": {
+    "amenity": "atm",
+    "opening_hours": "24/7",
+    "operator": "Emirates NBD"
+  }
+},
+{
+  "type": "node",
+  "id": 6052754992,
+  "lat": 31.2157133,
+  "lon": 29.9278983,
+  "tags": {
+    "amenity": "atm",
+    "opening_hours": "24/7",
+    "operator": "البنك الأهلي المصري"
+  }
+},
+{
+  "type": "node",
+  "id": 6052755290,
+  "lat": 31.2181971,
+  "lon": 29.9331201,
+  "tags": {
+    "amenity": "atm",
+    "opening_hours": "24/7",
+    "operator": "CIB البنك التجاري الدولي"
+  }
+},
+{
+  "type": "node",
+  "id": 6056133887,
+  "lat": 26.9374016,
+  "lon": 31.4009759,
+  "tags": {
+    "amenity": "atm"
+  }
+},
+{
+  "type": "node",
+  "id": 6087227357,
+  "lat": 27.2540250,
+  "lon": 33.8293853,
+  "tags": {
+    "amenity": "atm"
+  }
+},
+{
+  "type": "node",
+  "id": 6090037586,
+  "lat": 31.2190407,
+  "lon": 29.9280324,
+  "tags": {
+    "amenity": "atm",
+    "operator": "بنك فيصل الإسلامي المصري"
+  }
+},
+{
+  "type": "node",
+  "id": 6095347286,
+  "lat": 31.2297014,
+  "lon": 29.9548160,
+  "tags": {
+    "amenity": "atm",
+    "operator": "بنك مصر"
+  }
+},
+{
+  "type": "node",
+  "id": 6104245987,
+  "lat": 31.0372700,
+  "lon": 29.7818557,
+  "tags": {
+    "amenity": "atm"
+  }
+},
+{
+  "type": "node",
+  "id": 6104245988,
+  "lat": 31.0685358,
+  "lon": 29.8223805,
+  "tags": {
+    "amenity": "atm",
+    "operator": "hsbc atm pepsi"
+  }
+},
+{
+  "type": "node",
+  "id": 6104284085,
+  "lat": 31.0108894,
+  "lon": 29.8325581,
+  "tags": {
+    "amenity": "atm"
+  }
+},
+{
+  "type": "node",
+  "id": 6107057451,
+  "lat": 26.9820544,
+  "lon": 33.9122610,
+  "tags": {
+    "amenity": "atm",
+    "cash_in": "no",
+    "drive_through": "no"
+  }
+},
+{
+  "type": "node",
+  "id": 6110864785,
+  "lat": 31.1981928,
+  "lon": 29.9171958,
+  "tags": {
+    "amenity": "atm",
+    "operator": "بنك قطر الوطني الأهلي QNB"
+  }
+},
+{
+  "type": "node",
+  "id": 6115961589,
+  "lat": 31.2191947,
+  "lon": 29.9411892,
+  "tags": {
+    "amenity": "atm",
+    "operator": "مركز صراف آلي"
+  }
+},
+{
+  "type": "node",
+  "id": 6123242601,
+  "lat": 30.0624536,
+  "lon": 31.2462282,
+  "tags": {
+    "amenity": "atm"
+  }
+},
+{
+  "type": "node",
+  "id": 6140497185,
+  "lat": 31.0165058,
+  "lon": 31.6536228,
+  "tags": {
+    "amenity": "atm",
+    "opening_hours": "24/7",
+    "operator": "المتحدة ATM"
+  }
+},
+{
+  "type": "node",
+  "id": 6183109186,
+  "lat": 31.2701578,
+  "lon": 32.3156165,
+  "tags": {
+    "amenity": "atm"
+  }
+},
+{
+  "type": "node",
+  "id": 6201015387,
+  "lat": 25.6970618,
+  "lon": 32.6437522,
+  "tags": {
+    "amenity": "atm",
+    "operator": "National Bank of Egypt"
+  }
+},
+{
+  "type": "node",
+  "id": 6203532788,
+  "lat": 29.5932232,
+  "lon": 32.7173170,
+  "tags": {
+    "amenity": "atm",
+    "operator": "BankMisr"
+  }
+},
+{
+  "type": "node",
+  "id": 6203532789,
+  "lat": 29.5932012,
+  "lon": 32.7173294,
+  "tags": {
+    "amenity": "atm",
+    "operator": "Bank ElQahera"
+  }
+},
+{
+  "type": "node",
+  "id": 6203532790,
+  "lat": 29.5856673,
+  "lon": 32.7204202,
+  "tags": {
+    "amenity": "atm",
+    "operator": "Bank El Qahera"
+  }
+},
+{
+  "type": "node",
+  "id": 6205020085,
+  "lat": 28.3321066,
+  "lon": 30.6157426,
+  "tags": {
+    "amenity": "atm",
+    "operator": "عميل محمود ابو المكارم"
+  }
+},
+{
+  "type": "node",
+  "id": 6205648693,
+  "lat": 27.3861192,
+  "lon": 33.6828953,
+  "tags": {
+    "amenity": "atm"
+  }
+},
+{
+  "type": "node",
+  "id": 6223134185,
+  "lat": 31.2024434,
+  "lon": 29.9181529,
+  "tags": {
+    "amenity": "atm",
+    "opening_hours": "24/7"
+  }
+},
+{
+  "type": "node",
+  "id": 6253423386,
+  "lat": 28.5037036,
+  "lon": 34.5196502,
+  "tags": {
+    "amenity": "atm"
+  }
+},
+{
+  "type": "node",
+  "id": 6255571501,
+  "lat": 24.0805691,
+  "lon": 32.8916106,
+  "tags": {
+    "amenity": "atm"
+  }
+},
+{
+  "type": "node",
+  "id": 6258021485,
+  "lat": 31.2344581,
+  "lon": 29.9928274,
+  "tags": {
+    "amenity": "atm",
+    "opening_hours": "24/7",
+    "operator": "بنك مصر"
+  }
+},
+{
+  "type": "node",
+  "id": 6310776589,
+  "lat": 29.9591092,
+  "lon": 31.2599838,
+  "tags": {
+    "amenity": "atm",
+    "check_date": "2025-09-18",
+    "operator": "CIB Bank"
+  }
+},
+{
+  "type": "node",
+  "id": 6326177285,
+  "lat": 29.9707842,
+  "lon": 31.0166778,
+  "tags": {
+    "amenity": "atm"
+  }
+},
+{
+  "type": "node",
+  "id": 6371119889,
+  "lat": 31.2312191,
+  "lon": 29.9560396,
+  "tags": {
+    "amenity": "atm",
+    "opening_hours": "24/7",
+    "operator": "البنك الأهلي المصري"
+  }
+},
+{
+  "type": "node",
+  "id": 6379243910,
+  "lat": 26.9891517,
+  "lon": 33.8976631,
+  "tags": {
+    "amenity": "atm"
+  }
+},
+{
+  "type": "node",
+  "id": 6396487888,
+  "lat": 31.2252313,
+  "lon": 29.9935637,
+  "tags": {
+    "amenity": "atm",
+    "opening_hours": "24/7",
+    "operator": "البنك الأهلي المصري"
+  }
+},
+{
+  "type": "node",
+  "id": 6396501288,
+  "lat": 31.1935927,
+  "lon": 29.9044504,
+  "tags": {
+    "amenity": "atm",
+    "opening_hours": "24/7",
+    "operator": "البنك الأهلي المصري"
+  }
+},
+{
+  "type": "node",
+  "id": 6400575888,
+  "lat": 27.1688111,
+  "lon": 33.8233310,
+  "tags": {
+    "amenity": "atm"
+  }
+},
+{
+  "type": "node",
+  "id": 6400629485,
+  "lat": 27.1693217,
+  "lon": 33.8216791,
+  "tags": {
+    "amenity": "atm"
+  }
+},
+{
+  "type": "node",
+  "id": 6403148585,
+  "lat": 31.1960632,
+  "lon": 29.8978099,
+  "tags": {
+    "amenity": "atm",
+    "opening_hours": "24/7",
+    "operator": "بنك الإسكندرية"
+  }
+},
+{
+  "type": "node",
+  "id": 6403148587,
+  "lat": 31.2002661,
+  "lon": 29.8967732,
+  "tags": {
+    "amenity": "atm",
+    "opening_hours": "24/7",
+    "operator": "بنك مصر",
+    "wheelchair": "no"
+  }
+},
+{
+  "type": "node",
+  "id": 6419507719,
+  "lat": 31.2168057,
+  "lon": 29.9455721,
+  "tags": {
+    "amenity": "atm",
+    "opening_hours": "24/7",
+    "operator": "بنك مصر"
+  }
+},
+{
+  "type": "node",
+  "id": 6431115785,
+  "lat": 24.0811571,
+  "lon": 32.8918182,
+  "tags": {
+    "amenity": "atm"
+  }
+},
+{
+  "type": "node",
+  "id": 6433934797,
+  "lat": 31.2464453,
+  "lon": 29.9802006,
+  "tags": {
+    "amenity": "atm",
+    "opening_hours": "24/7",
+    "operator": "البنك الأهلي المصري"
+  }
+},
+{
+  "type": "node",
+  "id": 6443286908,
+  "lat": 31.2011025,
+  "lon": 29.9007962,
+  "tags": {
+    "amenity": "atm",
+    "opening_hours": "24/7",
+    "operator": "البريد المصري",
+    "wheelchair": "no"
+  }
+},
+{
+  "type": "node",
+  "id": 6455945792,
+  "lat": 30.0373323,
+  "lon": 31.2183652,
+  "tags": {
+    "amenity": "atm",
+    "opening_hours": "24/7"
+  }
+},
+{
+  "type": "node",
+  "id": 6464008985,
+  "lat": 31.2157970,
+  "lon": 29.9251822,
+  "tags": {
+    "amenity": "atm",
+    "opening_hours": "24/7",
+    "operator": "بنك مصر"
+  }
+},
+{
+  "type": "node",
+  "id": 6470195685,
+  "lat": 31.2314706,
+  "lon": 29.9584824,
+  "tags": {
+    "amenity": "atm",
+    "opening_hours": "24/7",
+    "operator": "البنك الأهلي المصري"
+  }
+},
+{
+  "type": "node",
+  "id": 6475575885,
+  "lat": 31.2203904,
+  "lon": 29.9311144,
+  "tags": {
+    "amenity": "atm",
+    "opening_hours": "24/7",
+    "operator": "بنك مصر"
+  }
+},
+{
+  "type": "node",
+  "id": 6475724487,
+  "lat": 31.2404315,
+  "lon": 29.9657741,
+  "tags": {
+    "amenity": "atm"
+  }
+},
+{
+  "type": "node",
+  "id": 6542661190,
+  "lat": 31.2340596,
+  "lon": 29.9603392,
+  "tags": {
+    "amenity": "atm",
+    "operator": "البنك الأهلي المصري"
+  }
+},
+{
+  "type": "node",
+  "id": 6552166387,
+  "lat": 31.2404018,
+  "lon": 29.9923819,
+  "tags": {
+    "amenity": "atm",
+    "opening_hours": "24/7",
+    "operator": "البنك الأهلي المصري"
+  }
+},
+{
+  "type": "node",
+  "id": 6576132885,
+  "lat": 30.0588215,
+  "lon": 31.3380316,
+  "tags": {
+    "amenity": "atm",
+    "opening_hours": "24/7",
+    "operator": "AUDI BANK"
+  }
+},
+{
+  "type": "node",
+  "id": 6586947749,
+  "lat": 30.0793715,
+  "lon": 31.6436626,
+  "tags": {
+    "amenity": "atm",
+    "drive_through": "no",
+    "network": "Al-Ahli Bank",
+    "operator": "Al-Ahli Bank"
+  }
+},
+{
+  "type": "node",
+  "id": 6632311238,
+  "lat": 30.1016328,
+  "lon": 31.3447569,
+  "tags": {
+    "addr:country": "EG",
+    "addr:district:ar": "النزهه",
+    "addr:district:en": "Heliopolis",
+    "addr:housenumber": "102",
+    "addr:postcode": "11843",
+    "addr:province:ar": "القاهرة",
+    "addr:province:en": "Cairo",
+    "addr:street:ar": "شارع عثمان بن عفان",
+    "addr:street:en": "Othman Ibn Affan Street",
+    "amenity": "atm",
+    "operator": "QNB Alahly"
+  }
+},
+{
+  "type": "node",
+  "id": 6699868001,
+  "lat": 26.9814669,
+  "lon": 33.8741009,
+  "tags": {
+    "amenity": "atm"
+  }
+},
+{
+  "type": "node",
+  "id": 6769234986,
+  "lat": 27.1819609,
+  "lon": 33.8234109,
+  "tags": {
+    "amenity": "atm",
+    "opening_hours": "24/7"
+  }
+},
+{
+  "type": "node",
+  "id": 6769235286,
+  "lat": 27.1849305,
+  "lon": 33.8266699,
+  "tags": {
+    "amenity": "atm"
+  }
+},
+{
+  "type": "node",
+  "id": 6769235585,
+  "lat": 27.1897965,
+  "lon": 33.8329401,
+  "tags": {
+    "amenity": "atm"
+  }
+},
+{
+  "type": "node",
+  "id": 6771507111,
+  "lat": 30.0841057,
+  "lon": 31.6397694,
+  "tags": {
+    "amenity": "atm",
+    "brand": "CIB",
+    "cash_in": "yes",
+    "currency:EGP": "yes",
+    "drive_through": "no",
+    "network": "CIB",
+    "operator": "CIB"
+  }
+},
+{
+  "type": "node",
+  "id": 6786674785,
+  "lat": 31.3518906,
+  "lon": 27.2425614,
+  "tags": {
+    "amenity": "atm",
+    "opening_hours": "24/7",
+    "operator": "بنك مصر"
+  }
+},
+{
+  "type": "node",
+  "id": 6918370987,
+  "lat": 31.2079652,
+  "lon": 29.9095492,
+  "tags": {
+    "amenity": "atm",
+    "opening_hours": "24/7",
+    "operator": "البنك الأهلي المصري"
+  }
+},
+{
+  "type": "node",
+  "id": 6960637685,
+  "lat": 30.7900892,
+  "lon": 27.1080165,
+  "tags": {
+    "amenity": "atm"
+  }
+},
+{
+  "type": "node",
+  "id": 6960637686,
+  "lat": 30.7014635,
+  "lon": 26.9709946,
+  "tags": {
+    "amenity": "atm"
+  }
+},
+{
+  "type": "node",
+  "id": 6960637687,
+  "lat": 30.8235825,
+  "lon": 26.4747650,
+  "tags": {
+    "amenity": "atm"
+  }
+},
+{
+  "type": "node",
+  "id": 6960637688,
+  "lat": 30.5402214,
+  "lon": 26.0937742,
+  "tags": {
+    "amenity": "atm"
+  }
+},
+{
+  "type": "node",
+  "id": 6960640486,
+  "lat": 30.9380449,
+  "lon": 27.5527810,
+  "tags": {
+    "amenity": "atm",
+    "operator": "C I B"
+  }
+},
+{
+  "type": "node",
+  "id": 6961503986,
+  "lat": 31.3543381,
+  "lon": 27.2368275,
+  "tags": {
+    "amenity": "atm"
+  }
+},
+{
+  "type": "node",
+  "id": 6997134405,
+  "lat": 30.5867751,
+  "lon": 32.2911844,
+  "tags": {
+    "amenity": "atm",
+    "name": "CIB"
+  }
+},
+{
+  "type": "node",
+  "id": 7023468619,
+  "lat": 25.0645067,
+  "lon": 34.8894107,
+  "tags": {
+    "amenity": "atm",
+    "brand": "بنك مصر",
+    "brand:ar": "بنك مصر",
+    "brand:de": "Banque Misr",
+    "brand:es": "Banco Misr",
+    "brand:wikidata": "Q2060638",
+    "brand:wikipedia": "ar:بنك مصر",
+    "name": "بنك مصر",
+    "name:ar": "بنك مصر",
+    "name:de": "Banque Misr",
+    "name:en": "Banque Misr",
+    "name:es": "Banco Misr"
+  }
+},
+{
+  "type": "node",
+  "id": 7036169222,
+  "lat": 30.0764469,
+  "lon": 31.3232794,
+  "tags": {
+    "amenity": "atm",
+    "name": "Bank MISR"
+  }
+},
+{
+  "type": "node",
+  "id": 7041573182,
+  "lat": 27.3059525,
+  "lon": 33.7239143,
+  "tags": {
+    "amenity": "atm",
+    "cash_in": "yes",
+    "check_date": "2025-07-13",
+    "network": "eurocont",
+    "operator": "CIB"
+  }
+},
+{
+  "type": "node",
+  "id": 7071757885,
+  "lat": 28.3185676,
+  "lon": 30.7076165,
+  "tags": {
+    "amenity": "atm",
+    "operator": "hghfw"
+  }
+},
+{
+  "type": "node",
+  "id": 7071757886,
+  "lat": 28.3113689,
+  "lon": 30.7129352,
+  "tags": {
+    "amenity": "atm"
+  }
+},
+{
+  "type": "node",
+  "id": 7071757887,
+  "lat": 28.3125255,
+  "lon": 30.7120746,
+  "tags": {
+    "amenity": "atm"
+  }
+},
+{
+  "type": "node",
+  "id": 7071759785,
+  "lat": 28.3122416,
+  "lon": 30.7105639,
+  "tags": {
+    "amenity": "atm"
+  }
+},
+{
+  "type": "node",
+  "id": 7074825085,
+  "lat": 28.3121908,
+  "lon": 30.7088194,
+  "tags": {
+    "amenity": "atm"
+  }
+},
+{
+  "type": "node",
+  "id": 7074868785,
+  "lat": 28.3128593,
+  "lon": 30.7122983,
+  "tags": {
+    "amenity": "atm"
+  }
+},
+{
+  "type": "node",
+  "id": 7101587885,
+  "lat": 31.2390314,
+  "lon": 30.0014166,
+  "tags": {
+    "amenity": "atm",
+    "opening_hours": "24/7",
+    "operator": "البنك الأهلي المصري"
+  }
+},
+{
+  "type": "node",
+  "id": 7108662087,
+  "lat": 28.9771584,
+  "lon": 34.6626228,
+  "tags": {
+    "amenity": "atm"
+  }
+},
+{
+  "type": "node",
+  "id": 7108679387,
+  "lat": 28.9771275,
+  "lon": 34.6628583,
+  "tags": {
+    "amenity": "atm"
+  }
+},
+{
+  "type": "node",
+  "id": 7161162180,
+  "lat": 25.0646967,
+  "lon": 34.8900445,
+  "tags": {
+    "amenity": "atm"
+  }
+},
+{
+  "type": "node",
+  "id": 7228334550,
+  "lat": 30.0576754,
+  "lon": 31.2250226,
+  "tags": {
+    "amenity": "atm",
+    "operator": "HSBC ATM"
+  }
+},
+{
+  "type": "node",
+  "id": 7239763085,
+  "lat": 25.6948559,
+  "lon": 32.6400934,
+  "tags": {
+    "amenity": "atm",
+    "opening_hours": "24/7",
+    "operator": "Bank du Caire"
+  }
+},
+{
+  "type": "node",
+  "id": 7255002825,
+  "lat": 30.1068114,
+  "lon": 31.6300490,
+  "tags": {
+    "amenity": "atm",
+    "operator": "NBE"
+  }
+},
+{
+  "type": "node",
+  "id": 7255002827,
+  "lat": 30.1068354,
+  "lon": 31.6283549,
+  "tags": {
+    "amenity": "atm",
+    "operator": "CIB"
+  }
+},
+{
+  "type": "node",
+  "id": 7279751283,
+  "lat": 27.8572305,
+  "lon": 34.3042544,
+  "tags": {
+    "amenity": "atm",
+    "brand": "National Bank of Egypt",
+    "brand:ar": "البنك الأهلي المصري",
+    "brand:en": "National Bank of Egypt",
+    "brand:wikidata": "Q4119563",
+    "level": "0",
+    "operator": "National Bank of Egypt",
+    "operator:wikidata": "Q4119563"
+  }
+},
+{
+  "type": "node",
+  "id": 7279751284,
+  "lat": 27.8572542,
+  "lon": 34.3042544,
+  "tags": {
+    "amenity": "atm",
+    "brand": "Banque Misr",
+    "brand:wikidata": "Q2060638",
+    "level": "0",
+    "operator": "Banque Misr",
+    "operator:wikidata": "Q2060638"
+  }
+},
+{
+  "type": "node",
+  "id": 7282149718,
+  "lat": 27.8550639,
+  "lon": 34.3019128,
+  "tags": {
+    "amenity": "atm",
+    "brand": "Banque Misr",
+    "brand:wikidata": "Q2060638",
+    "operator": "Banque Misr",
+    "operator:wikidata": "Q2060638"
+  }
+},
+{
+  "type": "node",
+  "id": 7287529392,
+  "lat": 27.8691516,
+  "lon": 34.3195824,
+  "tags": {
+    "amenity": "atm"
+  }
+},
+{
+  "type": "node",
+  "id": 7898610385,
+  "lat": 27.2875275,
+  "lon": 33.7631453,
+  "tags": {
+    "amenity": "atm"
+  }
+},
+{
+  "type": "node",
+  "id": 8018288879,
+  "lat": 30.0830716,
+  "lon": 31.6387435,
+  "tags": {
+    "amenity": "atm",
+    "operator": "ahli united"
+  }
+},
+{
+  "type": "node",
+  "id": 8217963694,
+  "lat": 29.9798703,
+  "lon": 31.1100302,
+  "tags": {
+    "amenity": "atm"
+  }
+},
+{
+  "type": "node",
+  "id": 8218005228,
+  "lat": 29.0800598,
+  "lon": 31.1011245,
+  "tags": {
+    "amenity": "atm",
+    "operator": "ماكينة البنك الاهلى المصرى فورى ستورز - بنى سويف"
+  }
+},
+{
+  "type": "node",
+  "id": 8285757917,
+  "lat": 30.5465621,
+  "lon": 32.1805633,
+  "tags": {
+    "amenity": "atm"
+  }
+},
+{
+  "type": "node",
+  "id": 8329475729,
+  "lat": 27.2449243,
+  "lon": 33.8265315,
+  "tags": {
+    "amenity": "atm"
+  }
+},
+{
+  "type": "node",
+  "id": 8461798520,
+  "lat": 31.2487225,
+  "lon": 30.0039450,
+  "tags": {
+    "amenity": "atm",
+    "operator": "البنك الأهلي المصري"
+  }
+},
+{
+  "type": "node",
+  "id": 8462342917,
+  "lat": 27.0485859,
+  "lon": 33.8946363,
+  "tags": {
+    "amenity": "atm"
+  }
+},
+{
+  "type": "node",
+  "id": 8508272827,
+  "lat": 27.2452838,
+  "lon": 33.8262349,
+  "tags": {
+    "amenity": "atm"
+  }
+},
+{
+  "type": "node",
+  "id": 8522166339,
+  "lat": 27.2132026,
+  "lon": 33.8412033,
+  "tags": {
+    "amenity": "atm"
+  }
+},
+{
+  "type": "node",
+  "id": 8736685117,
+  "lat": 31.2614675,
+  "lon": 29.9941956,
+  "tags": {
+    "amenity": "atm",
+    "operator": "البنك الأهلي المصري"
+  }
+},
+{
+  "type": "node",
+  "id": 8819019262,
+  "lat": 30.4701032,
+  "lon": 31.0725515,
+  "tags": {
+    "amenity": "atm",
+    "cash_in": "no",
+    "operator": "ماكينة صراف ألى بنك القاهرة"
+  }
+},
+{
+  "type": "node",
+  "id": 8853778034,
+  "lat": 29.9658457,
+  "lon": 31.2554781,
+  "tags": {
+    "amenity": "atm",
+    "operator": "بنك مصر",
+    "operator:ar": "بنك مصر",
+    "operator:en": "Banque Misr"
+  }
+},
+{
+  "type": "node",
+  "id": 8989645342,
+  "lat": 26.7998144,
+  "lon": 33.9414068,
+  "tags": {
+    "amenity": "atm",
+    "cash_in": "no",
+    "check_date": "2023-09-09",
+    "name": "MISR Bank"
+  }
+},
+{
+  "type": "node",
+  "id": 8989692216,
+  "lat": 26.7917116,
+  "lon": 33.9344241,
+  "tags": {
+    "amenity": "atm",
+    "name": "Bank of Egypt"
+  }
+},
+{
+  "type": "node",
+  "id": 9112565517,
+  "lat": 29.6698245,
+  "lon": 32.3509722,
+  "tags": {
+    "amenity": "atm"
+  }
+},
+{
+  "type": "node",
+  "id": 9203775632,
+  "lat": 30.0468299,
+  "lon": 31.2335156,
+  "tags": {
+    "amenity": "atm",
+    "brand": "Banque Misr",
+    "brand:wikidata": "Q2060638",
+    "opening_hours": "24/7",
+    "operator": "Banque Misr",
+    "operator:wikidata": "Q2060638",
+    "website": "https://www.banquemisr.com/"
+  }
+},
+{
+  "type": "node",
+  "id": 9203775633,
+  "lat": 30.0475619,
+  "lon": 31.2329517,
+  "tags": {
+    "amenity": "atm",
+    "brand": "Banque Misr",
+    "brand:wikidata": "Q2060638",
+    "opening_hours": "24/7",
+    "operator": "Banque Misr",
+    "operator:wikidata": "Q2060638",
+    "ref": "Hub Egyptian Museum 2",
+    "source:ref": "ATM's receipt",
+    "website": "https://www.banquemisr.com/"
+  }
+},
+{
+  "type": "node",
+  "id": 9216496318,
+  "lat": 25.2164585,
+  "lon": 34.7991198,
+  "tags": {
+    "amenity": "atm",
+    "operator": "National Bank of Egypt"
+  }
+},
+{
+  "type": "node",
+  "id": 9301041801,
+  "lat": 28.0357393,
+  "lon": 34.4310652,
+  "tags": {
+    "amenity": "atm"
+  }
+},
+{
+  "type": "node",
+  "id": 9301175922,
+  "lat": 28.4951919,
+  "lon": 34.5169136,
+  "tags": {
+    "amenity": "atm",
+    "indoor": "no"
+  }
+},
+{
+  "type": "node",
+  "id": 9349213261,
+  "lat": 31.2011459,
+  "lon": 29.9082990,
+  "tags": {
+    "amenity": "atm",
+    "drive_through": "no",
+    "indoor": "yes",
+    "name": "بنك قطر الوطني الأهلي",
+    "name:ar": "بنك قطر الوطني الأهلي",
+    "name:en": "QNB Alahli",
+    "opening_hours": "24/7",
+    "wheelchair": "limited"
+  }
+},
+{
+  "type": "node",
+  "id": 9349213280,
+  "lat": 31.2039383,
+  "lon": 29.9068741,
+  "tags": {
+    "amenity": "atm",
+    "covered": "yes",
+    "drive_through": "no",
+    "indoor": "no",
+    "lit": "yes",
+    "maxwithdrawal": "5000",
+    "name": "المصرف المتحد",
+    "name:ar": "المصرف المتحد",
+    "name:en": "The United Bank",
+    "wheelchair": "no"
+  }
+},
+{
+  "type": "node",
+  "id": 9349213291,
+  "lat": 31.2041040,
+  "lon": 29.9068135,
+  "tags": {
+    "amenity": "atm",
+    "covered": "yes",
+    "indoor": "no",
+    "lit": "yes",
+    "maxwithdrawal": "2000",
+    "name": "بنك القاهرة",
+    "name:en": "Banque du Caire"
+  }
+},
+{
+  "type": "node",
+  "id": 9349213298,
+  "lat": 31.2009369,
+  "lon": 29.9078196,
+  "tags": {
+    "amenity": "atm",
+    "drive_through": "no",
+    "indoor": "yes",
+    "lit": "yes",
+    "manufacturer": "NCR",
+    "name": "بنك عَوده",
+    "name:ar": "بنك عَوده",
+    "name:en": "Bank Audi",
+    "wheelchair": "no"
+  }
+},
+{
+  "type": "node",
+  "id": 9349213306,
+  "lat": 31.2034398,
+  "lon": 29.9070390,
+  "tags": {
+    "amenity": "atm",
+    "brand": "Banque Misr",
+    "brand:wikidata": "Q2060638",
+    "covered": "yes",
+    "indoor": "no",
+    "lit": "yes",
+    "manufacturer": "NCR",
+    "name": "بنك مصر",
+    "name:ar": "بنك مصر",
+    "name:en": "Banque Misr",
+    "operator": "Banque Misr",
+    "operator:wikidata": "Q2060638"
+  }
+},
+{
+  "type": "node",
+  "id": 9349213307,
+  "lat": 31.2011744,
+  "lon": 29.9083650,
+  "tags": {
+    "amenity": "atm",
+    "brand": "HSBC",
+    "brand:wikidata": "Q190464",
+    "brand:wikipedia": "en:HSBC",
+    "cash_in": "yes",
+    "drive_through": "no",
+    "indoor": "no",
+    "lit": "yes",
+    "maxwithdrawal": "8000",
+    "name": "HSBC",
+    "operator": "HSBC",
+    "operator:wikidata": "Q190464",
+    "operator:wikipedia": "en:HSBC",
+    "wheelchair": "no"
+  }
+},
+{
+  "type": "node",
+  "id": 9349221317,
+  "lat": 31.2010349,
+  "lon": 29.9080413,
+  "tags": {
+    "amenity": "atm",
+    "drive_through": "no",
+    "indoor": "yes",
+    "manufacturer": "NCR",
+    "maxwithdrawal": "8000",
+    "name": "Bank ABC",
+    "opening_hours": "24/7",
+    "wheelchair": "no"
+  }
+},
+{
+  "type": "node",
+  "id": 9349221320,
+  "lat": 31.2012601,
+  "lon": 29.9072717,
+  "tags": {
+    "amenity": "atm",
+    "covered": "yes",
+    "drive_through": "no",
+    "indoor": "no",
+    "name": "البنك العربى الافريكى الدولى",
+    "name:en": "Arab African International Bank",
+    "short_name:en": "AAIB"
+  }
+},
+{
+  "type": "node",
+  "id": 9356086141,
+  "lat": 30.0398408,
+  "lon": 31.2656978,
+  "tags": {
+    "amenity": "atm"
+  }
+},
+{
+  "type": "node",
+  "id": 9379262463,
+  "lat": 31.1969394,
+  "lon": 29.9006924,
+  "tags": {
+    "amenity": "atm",
+    "brand": "Banque Misr",
+    "brand:wikidata": "Q2060638",
+    "covered": "yes",
+    "indoor": "no",
+    "name": "Banque Misr",
+    "operator": "Banque Misr",
+    "operator:wikidata": "Q2060638"
+  }
+},
+{
+  "type": "node",
+  "id": 9382281918,
+  "lat": 27.9616951,
+  "lon": 34.3936298,
+  "tags": {
+    "amenity": "atm",
+    "brand": "National Bank of Egypt",
+    "brand:ar": "البنك الأهلي المصري",
+    "brand:en": "National Bank of Egypt",
+    "brand:wikidata": "Q4119563",
+    "check_date": "2025-04-20",
+    "operator": "National Bank of Egypt",
+    "operator:wikidata": "Q4119563"
+  }
+},
+{
+  "type": "node",
+  "id": 9382282017,
+  "lat": 27.9617776,
+  "lon": 34.3936908,
+  "tags": {
+    "amenity": "atm",
+    "brand": "Banque Misr",
+    "brand:wikidata": "Q2060638",
+    "check_date": "2025-04-20",
+    "operator": "Banque Misr",
+    "operator:wikidata": "Q2060638"
+  }
+},
+{
+  "type": "node",
+  "id": 9391403088,
+  "lat": 25.6466316,
+  "lon": 32.6082444,
+  "tags": {
+    "amenity": "atm"
+  }
+},
+{
+  "type": "node",
+  "id": 9391438991,
+  "lat": 25.7154895,
+  "lon": 32.6215921,
+  "tags": {
+    "amenity": "atm",
+    "fixme": "position approximate",
+    "operator": "Banque Misr"
+  }
+},
+{
+  "type": "node",
+  "id": 9391441249,
+  "lat": 30.0464773,
+  "lon": 31.2375284,
+  "tags": {
+    "amenity": "atm",
+    "opening_hours": "24/7"
+  }
+},
+{
+  "type": "node",
+  "id": 9391460365,
+  "lat": 25.6979777,
+  "lon": 32.6449155,
+  "tags": {
+    "amenity": "atm",
+    "check_date": "2025-12-03"
+  }
+},
+{
+  "type": "node",
+  "id": 9397682521,
+  "lat": 24.0889789,
+  "lon": 32.8943376,
+  "tags": {
+    "amenity": "atm"
+  }
+},
+{
+  "type": "node",
+  "id": 9407937873,
+  "lat": 31.1975979,
+  "lon": 29.9042197,
+  "tags": {
+    "amenity": "atm",
+    "name": "QNB"
+  }
+},
+{
+  "type": "node",
+  "id": 9407937901,
+  "lat": 31.2007456,
+  "lon": 29.9067075,
+  "tags": {
+    "amenity": "atm",
+    "check_date": "2024-11-18",
+    "drive_through": "no",
+    "indoor": "no",
+    "lit": "yes",
+    "name": "البنك العربى الافريكى الدولى",
+    "name:ar": "البنك العربى الافريكى الدولى",
+    "name:en": "Arab African International Bank"
+  }
+},
+{
+  "type": "node",
+  "id": 9423801451,
+  "lat": 31.2079516,
+  "lon": 29.9078932,
+  "tags": {
+    "amenity": "atm"
+  }
+},
+{
+  "type": "node",
+  "id": 9447097298,
+  "lat": 29.9926076,
+  "lon": 31.1449303,
+  "tags": {
+    "amenity": "atm",
+    "name": "ماكينه صراف آلي بنك مصر"
+  }
+},
+{
+  "type": "node",
+  "id": 9447215523,
+  "lat": 30.0149310,
+  "lon": 31.1847509,
+  "tags": {
+    "amenity": "atm",
+    "name": "بنك الاسكندريه"
+  }
+},
+{
+  "type": "node",
+  "id": 9450541963,
+  "lat": 30.0111217,
+  "lon": 31.1854069,
+  "tags": {
+    "addr:housenumber": "19",
+    "addr:street": "شارع العشرين",
+    "amenity": "atm",
+    "description": "Misr Bank",
+    "name": "بنك مصر"
+  }
+},
+{
+  "type": "node",
+  "id": 9520236664,
+  "lat": 30.0111307,
+  "lon": 31.1854119,
+  "tags": {
+    "addr:housenumber": "19",
+    "addr:street": "العشرين",
+    "amenity": "atm",
+    "name": "CIB"
+  }
+},
+{
+  "type": "node",
+  "id": 9530744896,
+  "lat": 30.0089112,
+  "lon": 31.1877942,
+  "tags": {
+    "addr:housenumber": "447",
+    "addr:street": "شارع الملك فيصل",
+    "amenity": "atm",
+    "description": "ماكينه صراف الي ملحقة بصيدلية العزبي",
+    "name": "البنك الاهلي المصري",
+    "phone": "19623",
+    "website": "https://nbe.com.eg"
+  }
+},
+{
+  "type": "node",
+  "id": 9597576980,
+  "lat": 31.1982574,
+  "lon": 29.8955714,
+  "tags": {
+    "amenity": "atm",
+    "comment:en": "maximum withdrawal >= 10000 EGP, <12000 EGP",
+    "covered": "yes",
+    "wheelchair": "no"
+  }
+},
+{
+  "type": "node",
+  "id": 9654603617,
+  "lat": 30.0035191,
+  "lon": 31.1731911,
+  "tags": {
+    "amenity": "atm"
+  }
+},
+{
+  "type": "node",
+  "id": 9684881246,
+  "lat": 27.3151842,
+  "lon": 33.7085067,
+  "tags": {
+    "amenity": "atm",
+    "brand": "Crédit Agricole",
+    "brand:wikidata": "Q590952",
+    "cash_in": "yes",
+    "name": "Crédit Agricole",
+    "network": "eurocont",
+    "operator": "Crédit Agricole",
+    "operator:wikidata": "Q590952"
+  }
+},
+{
+  "type": "node",
+  "id": 9689938562,
+  "lat": 27.1964936,
+  "lon": 33.8421620,
+  "tags": {
+    "amenity": "atm",
+    "name": "Misr"
+  }
+},
+{
+  "type": "node",
+  "id": 9689949050,
+  "lat": 27.1974438,
+  "lon": 33.8447035,
+  "tags": {
+    "amenity": "atm"
+  }
+},
+{
+  "type": "node",
+  "id": 9689949054,
+  "lat": 27.1971841,
+  "lon": 33.8439489,
+  "tags": {
+    "amenity": "atm"
+  }
+},
+{
+  "type": "node",
+  "id": 9690911620,
+  "lat": 22.3376870,
+  "lon": 31.6239057,
+  "tags": {
+    "amenity": "atm",
+    "brand": "National Bank of Egypt",
+    "brand:ar": "البنك الأهلي المصري",
+    "brand:en": "National Bank of Egypt",
+    "brand:es": "Banco Nacional de Egipto",
+    "brand:wikidata": "Q4119563",
+    "brand:wikipedia": "ar:البنك الأهلي المصري",
+    "name": "البنك الأهلي المصري",
+    "name:ar": "البنك الأهلي المصري",
+    "name:es": "Banco Nacional de Egipto",
+    "network": "البنك الأهلي المصري",
+    "operator": "National Bank of Egypt",
+    "operator:wikidata": "Q4119563"
+  }
+},
+{
+  "type": "node",
+  "id": 9702903728,
+  "lat": 29.9945050,
+  "lon": 31.1600259,
+  "tags": {
+    "addr:street": "شارع العريش",
+    "amenity": "atm",
+    "name": "البنك الاهلي المصري"
+  }
+},
+{
+  "type": "node",
+  "id": 9702924461,
+  "lat": 29.9945263,
+  "lon": 31.1600063,
+  "tags": {
+    "addr:street": "شارع العريش",
+    "amenity": "atm",
+    "name": "CIB"
+  }
+},
+{
+  "type": "node",
+  "id": 9710489518,
+  "lat": 31.2399928,
+  "lon": 29.9650967,
+  "tags": {
+    "amenity": "atm",
+    "brand": "QNB",
+    "brand:ar": "بنك قطر الوطني",
+    "brand:en": "QNB",
+    "brand:wikidata": "Q1136759",
+    "cash_in": "yes",
+    "drive_through": "no",
+    "opening_hours": "24/7",
+    "operator": "QNB",
+    "operator:wikidata": "Q1136759"
+  }
+},
+{
+  "type": "node",
+  "id": 9784644507,
+  "lat": 26.7910263,
+  "lon": 33.9342461,
+  "tags": {
+    "amenity": "atm"
+  }
+},
+{
+  "type": "node",
+  "id": 9837444597,
+  "lat": 31.1998663,
+  "lon": 29.9099373,
+  "tags": {
+    "amenity": "atm",
+    "covered": "yes",
+    "drive_through": "no",
+    "indoor": "no",
+    "lit": "yes",
+    "manufacturer": "NCR"
+  }
+},
+{
+  "type": "node",
+  "id": 9897196950,
+  "lat": 29.9948560,
+  "lon": 31.1490941,
+  "tags": {
+    "amenity": "atm",
+    "name": "البنك الاهلي المصري"
+  }
+},
+{
+  "type": "node",
+  "id": 9944598741,
+  "lat": 30.1027586,
+  "lon": 31.3724826,
+  "tags": {
+    "amenity": "atm",
+    "operator": "National Bank of Egypt"
+  }
+},
+{
+  "type": "node",
+  "id": 10133200518,
+  "lat": 25.7047120,
+  "lon": 32.6336238,
+  "tags": {
+    "amenity": "atm"
+  }
+},
+{
+  "type": "node",
+  "id": 10173239817,
+  "lat": 30.0609216,
+  "lon": 31.3384095,
+  "tags": {
+    "amenity": "atm",
+    "name": "البنك الاهلي المصري",
+    "name:en": "National Bank of Egypt",
+    "opening_hours": "24/7"
+  }
+},
+{
+  "type": "node",
+  "id": 10173239917,
+  "lat": 30.0594868,
+  "lon": 31.3385442,
+  "tags": {
+    "amenity": "atm",
+    "name": "البنك الاهلي المصري",
+    "name:en": "NBE NATIONAL BANK OF EGYPT",
+    "opening_hours": "24/7"
+  }
+},
+{
+  "type": "node",
+  "id": 10184257815,
+  "lat": 28.0535595,
+  "lon": 34.4320661,
+  "tags": {
+    "amenity": "atm",
+    "check_date": "2022-11-14"
+  }
+},
+{
+  "type": "node",
+  "id": 10184386117,
+  "lat": 28.0526780,
+  "lon": 34.4351262,
+  "tags": {
+    "amenity": "atm",
+    "check_date": "2022-11-14"
+  }
+},
+{
+  "type": "node",
+  "id": 10227859584,
+  "lat": 30.0570998,
+  "lon": 31.2378020,
+  "tags": {
+    "amenity": "atm"
+  }
+},
+{
+  "type": "node",
+  "id": 10265992986,
+  "lat": 30.0115093,
+  "lon": 31.1855115,
+  "tags": {
+    "amenity": "atm",
+    "name": "بنك فيصل الاسلامي"
+  }
+},
+{
+  "type": "node",
+  "id": 10266031201,
+  "lat": 30.0046636,
+  "lon": 31.1756856,
+  "tags": {
+    "amenity": "atm",
+    "name": "بنك التعمير والاسكان"
+  }
+},
+{
+  "type": "node",
+  "id": 10308201709,
+  "lat": 30.0448678,
+  "lon": 31.2450305,
+  "tags": {
+    "amenity": "atm",
+    "opening_hours": "24/7"
+  }
+},
+{
+  "type": "node",
+  "id": 10564877311,
+  "lat": 30.0262588,
+  "lon": 31.4458831,
+  "tags": {
+    "amenity": "atm"
+  }
+},
+{
+  "type": "node",
+  "id": 10578858146,
+  "lat": 28.4952256,
+  "lon": 34.5150530,
+  "tags": {
+    "amenity": "atm",
+    "operator": "Alex bank"
+  }
+},
+{
+  "type": "node",
+  "id": 10578859746,
+  "lat": 28.4952796,
+  "lon": 34.5150620,
+  "tags": {
+    "amenity": "atm",
+    "operator": "Banque misr"
+  }
+},
+{
+  "type": "node",
+  "id": 10578859748,
+  "lat": 28.4918646,
+  "lon": 34.5138767,
+  "tags": {
+    "amenity": "atm",
+    "operator": "National Bank of Egypt"
+  }
+},
+{
+  "type": "node",
+  "id": 10583950705,
+  "lat": 27.8573615,
+  "lon": 34.2798790,
+  "tags": {
+    "amenity": "atm",
+    "operator": "Credit Agricole"
+  }
+},
+{
+  "type": "node",
+  "id": 10593703205,
+  "lat": 27.8631091,
+  "lon": 34.3117633,
+  "tags": {
+    "amenity": "atm",
+    "brand": "Crédit Agricole",
+    "brand:wikidata": "Q590952",
+    "operator": "Crédit Agricole",
+    "operator:wikidata": "Q590952"
+  }
+},
+{
+  "type": "node",
+  "id": 10596442506,
+  "lat": 27.8854194,
+  "lon": 34.2988430,
+  "tags": {
+    "amenity": "atm",
+    "operator": "CiB"
+  }
+},
+{
+  "type": "node",
+  "id": 10596571306,
+  "lat": 27.8893414,
+  "lon": 34.3054751,
+  "tags": {
+    "amenity": "atm",
+    "check_date": "2025-04-21",
+    "operator": "CiB"
+  }
+},
+{
+  "type": "node",
+  "id": 10605024805,
+  "lat": 30.0079092,
+  "lon": 31.5157672,
+  "tags": {
+    "amenity": "atm"
+  }
+},
+{
+  "type": "node",
+  "id": 10692429006,
+  "lat": 30.0826008,
+  "lon": 31.3286244,
+  "tags": {
+    "amenity": "atm",
+    "opening_hours": "24/7"
+  }
+},
+{
+  "type": "node",
+  "id": 10726396905,
+  "lat": 24.4480269,
+  "lon": 32.9456174,
+  "tags": {
+    "amenity": "atm"
+  }
+},
+{
+  "type": "node",
+  "id": 10870840252,
+  "lat": 27.8582966,
+  "lon": 34.3095554,
+  "tags": {
+    "amenity": "atm",
+    "brand": "Crédit Agricole",
+    "brand:wikidata": "Q590952",
+    "cash_in": "no",
+    "check_date": "2023-05-06",
+    "covered": "yes",
+    "currency:EGP": "yes",
+    "indoor": "no",
+    "operator": "Crédit Agricole",
+    "operator:wikidata": "Q590952"
+  }
+},
+{
+  "type": "node",
+  "id": 10929443681,
+  "lat": 28.8203445,
+  "lon": 30.9024033,
+  "tags": {
+    "amenity": "atm",
+    "cash_in": "no",
+    "operator": "بنك مصر"
+  }
+},
+{
+  "type": "node",
+  "id": 10929451837,
+  "lat": 28.8204751,
+  "lon": 30.9013773,
+  "tags": {
+    "amenity": "atm",
+    "operator": "بنك مصر"
+  }
+},
+{
+  "type": "node",
+  "id": 10929454288,
+  "lat": 28.8205195,
+  "lon": 30.9014100,
+  "tags": {
+    "amenity": "atm",
+    "operator": "بنك كصر"
+  }
+},
+{
+  "type": "node",
+  "id": 10929465265,
+  "lat": 28.8239088,
+  "lon": 30.9030535,
+  "tags": {
+    "amenity": "atm",
+    "operator": "NBE"
+  }
+},
+{
+  "type": "node",
+  "id": 10931298620,
+  "lat": 28.8197208,
+  "lon": 30.8973895,
+  "tags": {
+    "amenity": "atm",
+    "cash_in": "yes",
+    "operator": "Agricultural Bank of Egypt"
+  }
+},
+{
+  "type": "node",
+  "id": 10931302753,
+  "lat": 28.1157452,
+  "lon": 30.7695428,
+  "tags": {
+    "amenity": "atm",
+    "brand": "مكنة صرف الى بنك مصر"
+  }
+},
+{
+  "type": "node",
+  "id": 10931303576,
+  "lat": 28.8215127,
+  "lon": 30.8919454,
+  "tags": {
+    "amenity": "atm",
+    "branch": "البنك الاهلى",
+    "cash_in": "yes"
+  }
+},
+{
+  "type": "node",
+  "id": 10931406006,
+  "lat": 28.8216161,
+  "lon": 30.8920609,
+  "tags": {
+    "amenity": "atm",
+    "cash_in": "yes"
+  }
+},
+{
+  "type": "node",
+  "id": 10931406433,
+  "lat": 28.8215302,
+  "lon": 30.8919127,
+  "tags": {
+    "amenity": "atm",
+    "cash_in": "yes",
+    "operator": "البنك الاهلى"
+  }
+},
+{
+  "type": "node",
+  "id": 11050222492,
+  "lat": 29.9917613,
+  "lon": 31.3147444,
+  "tags": {
+    "amenity": "atm",
+    "cash_in": "yes",
+    "operator": "بنك الاسكندرية"
+  }
+},
+{
+  "type": "node",
+  "id": 11224510289,
+  "lat": 29.9528659,
+  "lon": 31.2636187,
+  "tags": {
+    "amenity": "atm",
+    "cash_in": "no",
+    "drive_through": "no",
+    "indoor": "no",
+    "operator": "National Bank of Egypt"
+  }
+},
+{
+  "type": "node",
+  "id": 11224510290,
+  "lat": 29.9528587,
+  "lon": 31.2636287,
+  "tags": {
+    "amenity": "atm",
+    "cash_in": "no",
+    "drive_through": "no",
+    "indoor": "no",
+    "operator": "Banque Misr"
+  }
+},
+{
+  "type": "node",
+  "id": 11224510291,
+  "lat": 29.9529013,
+  "lon": 31.2635816,
+  "tags": {
+    "amenity": "atm",
+    "cash_in": "no",
+    "drive_through": "no",
+    "indoor": "no",
+    "operator": "Egypt Post"
+  }
+},
+{
+  "type": "node",
+  "id": 11357287769,
+  "lat": 30.9406928,
+  "lon": 31.2932258,
+  "tags": {
+    "amenity": "atm"
+  }
+},
+{
+  "type": "node",
+  "id": 11357289570,
+  "lat": 30.9438070,
+  "lon": 31.2884699,
+  "tags": {
+    "amenity": "atm"
+  }
+},
+{
+  "type": "node",
+  "id": 11357291269,
+  "lat": 30.9438501,
+  "lon": 31.2883897,
+  "tags": {
+    "amenity": "atm"
+  }
+},
+{
+  "type": "node",
+  "id": 11365817935,
+  "lat": 28.0232923,
+  "lon": 34.4366084,
+  "tags": {
+    "amenity": "atm",
+    "check_date": "2023-11-20"
+  }
+},
+{
+  "type": "node",
+  "id": 11365817936,
+  "lat": 28.0246565,
+  "lon": 34.4363053,
+  "tags": {
+    "amenity": "atm",
+    "check_date": "2023-11-20"
+  }
+},
+{
+  "type": "node",
+  "id": 11438230761,
+  "lat": 29.9539365,
+  "lon": 31.2675036,
+  "tags": {
+    "amenity": "atm",
+    "cash_in": "no",
+    "check_date": "2023-12-21",
+    "indoor": "no",
+    "operator": "National Bank of Egypt"
+  }
+},
+{
+  "type": "node",
+  "id": 11443515932,
+  "lat": 30.0461969,
+  "lon": 31.2540758,
+  "tags": {
+    "amenity": "atm",
+    "operator": "Albaraka Bank"
+  }
+},
+{
+  "type": "node",
+  "id": 11459417173,
+  "lat": 29.9528242,
+  "lon": 31.2641290,
+  "tags": {
+    "amenity": "atm",
+    "cash_in": "no",
+    "check_date": "2023-12-27",
+    "name:ar": "ماكينة صرف بنك مصر",
+    "operator": "Banque Misr"
+  }
+},
+{
+  "type": "node",
+  "id": 11504103769,
+  "lat": 27.0822632,
+  "lon": 33.8176667,
+  "tags": {
+    "amenity": "atm",
+    "opening_hours": "24/7",
+    "operator": "Banque Misr"
+  }
+},
+{
+  "type": "node",
+  "id": 11540033288,
+  "lat": 30.0831536,
+  "lon": 31.6387300,
+  "tags": {
+    "amenity": "atm",
+    "operator": "albarakah"
+  }
+},
+{
+  "type": "node",
+  "id": 11540372570,
+  "lat": 22.3405256,
+  "lon": 31.6145549,
+  "tags": {
+    "amenity": "atm",
+    "operator": "MISR Bank"
+  }
+},
+{
+  "type": "node",
+  "id": 11540372571,
+  "lat": 22.3406751,
+  "lon": 31.6151223,
+  "tags": {
+    "amenity": "atm",
+    "operator": "Banque du Caire"
+  }
+},
+{
+  "type": "node",
+  "id": 11581299524,
+  "lat": 27.0014822,
+  "lon": 33.9065270,
+  "tags": {
+    "amenity": "atm"
+  }
+},
+{
+  "type": "node",
+  "id": 11637712569,
+  "lat": 27.4074834,
+  "lon": 33.6741466,
+  "tags": {
+    "amenity": "atm",
+    "brand": "Crédit Agricole",
+    "brand:wikidata": "Q590952",
+    "cash_in": "yes",
+    "currency:EGP": "yes",
+    "currency:EUR": "yes",
+    "drive_through": "no",
+    "operator": "Crédit Agricole",
+    "operator:wikidata": "Q590952"
+  }
+},
+{
+  "type": "node",
+  "id": 11637725369,
+  "lat": 27.4080843,
+  "lon": 33.6746486,
+  "tags": {
+    "amenity": "atm",
+    "brand": "Banque Misr",
+    "brand:wikidata": "Q2060638",
+    "cash_in": "yes",
+    "currency:EGP": "yes",
+    "currency:EUR": "yes",
+    "currency:USD": "yes",
+    "drive_through": "no",
+    "operator": "Banque Misr",
+    "operator:wikidata": "Q2060638"
+  }
+},
+{
+  "type": "node",
+  "id": 11637725569,
+  "lat": 27.4085100,
+  "lon": 33.6741383,
+  "tags": {
+    "amenity": "atm",
+    "brand": "Arab African International Bank",
+    "brand:ar": "البنك العربي الإفريقي الدولي",
+    "brand:en": "Arab African International Bank",
+    "brand:wikidata": "Q126391861",
+    "cash_in": "yes",
+    "currency:EGP": "yes",
+    "currency:EUR": "yes",
+    "currency:USD": "yes",
+    "drive_through": "no",
+    "operator": "Arab African International Bank",
+    "operator:wikidata": "Q126391861"
+  }
+},
+{
+  "type": "node",
+  "id": 11637731170,
+  "lat": 27.4090475,
+  "lon": 33.6757854,
+  "tags": {
+    "amenity": "atm",
+    "brand": "National Bank of Kuwait",
+    "brand:ar": "بنك الكويت الوطني",
+    "brand:en": "National Bank of Kuwait",
+    "brand:wikidata": "Q4045072",
+    "cash_in": "yes",
+    "drive_through": "no",
+    "operator": "National Bank of Kuwait",
+    "operator:wikidata": "Q4045072"
+  }
+},
+{
+  "type": "node",
+  "id": 11638016369,
+  "lat": 27.3940206,
+  "lon": 33.6754626,
+  "tags": {
+    "amenity": "atm",
+    "cash_in": "yes",
+    "operator": "Credit Agricole"
+  }
+},
+{
+  "type": "node",
+  "id": 11887202398,
+  "lat": 29.3985308,
+  "lon": 30.4922465,
+  "tags": {
+    "amenity": "atm",
+    "brand": "Crédit Agricole",
+    "brand:wikidata": "Q590952",
+    "operator": "Crédit Agricole",
+    "operator:wikidata": "Q590952"
+  }
+},
+{
+  "type": "node",
+  "id": 11914887762,
+  "lat": 31.2026017,
+  "lon": 29.9024856,
+  "tags": {
+    "amenity": "atm",
+    "name": "The United Bank"
+  }
+},
+{
+  "type": "node",
+  "id": 11915144175,
+  "lat": 31.2546123,
+  "lon": 29.9927350,
+  "tags": {
+    "amenity": "atm",
+    "cash_in": "yes",
+    "operator": "NBE"
+  }
+},
+{
+  "type": "node",
+  "id": 12050858943,
+  "lat": 29.9589865,
+  "lon": 31.2580077,
+  "tags": {
+    "amenity": "atm",
+    "cash_in": "no",
+    "check_date": "2024-07-13",
+    "drive_through": "no",
+    "indoor": "no",
+    "operator": "البنك الأهلي المصري"
+  }
+},
+{
+  "type": "node",
+  "id": 12125835520,
+  "lat": 29.9580990,
+  "lon": 31.2587687,
+  "tags": {
+    "amenity": "atm",
+    "cash_in": "yes",
+    "check_date": "2024-08-22",
+    "drive_through": "no",
+    "name:ar": "البنك الأهلي المصري",
+    "operator": "National Bank of Egypt",
+    "source": "survey"
+  }
+},
+{
+  "type": "node",
+  "id": 12189872802,
+  "lat": 22.3377287,
+  "lon": 31.6237613,
+  "tags": {
+    "amenity": "atm",
+    "name": "Banque MISR",
+    "source": "survey"
+  }
+},
+{
+  "type": "node",
+  "id": 12214549334,
+  "lat": 27.0812046,
+  "lon": 33.8593611,
+  "tags": {
+    "addr:floor": "1",
+    "amenity": "atm",
+    "check_date": "2024-10-01",
+    "drive_through": "no",
+    "level": "1",
+    "operator": "Banque Misr"
+  }
+},
+{
+  "type": "node",
+  "id": 12214549337,
+  "lat": 27.0813257,
+  "lon": 33.8591271,
+  "tags": {
+    "addr:floor": "1",
+    "amenity": "atm",
+    "check_date": "2024-10-01",
+    "level": "1",
+    "operator": "Egyptian Arab Land Bank"
+  }
+},
+{
+  "type": "node",
+  "id": 12214549338,
+  "lat": 27.0812201,
+  "lon": 33.8591669,
+  "tags": {
+    "addr:floor": "1",
+    "amenity": "atm",
+    "check_date": "2024-10-01",
+    "level": "1",
+    "operator": "Banque Misr"
+  }
+},
+{
+  "type": "node",
+  "id": 12229986152,
+  "lat": 31.2272685,
+  "lon": 29.9422735,
+  "tags": {
+    "amenity": "atm",
+    "covered": "yes",
+    "drive_through": "no",
+    "indoor": "no",
+    "name": "Arab African International Bank"
+  }
+},
+{
+  "type": "node",
+  "id": 12234503883,
+  "lat": 27.0829837,
+  "lon": 33.8640245,
+  "tags": {
+    "amenity": "atm",
+    "check_date": "2024-10-04",
+    "operator": "EALB"
+  }
+},
+{
+  "type": "node",
+  "id": 12235059016,
+  "lat": 31.1988794,
+  "lon": 29.8936218,
+  "tags": {
+    "amenity": "atm",
+    "check_date": "2024-10-08",
+    "covered": "yes",
+    "drive_through": "no",
+    "indoor": "no",
+    "name": "QNB Alahli",
+    "opening_hours": "24/7",
+    "opening_hours:signed": "yes"
+  }
+},
+{
+  "type": "node",
+  "id": 12289877500,
+  "lat": 31.1998501,
+  "lon": 29.9061414,
+  "tags": {
+    "amenity": "atm",
+    "check_date": "2024-10-26",
+    "operator": "Fab Misr"
+  }
+},
+{
+  "type": "node",
+  "id": 12289900504,
+  "lat": 31.2032347,
+  "lon": 29.9026191,
+  "tags": {
+    "amenity": "atm",
+    "check_date": "2024-10-26",
+    "operator": "Fab Misr"
+  }
+},
+{
+  "type": "node",
+  "id": 12291020379,
+  "lat": 31.1985956,
+  "lon": 29.9200359,
+  "tags": {
+    "amenity": "atm",
+    "brand": "Banque Misr",
+    "brand:wikidata": "Q2060638",
+    "check_date": "2024-10-27",
+    "drive_through": "no",
+    "operator": "Banque Misr",
+    "operator:wikidata": "Q2060638"
+  }
+},
+{
+  "type": "node",
+  "id": 12293588176,
+  "lat": 31.2120344,
+  "lon": 29.8831870,
+  "tags": {
+    "amenity": "atm",
+    "check_date": "2024-10-28",
+    "operator": "QNB"
+  }
+},
+{
+  "type": "node",
+  "id": 12299672078,
+  "lat": 29.9755824,
+  "lon": 31.1410448,
+  "tags": {
+    "amenity": "atm",
+    "brand": "Alexbank",
+    "brand:ar": "بنك الاسكندريه",
+    "brand:en": "Alexbank",
+    "brand:wikidata": "Q4856020",
+    "check_date": "2024-10-30",
+    "operator": "Alexbank",
+    "operator:wikidata": "Q4856020"
+  }
+},
+{
+  "type": "node",
+  "id": 12318639305,
+  "lat": 27.2271129,
+  "lon": 33.8434425,
+  "tags": {
+    "amenity": "atm",
+    "brand": "Crédit Agricole",
+    "brand:wikidata": "Q590952",
+    "check_date": "2024-11-06",
+    "operator": "Crédit Agricole",
+    "operator:wikidata": "Q590952"
+  }
+},
+{
+  "type": "node",
+  "id": 12318639312,
+  "lat": 27.2238226,
+  "lon": 33.8405364,
+  "tags": {
+    "amenity": "atm",
+    "check_date": "2024-11-06"
+  }
+},
+{
+  "type": "node",
+  "id": 12455065937,
+  "lat": 27.2416730,
+  "lon": 33.8433659,
+  "tags": {
+    "amenity": "atm",
+    "name": "ATM"
+  }
+},
+{
+  "type": "node",
+  "id": 12615869345,
+  "lat": 29.9927342,
+  "lon": 31.1476763,
+  "tags": {
+    "amenity": "atm",
+    "name": "البنك الاهلي المصري"
+  }
+},
+{
+  "type": "node",
+  "id": 12638441876,
+  "lat": 27.3043384,
+  "lon": 33.7286185,
+  "tags": {
+    "amenity": "atm",
+    "operator": "Banque Misr"
+  }
+},
+{
+  "type": "node",
+  "id": 12716895889,
+  "lat": 27.2440860,
+  "lon": 33.8421582,
+  "tags": {
+    "amenity": "atm",
+    "operator": "Credit Agricole"
+  }
+},
+{
+  "type": "node",
+  "id": 12791587696,
+  "lat": 27.9668742,
+  "lon": 34.4018301,
+  "tags": {
+    "amenity": "atm",
+    "currency:EGP": "yes",
+    "drive_through": "no"
+  }
+},
+{
+  "type": "node",
+  "id": 12817872840,
+  "lat": 30.9634046,
+  "lon": 31.4903191,
+  "tags": {
+    "amenity": "atm",
+    "operator": "Post"
+  }
+},
+{
+  "type": "node",
+  "id": 12817884051,
+  "lat": 30.9424497,
+  "lon": 31.5292992,
+  "tags": {
+    "amenity": "atm"
+  }
+},
+{
+  "type": "node",
+  "id": 12820932599,
+  "lat": 24.0987882,
+  "lon": 32.8988531,
+  "tags": {
+    "amenity": "atm",
+    "name": "Atm"
+  }
+},
+{
+  "type": "node",
+  "id": 12820939024,
+  "lat": 24.0988173,
+  "lon": 32.8988675,
+  "tags": {
+    "amenity": "atm",
+    "name": "Atm"
+  }
+},
+{
+  "type": "node",
+  "id": 12820947649,
+  "lat": 24.0988443,
+  "lon": 32.8988793,
+  "tags": {
+    "amenity": "atm",
+    "name": "Atm"
+  }
+},
+{
+  "type": "node",
+  "id": 12820954606,
+  "lat": 24.1001854,
+  "lon": 32.9001791,
+  "tags": {
+    "amenity": "atm",
+    "description": "Egypt Post",
+    "name": "Atm"
+  }
+},
+{
+  "type": "node",
+  "id": 12848733959,
+  "lat": 27.0971289,
+  "lon": 33.8319274,
+  "tags": {
+    "amenity": "atm"
+  }
+},
+{
+  "type": "node",
+  "id": 12900644634,
+  "lat": 31.5154441,
+  "lon": 31.8365810,
+  "tags": {
+    "amenity": "atm",
+    "currency:EGP": "yes",
+    "drive_through": "no",
+    "operator": "Egypt Post"
+  }
+},
+{
+  "type": "node",
+  "id": 12901574401,
+  "lat": 29.6982495,
+  "lon": 30.3507184,
+  "tags": {
+    "amenity": "atm"
+  }
+},
+{
+  "type": "node",
+  "id": 12915189402,
+  "lat": 26.7599891,
+  "lon": 33.9376167,
+  "tags": {
+    "amenity": "atm",
+    "operator": "Banque Misr"
+  }
+},
+{
+  "type": "node",
+  "id": 12920886802,
+  "lat": 26.7476697,
+  "lon": 33.9406514,
+  "tags": {
+    "amenity": "atm",
+    "operator": "National Bank of Egypt"
+  }
+},
+{
+  "type": "node",
+  "id": 12920887501,
+  "lat": 26.7608097,
+  "lon": 33.9402860,
+  "tags": {
+    "amenity": "atm",
+    "operator": "National Bank of Egypt"
+  }
+},
+{
+  "type": "node",
+  "id": 12922906201,
+  "lat": 26.7642874,
+  "lon": 33.9415961,
+  "tags": {
+    "amenity": "atm",
+    "operator": "National Bank of Egypt"
+  }
+},
+{
+  "type": "node",
+  "id": 12969334601,
+  "lat": 30.1288585,
+  "lon": 31.1894203,
+  "tags": {
+    "amenity": "atm",
+    "opening_hours": "24/7",
+    "operator": "NBE"
+  }
+},
+{
+  "type": "node",
+  "id": 12969334701,
+  "lat": 30.1247635,
+  "lon": 31.1923955,
+  "tags": {
+    "amenity": "atm",
+    "opening_hours": "24/7",
+    "operator": "Egyptian Postal service"
+  }
+},
+{
+  "type": "node",
+  "id": 13007090380,
+  "lat": 24.0863494,
+  "lon": 32.8923899,
+  "tags": {
+    "amenity": "atm",
+    "brand": "Crédit Agricole",
+    "brand:wikidata": "Q590952",
+    "check_date": "2025-07-17",
+    "covered": "yes",
+    "currency:EGP": "yes",
+    "drive_through": "no",
+    "indoor": "no",
+    "level": "0",
+    "lit": "yes",
+    "opening_hours": "24/7",
+    "operator": "Crédit Agricole",
+    "operator:wikidata": "Q590952",
+    "wheelchair": "limited"
+  }
+},
+{
+  "type": "node",
+  "id": 13114815208,
+  "lat": 25.5346947,
+  "lon": 34.6335203,
+  "tags": {
+    "amenity": "atm",
+    "check_date": "2025-09-02",
+    "network": "Euronet"
+  }
+},
+{
+  "type": "node",
+  "id": 13114855751,
+  "lat": 25.5342348,
+  "lon": 34.6391193,
+  "tags": {
+    "amenity": "atm",
+    "check_date": "2025-09-02"
+  }
+},
+{
+  "type": "node",
+  "id": 13122142529,
+  "lat": 25.5827107,
+  "lon": 34.6263816,
+  "tags": {
+    "amenity": "atm",
+    "check_date": "2025-09-06",
+    "covered": "yes",
+    "drive_through": "no",
+    "indoor": "no",
+    "lit": "yes"
+  }
+},
+{
+  "type": "node",
+  "id": 13152530288,
+  "lat": 29.8488293,
+  "lon": 31.3341799,
+  "tags": {
+    "amenity": "atm"
+  }
+},
+{
+  "type": "node",
+  "id": 13152585178,
+  "lat": 29.8488284,
+  "lon": 31.3344588,
+  "tags": {
+    "amenity": "atm"
+  }
+},
+{
+  "type": "node",
+  "id": 13158979182,
+  "lat": 31.0746452,
+  "lon": 30.9480949,
+  "tags": {
+    "amenity": "atm",
+    "operator": "Banque Misr"
+  }
+},
+{
+  "type": "node",
+  "id": 13169228602,
+  "lat": 30.0511967,
+  "lon": 31.2387193,
+  "tags": {
+    "amenity": "atm"
+  }
+},
+{
+  "type": "node",
+  "id": 13169228904,
+  "lat": 29.9850929,
+  "lon": 31.1678093,
+  "tags": {
+    "amenity": "atm"
+  }
+},
+{
+  "type": "node",
+  "id": 13169319982,
+  "lat": 29.9836538,
+  "lon": 30.9829842,
+  "tags": {
+    "amenity": "atm",
+    "brand": "Banque du Caire",
+    "brand:ar": "بنك القاهرة",
+    "brand:en": "Banque du Caire",
+    "brand:wikidata": "Q4857077",
+    "operator": "Banque du Caire",
+    "operator:wikidata": "Q4857077"
+  }
+},
+{
+  "type": "node",
+  "id": 13169500158,
+  "lat": 29.9834531,
+  "lon": 30.9840462,
+  "tags": {
+    "amenity": "atm",
+    "brand": "QNB",
+    "brand:ar": "بنك قطر الوطني",
+    "brand:en": "QNB",
+    "brand:wikidata": "Q1136759",
+    "cash_in": "yes",
+    "operator": "QNB",
+    "operator:wikidata": "Q1136759"
+  }
+},
+{
+  "type": "node",
+  "id": 13171210202,
+  "lat": 29.9747703,
+  "lon": 31.1448440,
+  "tags": {
+    "amenity": "atm"
+  }
+},
+{
+  "type": "node",
+  "id": 13171618191,
+  "lat": 29.9717978,
+  "lon": 31.2359334,
+  "tags": {
+    "amenity": "atm"
+  }
+},
+{
+  "type": "node",
+  "id": 13175089908,
+  "lat": 27.2274920,
+  "lon": 33.8421926,
+  "tags": {
+    "amenity": "atm",
+    "fixme": "Still exists / correct location?"
+  }
+},
+{
+  "type": "node",
+  "id": 13177651207,
+  "lat": 30.0356598,
+  "lon": 31.2295478,
+  "tags": {
+    "amenity": "atm"
+  }
+},
+{
+  "type": "node",
+  "id": 13177651908,
+  "lat": 30.1220042,
+  "lon": 31.3659245,
+  "tags": {
+    "amenity": "atm",
+    "brand": "QNB",
+    "brand:ar": "بنك قطر الوطني",
+    "brand:en": "QNB",
+    "brand:wikidata": "Q1136759",
+    "cash_in": "no",
+    "operator": "QNB",
+    "operator:wikidata": "Q1136759"
+  }
+},
+{
+  "type": "node",
+  "id": 13179144002,
+  "lat": 30.1112887,
+  "lon": 31.3989419,
+  "tags": {
+    "amenity": "atm"
+  }
+},
+{
+  "type": "node",
+  "id": 13185653353,
+  "lat": 29.9612153,
+  "lon": 31.2781167,
+  "tags": {
+    "amenity": "atm",
+    "operator": "HSBC"
+  }
+},
+{
+  "type": "node",
+  "id": 13188203612,
+  "lat": 29.9401739,
+  "lon": 31.2742861,
+  "tags": {
+    "amenity": "atm",
+    "operator": "National Bank of Egypt"
+  }
+},
+{
+  "type": "node",
+  "id": 13188391791,
+  "lat": 29.8500006,
+  "lon": 31.3364947,
+  "tags": {
+    "amenity": "atm",
+    "operator": "البنك التجاري الدولي CIB"
+  }
+},
+{
+  "type": "node",
+  "id": 13230436937,
+  "lat": 30.0414829,
+  "lon": 31.2354641,
+  "tags": {
+    "amenity": "atm",
+    "operator": "Banque Misr"
+  }
+},
+{
+  "type": "node",
+  "id": 13230442053,
+  "lat": 30.0413116,
+  "lon": 31.2354251,
+  "tags": {
+    "amenity": "atm",
+    "operator": "The United Bank"
+  }
+},
+{
+  "type": "node",
+  "id": 13230443453,
+  "lat": 30.0411822,
+  "lon": 31.2353983,
+  "tags": {
+    "amenity": "atm",
+    "cash_in": "no",
+    "operator": "The United Bank"
+  }
+},
+{
+  "type": "node",
+  "id": 13230462867,
+  "lat": 30.0415375,
+  "lon": 31.2354783,
+  "tags": {
+    "amenity": "atm",
+    "operator": "Banque Misr"
+  }
+},
+{
+  "type": "node",
+  "id": 13230463071,
+  "lat": 30.0415083,
+  "lon": 31.2354704,
+  "tags": {
+    "amenity": "atm",
+    "operator": "Banque Misr"
+  }
+},
+{
+  "type": "node",
+  "id": 13300087560,
+  "lat": 30.5498124,
+  "lon": 31.0134259,
+  "tags": {
+    "amenity": "atm",
+    "brand": "Banque Misr",
+    "brand:wikidata": "Q2060638",
+    "operator": "Banque Misr",
+    "operator:wikidata": "Q2060638"
+  }
+},
+{
+  "type": "node",
+  "id": 13305859492,
+  "lat": 29.9807912,
+  "lon": 31.1766124,
+  "tags": {
+    "amenity": "atm",
+    "cash_in": "yes",
+    "check_date": "2025-11-15",
+    "operator": "National Bank of Egypt"
+  }
+},
+{
+  "type": "node",
+  "id": 13305859493,
+  "lat": 29.9808103,
+  "lon": 31.1766334,
+  "tags": {
+    "amenity": "atm",
+    "cash_in": "yes",
+    "check_date": "2025-11-15",
+    "drive_through": "yes",
+    "operator": "Banque Misr"
+  }
+},
+{
+  "type": "node",
+  "id": 13306665801,
+  "lat": 25.7018688,
+  "lon": 32.6331655,
+  "tags": {
+    "amenity": "atm",
+    "name": "Euronet"
+  }
+},
+{
+  "type": "node",
+  "id": 13328408001,
+  "lat": 29.7972294,
+  "lon": 31.2426177,
+  "tags": {
+    "amenity": "atm"
+  }
+},
+{
+  "type": "node",
+  "id": 13333103383,
+  "lat": 30.0982963,
+  "lon": 31.3815583,
+  "tags": {
+    "amenity": "atm",
+    "operator": "CIB ATM"
+  }
+},
+{
+  "type": "node",
+  "id": 13333103384,
+  "lat": 30.0982864,
+  "lon": 31.3815518,
+  "tags": {
+    "amenity": "atm",
+    "operator": "Alex Bank ATM"
+  }
+},
+{
+  "type": "node",
+  "id": 13333736714,
+  "lat": 29.9911151,
+  "lon": 31.2284778,
+  "tags": {
+    "amenity": "atm",
+    "check_date": "2025-11-26",
+    "operator": "بنك مصر"
+  }
+},
+{
+  "type": "node",
+  "id": 13334195573,
+  "lat": 29.9651072,
+  "lon": 31.2489502,
+  "tags": {
+    "amenity": "atm",
+    "check_date": "2025-11-26",
+    "operator": "CIB"
+  }
+},
+{
+  "type": "node",
+  "id": 13334724502,
+  "lat": 29.8926590,
+  "lon": 31.2218159,
+  "tags": {
+    "amenity": "atm",
+    "operator": "National Bank of Egypt"
+  }
+},
+{
+  "type": "node",
+  "id": 13334724901,
+  "lat": 29.8926741,
+  "lon": 31.2218643,
+  "tags": {
+    "amenity": "atm",
+    "operator": "Banque Misr"
+  }
+},
+{
+  "type": "node",
+  "id": 13337090415,
+  "lat": 29.9780284,
+  "lon": 31.1448936,
+  "tags": {
+    "amenity": "atm",
+    "operator": "Narional Bank of Egypt"
+  }
+},
+{
+  "type": "node",
+  "id": 13337094714,
+  "lat": 29.9781899,
+  "lon": 31.1458582,
+  "tags": {
+    "amenity": "atm"
+  }
+},
+{
+  "type": "node",
+  "id": 13346190436,
+  "lat": 30.0107206,
+  "lon": 31.1765641,
+  "tags": {
+    "amenity": "atm",
+    "name": "البنك الاهلي المصري"
+  }
+},
+{
+  "type": "node",
+  "id": 13360642701,
+  "lat": 30.0611584,
+  "lon": 31.4007918,
+  "tags": {
+    "amenity": "atm"
+  }
+},
+{
+  "type": "node",
+  "id": 13376602659,
+  "lat": 25.7051545,
+  "lon": 32.6339963,
+  "tags": {
+    "amenity": "atm",
+    "name": "Banque Misr"
+  }
+},
+{
+  "type": "node",
+  "id": 13433107959,
+  "lat": 29.0778696,
+  "lon": 32.6271873,
+  "tags": {
+    "amenity": "atm",
+    "cash_in": "yes",
+    "operator": "National Bank of Egypt"
+  }
+},
+{
+  "type": "node",
+  "id": 13433115499,
+  "lat": 29.0779111,
+  "lon": 32.6273048,
+  "tags": {
+    "amenity": "atm",
+    "cash_in": "yes",
+    "operator": "NBK"
+  }
+},
+{
+  "type": "node",
+  "id": 13434705301,
+  "lat": 29.9907570,
+  "lon": 31.1365572,
+  "tags": {
+    "amenity": "atm",
+    "brand": "Banque Misr",
+    "brand:wikidata": "Q2060638",
+    "contact:facebook": "https://www.facebook.com/BanqueMisr.1920",
+    "contact:youtube": "https://www.youtube.com/@banquemisr",
+    "email": "bm19888@banquemisr.com",
+    "name": "ماكينة بنك مصر",
+    "name:ar": "ماكينة بنك مصر",
+    "name:en": "Banque Misr ATM",
+    "opening_hours": "24/7",
+    "operator": "Banque Misr",
+    "operator:wikidata": "Q2060638",
+    "phone": "19888",
+    "short_name": "BM ATM",
+    "short_name:en": "BM ATM",
+    "website": "https://www.banquemisr.com"
+  }
+},
+{
+  "type": "node",
+  "id": 13434705401,
+  "lat": 29.9907176,
+  "lon": 31.1364403,
+  "tags": {
+    "amenity": "atm",
+    "contact:facebook": "https://www.facebook.com/ABKEgypt",
+    "name": "ماكينة البنك الاهلي الكويتي",
+    "name:ar": "ماكينة البنك الاهلي الكويتي",
+    "name:en": "Al Ahli Bank of Kuwait ATM",
+    "opening_hours": "24/7",
+    "operator": "aBK",
+    "phone": "19322;+20 2 2160 0040",
+    "short_name": "ABK ATM",
+    "short_name:en": "ABK ATM",
+    "website": "https://www.abkegypt.com"
+  }
+},
+{
+  "type": "node",
+  "id": 13438495701,
+  "lat": 29.9553158,
+  "lon": 31.0408564,
+  "tags": {
+    "amenity": "atm",
+    "opening_hours": "24/7",
+    "operator": "QNB"
+  }
+},
+{
+  "type": "node",
+  "id": 13438495801,
+  "lat": 29.9552308,
+  "lon": 31.0409734,
+  "tags": {
+    "amenity": "atm",
+    "opening_hours": "24/7",
+    "operator": "Banque MISR"
+  }
+},
+{
+  "type": "node",
+  "id": 13438495901,
+  "lat": 29.9550902,
+  "lon": 31.0419076,
+  "tags": {
+    "amenity": "atm",
+    "opening_hours": "24/7",
+    "operator": "National bank of Egypt"
+  }
+},
+{
+  "type": "node",
+  "id": 13439393985,
+  "lat": 29.9879137,
+  "lon": 31.1410082,
+  "tags": {
+    "amenity": "atm",
+    "brand": "IB",
+    "wheelchair": "yes"
+  }
+},
+{
+  "type": "node",
+  "id": 13439393986,
+  "lat": 29.9879334,
+  "lon": 31.1409987,
+  "tags": {
+    "amenity": "atm",
+    "brand": "HSB",
+    "wheelchair": "yes"
+  }
+},
+{
+  "type": "node",
+  "id": 13439393991,
+  "lat": 29.9879415,
+  "lon": 31.1410273,
+  "tags": {
+    "amenity": "atm",
+    "brand": "Banque Misr",
+    "wheelchair": "yes"
+  }
+},
+{
+  "type": "node",
+  "id": 13439398216,
+  "lat": 29.9878540,
+  "lon": 31.1410508,
+  "tags": {
+    "amenity": "atm",
+    "brand": "National Bank of Egypt",
+    "wheelchair": "yes"
+  }
+},
+{
+  "type": "node",
+  "id": 13439398218,
+  "lat": 29.9935791,
+  "lon": 31.1223668,
+  "tags": {
+    "amenity": "atm",
+    "brand": "National Bank of Egypt",
+    "brand:ar": "البنك الأهلي المصري",
+    "brand:en": "National Bank of Egypt",
+    "brand:wikidata": "Q4119563",
+    "operator": "National Bank of Egypt",
+    "operator:wikidata": "Q4119563",
+    "wheelchair": "yes"
+  }
+},
+{
+  "type": "node",
+  "id": 13449109811,
+  "lat": 29.9897767,
+  "lon": 31.1335922,
+  "tags": {
+    "amenity": "atm"
+  }
+},
+{
+  "type": "node",
+  "id": 13449161862,
+  "lat": 28.4410222,
+  "lon": 34.4623228,
+  "tags": {
+    "amenity": "atm"
+  }
+},
+{
+  "type": "node",
+  "id": 13453059601,
+  "lat": 24.0917326,
+  "lon": 32.8960121,
+  "tags": {
+    "amenity": "atm",
+    "operator": "Housing & Development Bank"
+  }
+},
+{
+  "type": "node",
+  "id": 13463695301,
+  "lat": 25.7312810,
+  "lon": 32.6327711,
+  "tags": {
+    "amenity": "atm",
+    "operator": "Misr"
+  }
+},
+{
+  "type": "node",
+  "id": 13464160801,
+  "lat": 25.7191275,
+  "lon": 32.6128076,
+  "tags": {
+    "amenity": "atm",
+    "operator": "Crédit Agricole"
+  }
+},
+{
+  "type": "node",
+  "id": 13464167401,
+  "lat": 25.7174029,
+  "lon": 32.6169799,
+  "tags": {
+    "amenity": "atm",
+    "operator": "Crédit Agricole"
+  }
+},
+{
+  "type": "node",
+  "id": 13464173701,
+  "lat": 25.7141272,
+  "lon": 32.6243165,
+  "tags": {
+    "amenity": "atm",
+    "operator": "Crédit Agricole"
+  }
+},
+{
+  "type": "node",
+  "id": 13464623202,
+  "lat": 25.6988004,
+  "lon": 32.6377568,
+  "tags": {
+    "amenity": "atm",
+    "operator": "Crédit Agricole"
+  }
+},
+{
+  "type": "node",
+  "id": 13464623701,
+  "lat": 25.7032945,
+  "lon": 32.6404782,
+  "tags": {
+    "amenity": "atm",
+    "operator": "Crédit Agricole"
+  }
+},
+{
+  "type": "node",
+  "id": 13464624001,
+  "lat": 25.7015181,
+  "lon": 32.6390979,
+  "tags": {
+    "amenity": "atm",
+    "operator": "Crédit Agricole"
+  }
+},
+{
+  "type": "node",
+  "id": 13464624002,
+  "lat": 25.6988248,
+  "lon": 32.6377605,
+  "tags": {
+    "amenity": "atm",
+    "operator": "NBK"
+  }
+},
+{
+  "type": "node",
+  "id": 13464624102,
+  "lat": 25.6965945,
+  "lon": 32.6361029,
+  "tags": {
+    "amenity": "atm",
+    "operator": "Crédit Agricole"
+  }
+},
+{
+  "type": "node",
+  "id": 13464624601,
+  "lat": 25.7075438,
+  "lon": 32.6439283,
+  "tags": {
+    "amenity": "atm",
+    "operator": "Crédit Agricole"
+  }
+},
+{
+  "type": "node",
+  "id": 13467340401,
+  "lat": 25.7312207,
+  "lon": 32.6328954,
+  "tags": {
+    "amenity": "atm",
+    "operator": "National Bank of Egypt"
+  }
+},
+{
+  "type": "node",
+  "id": 13467775868,
+  "lat": 25.7338851,
+  "lon": 32.6165305,
+  "tags": {
+    "amenity": "atm",
+    "operator": "Crédit Agricole",
+    "wheelchair": "no"
+  }
+},
+{
+  "type": "node",
+  "id": 13467775880,
+  "lat": 25.7183943,
+  "lon": 32.6517163,
+  "tags": {
+    "amenity": "atm",
+    "brand": "Credit Agricole",
+    "wheelchair": "limited"
+  }
+},
+{
+  "type": "node",
+  "id": 13467775900,
+  "lat": 25.7183651,
+  "lon": 32.6516695,
+  "tags": {
+    "amenity": "atm",
+    "brand": "National Bank of Egypt",
+    "brand:en": "National Bank of Egypt",
+    "wheelchair": "no"
+  }
+},
+{
+  "type": "node",
+  "id": 13468774301,
+  "lat": 27.2380855,
+  "lon": 33.8319329,
+  "tags": {
+    "amenity": "atm"
+  }
+},
+{
+  "type": "node",
+  "id": 13474172506,
+  "lat": 27.2148502,
+  "lon": 33.8389917,
+  "tags": {
+    "amenity": "atm",
+    "brand": "alBaraka Bank",
+    "wheelchair": "no"
+  }
+},
+{
+  "type": "node",
+  "id": 13474172554,
+  "lat": 27.2148837,
+  "lon": 33.8389690,
+  "tags": {
+    "amenity": "atm",
+    "brand": "HSBC",
+    "wheelchair": "no"
+  }
+},
+{
+  "type": "node",
+  "id": 13474172645,
+  "lat": 27.2148014,
+  "lon": 33.8389921,
+  "tags": {
+    "amenity": "atm",
+    "brand": "CIB",
+    "wheelchair": "no"
+  }
+},
+{
+  "type": "node",
+  "id": 13571020542,
+  "lat": 31.2436900,
+  "lon": 29.9940779,
+  "tags": {
+    "amenity": "atm",
+    "name": "NBE Bank ATM - ماكينة صراف آلي البنك الأهلي المصري"
+  }
+},
+{
+  "type": "node",
+  "id": 13579100353,
+  "lat": 31.2461935,
+  "lon": 29.9912944,
+  "tags": {
+    "amenity": "atm",
+    "name": "National Bank Of Egypt ATM - ماكينة صراف آلي البنك الأهلى المصري"
+  }
+},
+{
+  "type": "node",
+  "id": 13579104573,
+  "lat": 31.2461571,
+  "lon": 29.9912165,
+  "tags": {
+    "amenity": "atm",
+    "name": "CIB Bank ATM - ماكينة الصراف الآلي البنك التجاري الدولي"
+  }
+},
+{
+  "type": "node",
+  "id": 13579104731,
+  "lat": 31.2461802,
+  "lon": 29.9912613,
+  "tags": {
+    "amenity": "atm",
+    "name": "Bank Misr ATM - ماكينة الصراف الآلي بنك مصر"
+  }
+},
+{
+  "type": "node",
+  "id": 13579105219,
+  "lat": 31.2462039,
+  "lon": 29.9913245,
+  "tags": {
+    "amenity": "atm",
+    "name": "Faisal Bank ATM - ماكينة الصراف الآلي بنك فيصل الإسلامي"
+  }
+},
+{
+  "type": "node",
+  "id": 13579293679,
+  "lat": 31.2454953,
+  "lon": 29.9894620,
+  "tags": {
+    "amenity": "atm",
+    "name": "National Bank Of Egypt ATM - ماكينة صراف آلي البنك الأهلى المصري"
+  }
+},
+{
+  "type": "node",
+  "id": 13579370036,
+  "lat": 31.2457793,
+  "lon": 29.9903786,
+  "tags": {
+    "amenity": "atm",
+    "name": "Bank Misr ATM - ماكينة الصراف الآلي بنك مصر"
+  }
+},
+{
+  "type": "node",
+  "id": 13586167016,
+  "lat": 31.2463558,
+  "lon": 29.9936261,
+  "tags": {
+    "amenity": "atm",
+    "name": "CIB Bank ATM - ماكينة الصراف الآلي البنك التجاري الدولي"
+  }
+},
+{
+  "type": "node",
+  "id": 13586176353,
+  "lat": 31.2463046,
+  "lon": 29.9933259,
+  "tags": {
+    "amenity": "atm",
+    "name": "FAB Bank ATM - ماكينة الصراف الآلي بنك أبوظبي الأول"
+  }
+},
+{
+  "type": "node",
+  "id": 13615396793,
+  "lat": 31.2457568,
+  "lon": 29.9903356,
+  "tags": {
+    "amenity": "atm",
+    "name": "Al Baraka Bank ATM - ماكينة الصراف الآلي بنك البركة"
+  }
+},
+{
+  "type": "node",
+  "id": 13669967763,
+  "lat": 25.7062464,
+  "lon": 32.6329852,
+  "tags": {
+    "amenity": "atm",
+    "brand": "National Bank of Egypt",
+    "brand:ar": "البنك الأهلي المصري",
+    "brand:en": "National Bank of Egypt",
+    "brand:wikidata": "Q4119563",
+    "check_date": "2026-03-19",
+    "currency:EGP": "yes",
+    "opening_hours": "24/7",
+    "operator": "National Bank of Egypt",
+    "operator:wikidata": "Q4119563",
+    "wheelchair": "no"
+  }
+},
+{
+  "type": "node",
+  "id": 13670083451,
+  "lat": 25.7182943,
+  "lon": 32.6024653,
+  "tags": {
+    "amenity": "atm",
+    "brand": "Euronet",
+    "brand:wikidata": "Q5412010",
+    "currency:EGP": "yes",
+    "operator": "Euronet",
+    "operator:wikidata": "Q5412010"
+  }
+},
+{
+  "type": "node",
+  "id": 13749567698,
+  "lat": 30.6907236,
+  "lon": 30.9952264,
+  "tags": {
+    "amenity": "atm",
+    "brand": "Banque Misr",
+    "brand:wikidata": "Q2060638",
+    "operator": "Banque Misr",
+    "operator:wikidata": "Q2060638"
+  }
+},
+{
+  "type": "node",
+  "id": 13749567699,
+  "lat": 30.6907471,
+  "lon": 30.9952190,
+  "tags": {
+    "amenity": "atm",
+    "brand": "National Bank of Egypt",
+    "brand:ar": "البنك الأهلي المصري",
+    "brand:en": "National Bank of Egypt",
+    "brand:wikidata": "Q4119563",
+    "operator": "National Bank of Egypt",
+    "operator:wikidata": "Q4119563"
+  }
+},
+{
+  "type": "node",
+  "id": 13869502439,
+  "lat": 25.5960892,
+  "lon": 34.6123691,
+  "tags": {
+    "amenity": "atm",
+    "indoor": "yes"
+  }
+},
+{
+  "type": "node",
+  "id": 13873856527,
+  "lat": 25.5991205,
+  "lon": 34.6128210,
+  "tags": {
+    "amenity": "atm",
+    "source": "survey"
+  }
+},
+{
+  "type": "node",
+  "id": 13874445492,
+  "lat": 25.6004939,
+  "lon": 34.6103775,
+  "tags": {
+    "amenity": "atm",
+    "source": "survey"
+  }
+},
+{
+  "type": "node",
+  "id": 13962795565,
+  "lat": 28.0042054,
+  "lon": 34.4337198,
+  "tags": {
+    "amenity": "atm"
+  }
+},
+{
+  "type": "node",
+  "id": 13962895901,
+  "lat": 29.9508262,
+  "lon": 30.9661347,
+  "tags": {
+    "amenity": "atm"
+  }
+},
+{
+  "type": "node",
+  "id": 14192253907,
+  "lat": 28.0471896,
+  "lon": 34.4334455,
+  "tags": {
+    "amenity": "atm",
+    "indoor": "yes",
+    "level": "1"
+  }
+},
+{
+  "type": "node",
+  "id": 14192297536,
+  "lat": 28.0471737,
+  "lon": 34.4334413,
+  "tags": {
+    "amenity": "atm",
+    "indoor": "yes",
+    "level": "1"
+  }
+},
+{
+  "type": "node",
+  "id": 14197335501,
+  "lat": 28.0412785,
+  "lon": 34.4292123,
+  "tags": {
+    "amenity": "atm"
+  }
+},
+{
+  "type": "node",
+  "id": 14202190955,
+  "lat": 30.1415327,
+  "lon": 31.3418511,
+  "tags": {
+    "amenity": "atm",
+    "brand": "National Bank of Egypt",
+    "brand:ar": "البنك الأهلي المصري",
+    "brand:en": "National Bank of Egypt",
+    "brand:wikidata": "Q4119563",
+    "cash_in": "no",
+    "currency:EGP": "yes",
+    "operator": "National Bank of Egypt",
+    "operator:wikidata": "Q4119563"
+  }
+},
+{
+  "type": "node",
+  "id": 14202190957,
+  "lat": 30.1415571,
+  "lon": 31.3422909,
+  "tags": {
+    "amenity": "atm",
+    "brand": "Banque Misr",
+    "brand:wikidata": "Q2060638",
+    "cash_in": "yes",
+    "currency:EGP": "yes",
+    "note": "Chase deposit is only for Bank Misr customers",
+    "operator": "Banque Misr",
+    "operator:wikidata": "Q2060638"
+  }
+},
+{
+  "type": "node",
+  "id": 14202196183,
+  "lat": 30.1415664,
+  "lon": 31.3423298,
+  "tags": {
+    "amenity": "atm",
+    "currency:EGP": "yes",
+    "operator": "بنك فيصل الاسلامي Fisal Islamic Bank"
+  }
+},
+{
+  "type": "node",
+  "id": 14205320004,
+  "lat": 30.0080551,
+  "lon": 31.1353058,
+  "tags": {
+    "amenity": "atm",
+    "contact:facebook": "https://www.facebook.com/BanqueMisr.1920",
+    "contact:youtube": "https://www.youtube.com/@banquemisr",
+    "email": "bm19888@banquemisr.com",
+    "name": "ماكينة بنك مصر",
+    "name:ar": "ماكينة بنك مصر",
+    "name:en": "Banque Misr ATM",
+    "phone": "19888",
+    "short_name": "BM ATM",
+    "short_name:en": "BM ATM",
+    "website": "https://www.banquemisr.com"
+  }
+},
+{
+  "type": "node",
+  "id": 14214179159,
+  "lat": 30.1415032,
+  "lon": 31.3312796,
+  "tags": {
+    "amenity": "atm",
+    "brand": "Banque Misr",
+    "brand:wikidata": "Q2060638",
+    "cash_in": "yes",
+    "currency:EGP": "yes",
+    "drive_through": "no",
+    "note": "Cash deposit is for Banque Misr customers.\nThe ATM is located in a shop which has an external door. When the shop closes, it closes the door in front of the ATM blocking and hiding the ATM.",
+    "opening_hours": "09:00-21:00",
+    "operator": "Banque Misr",
+    "operator:wikidata": "Q2060638",
+    "website": "https://banquemisr.com/"
+  }
+},
+{
+  "type": "node",
+  "id": 14214206051,
+  "lat": 30.1414733,
+  "lon": 31.3312253,
+  "tags": {
+    "amenity": "atm",
+    "brand": "Banque du Caire",
+    "brand:ar": "بنك القاهرة",
+    "brand:en": "Banque du Caire",
+    "brand:wikidata": "Q4857077",
+    "currency:EGP": "yes",
+    "note": "The shop which has this ATM has an external door which they close it when the shop is closed. This blocks the access to the ATM.",
+    "operator": "Banque du Caire",
+    "operator:wikidata": "Q4857077",
+    "website": "https://www.bdc.com.eg/bdcwebsite"
+  }
+},
+{
+  "type": "node",
+  "id": 14214253293,
+  "lat": 30.1415184,
+  "lon": 31.3335235,
+  "tags": {
+    "amenity": "atm",
+    "currency:EGP": "yes",
+    "operator": "Faisal Islamic Bank Egypt",
+    "website": "https://www.faisalbank.com.eg/"
+  }
+},
+{
+  "type": "node",
+  "id": 14214261013,
+  "lat": 30.1418798,
+  "lon": 31.3355829,
+  "tags": {
+    "amenity": "atm",
+    "brand": "Arab African International Bank",
+    "brand:ar": "البنك العربي الإفريقي الدولي",
+    "brand:en": "Arab African International Bank",
+    "brand:wikidata": "Q12184644",
+    "currency:EGP": "yes",
+    "operator": "Arab African International Bank",
+    "operator:wikidata": "Q12184644",
+    "website": "https://aaib.com/"
+  }
+},
+{
+  "type": "node",
+  "id": 14226461175,
+  "lat": 25.3119218,
+  "lon": 34.7444773,
+  "tags": {
+    "amenity": "atm"
+  }
+},
+{
+  "type": "node",
+  "id": 14231920738,
+  "lat": 30.1325220,
+  "lon": 31.3235520,
+  "tags": {
+    "amenity": "atm",
+    "brand": "Banque Misr",
+    "brand:wikidata": "Q2060638",
+    "currency:EGP": "yes",
+    "drive_through": "no",
+    "opening_hours": "24/7",
+    "operator": "Banque Misr",
+    "operator:wikidata": "Q2060638",
+    "website": "https://banquemisr.com/"
+  }
+},
+{
+  "type": "node",
+  "id": 14237979716,
+  "lat": 25.4375111,
+  "lon": 34.6879767,
+  "tags": {
+    "amenity": "atm"
+  }
+},
+{
+  "type": "node",
+  "id": 14247028401,
+  "lat": 24.7060650,
+  "lon": 35.0853436,
+  "tags": {
+    "amenity": "atm",
+    "brand": "Banque Misr",
+    "brand:wikidata": "Q2060638",
+    "level": "1",
+    "operator": "Banque Misr",
+    "operator:wikidata": "Q2060638"
+  }
+},
+{
+  "type": "node",
+  "id": 14247028501,
+  "lat": 24.7060736,
+  "lon": 35.0853405,
+  "tags": {
+    "amenity": "atm",
+    "brand": "National Bank of Egypt",
+    "brand:ar": "البنك الأهلي المصري",
+    "brand:en": "National Bank of Egypt",
+    "brand:wikidata": "Q4119563",
+    "level": "1",
+    "operator": "National Bank of Egypt",
+    "operator:wikidata": "Q4119563"
+  }
+},
+{
+  "type": "node",
+  "id": 14301357843,
+  "lat": 30.0445442,
+  "lon": 31.3395202,
+  "tags": {
+    "amenity": "atm",
+    "brand": "Arab African International Bank",
+    "brand:ar": "البنك العربي الإفريقي الدولي",
+    "brand:en": "Arab African International Bank",
+    "brand:wikidata": "Q12184644",
+    "currency:EGP": "yes",
+    "operator": "Arab African International Bank",
+    "operator:wikidata": "Q12184644",
+    "website": "https://www.aaib.com/"
+  }
+},
+{
+  "type": "node",
+  "id": 14316245822,
+  "lat": 29.9727943,
+  "lon": 30.9429216,
+  "tags": {
+    "amenity": "atm",
+    "branch": "فرع البنك الاهلي المصري"
+  }
+},
+{
+  "type": "node",
+  "id": 14389706091,
+  "lat": 24.5917950,
+  "lon": 32.9402920,
+  "tags": {
+    "amenity": "atm",
+    "operator": "ماكينة سحب - البنك الأهلي"
+  }
+}
+
+  ]
+}

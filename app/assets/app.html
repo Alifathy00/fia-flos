@@ -1,0 +1,1768 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="ar">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<title>فيها فلوس</title>
+<link rel="stylesheet" href="leaflet/leaflet.css">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
+  html, body { height: 100%; font-family: "Segoe UI", Tahoma, Arial, sans-serif; background: #f4f7f4; color: #1f2a24; }
+  #map { position: absolute; top: 56px; bottom: 66px; left: 0; right: 0; z-index: 1; }
+  .icon { width: 20px; height: 20px; vertical-align: middle; flex: none; }
+  .icon-lg { width: 26px; height: 26px; }
+  .icon-sm { width: 13px; height: 13px; }
+
+  .topbar {
+    position: absolute; top: 0; left: 0; right: 0; height: 56px; z-index: 500;
+    background: #128C4B; color: #fff; display: flex; align-items: center;
+    padding: 0 12px; gap: 8px; box-shadow: 0 2px 8px rgba(0,0,0,.2);
+  }
+  .topbar .brand { display: flex; align-items: center; gap: 10px; min-width: 0; }
+  .topbar .brand img { width: 32px; height: 32px; flex: none; display: block; }
+  .topbar .brand .bname { font-size: 19px; font-weight: 700; line-height: 1; white-space: nowrap; }
+
+  #dock {
+    position: absolute; bottom: 0; left: 0; right: 0; height: 66px; z-index: 600;
+    background: #fff; display: flex; align-items: stretch; box-shadow: 0 -2px 10px rgba(0,0,0,.12);
+  }
+  #dock button {
+    flex: 1; border: none; background: none; font-family: inherit; color: #5f6f66;
+    display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 3px;
+    font-size: 11px; font-weight: 600; cursor: pointer;
+  }
+  #dock button .icon { width: 22px; height: 22px; }
+  #dock button.active { color: #128C4B; }
+  #dock .dock-add {
+    width: 54px; height: 54px; border-radius: 50%; background: #128C4B; color: #fff;
+    align-self: center; margin: 0 4px; box-shadow: 0 3px 10px rgba(0,0,0,.3);
+  }
+  #dock .dock-add .icon { width: 26px; height: 26px; }
+
+  #loadBanner {
+    position: absolute; top: 172px; right: 12px; left: 12px; z-index: 650;
+    border-radius: 14px; padding: 11px 14px; font-size: 13px; font-weight: 600;
+    box-shadow: 0 2px 8px rgba(0,0,0,.15); display: none;
+    align-items: center; gap: 8px;
+  }
+  #loadBanner.show { display: flex; }
+  #loadBanner.loading { background: #e8f0fe; color: #174ea6; }
+  #loadBanner.error { background: #fbe7e6; color: #a50e0e; }
+  #loadBanner .btxt { flex: 1; line-height: 1.6; }
+  #loadBanner button {
+    border: none; border-radius: 10px; padding: 7px 12px; font-family: inherit;
+    font-size: 12px; font-weight: 700; background: #fff; color: inherit; box-shadow: 0 1px 3px rgba(0,0,0,.15);
+  }
+  .leaflet-control-attribution { font-size: 9px !important; opacity: .75; }
+  .leaflet-tile { filter: saturate(.72) brightness(1.04); }
+
+  .fab {
+    position: absolute; z-index: 600; border: none; border-radius: 50%;
+    box-shadow: 0 3px 10px rgba(0,0,0,.3); display: flex; align-items: center; justify-content: center;
+    font-family: inherit; cursor: pointer; color: #1f2a24;
+  }
+  #fabLoc { bottom: 82px; left: 16px; width: 46px; height: 46px; background: #fff; }
+
+  .me {
+    width: 18px; height: 18px; border-radius: 50%; background: #1c73d1;
+    border: 3px solid #fff; box-shadow: 0 0 0 4px rgba(28,115,209,.25);
+  }
+
+  .sheet {
+    position: absolute; left: 0; right: 0; bottom: 0; z-index: 700;
+    background: #fff; border-radius: 20px 20px 0 0; box-shadow: 0 -4px 20px rgba(0,0,0,.25);
+    padding: 16px; max-height: 75%; overflow-y: auto; display: none;
+  }
+  .sheet.open { display: block; }
+  .sheet h2 { font-size: 18px; margin-bottom: 12px; color: #128C4B; display: flex; align-items: center; gap: 8px; }
+  .sheet input[type=text], .sheet input[type=email], .sheet input[type=password] {
+    width: 100%; padding: 12px; border: 1px solid #cfd8d3; border-radius: 12px;
+    font-size: 15px; font-family: inherit; margin-bottom: 10px;
+  }
+  .sheet .row { display: flex; gap: 8px; margin-bottom: 10px; flex-wrap: wrap; }
+  .sheet .row .chipbtn {
+    flex: 1; min-width: 120px; padding: 10px; border-radius: 12px; border: 1px solid #cfd8d3;
+    background: #f4f7f4; font-size: 14px; font-weight: 600; font-family: inherit; text-align: center;
+    display: inline-flex; align-items: center; justify-content: center; gap: 6px; color: #1f2a24;
+  }
+  .sheet .row .chipbtn.active { background: #e3f4ea; border-color: #128C4B; color: #128C4B; }
+  .sheet .locstate { font-size: 13px; color: #5f6f66; margin-bottom: 10px; }
+  .sheet .photo-preview { width: 100%; max-height: 180px; object-fit: cover; border-radius: 12px; margin-bottom: 10px; display: none; }
+  .sheet .actions { display: flex; gap: 8px; }
+  .sheet .actions button { flex: 1; padding: 13px; border-radius: 12px; border: none; font-size: 16px; font-weight: 700; font-family: inherit; }
+  .btn-primary { background: #128C4B; color: #fff; }
+  .btn-muted { background: #eef1ef; color: #44504a; }
+  .hidden-input { display: none; }
+  .explain { font-size: 14px; line-height: 1.9; color: #44504a; }
+
+  #listPanel {
+    position: absolute; top: 56px; bottom: 66px; left: 0; right: 0; z-index: 650;
+    background: #f4f7f4; overflow-y: auto; padding: 12px; display: none;
+  }
+  #listPanel.open { display: block; }
+  .atm-card {
+    background: #fff; border-radius: 16px; padding: 12px; margin-bottom: 10px;
+    display: flex; gap: 10px; align-items: center; box-shadow: 0 1px 4px rgba(0,0,0,.08);
+  }
+  .atm-card img { width: 64px; height: 64px; border-radius: 12px; object-fit: cover; background: #e7ece9; }
+  .atm-card .nophoto { width: 64px; height: 64px; border-radius: 12px; background: #e7ece9; display: flex; align-items: center; justify-content: center; color: #5f6f66; }
+  .atm-card .info { flex: 1; min-width: 0; }
+  .atm-card .name { font-weight: 700; font-size: 15px; margin-bottom: 4px; }
+  .atm-card .meta { font-size: 12px; color: #5f6f66; }
+  .status-chip { display: inline-flex; align-items: center; gap: 5px; padding: 3px 10px; border-radius: 20px; font-size: 12px; font-weight: 700; }
+  .status-chip::before { content: ""; width: 8px; height: 8px; border-radius: 50%; display: inline-block; }
+  .st-full { background: #e3f4ea; color: #128C4B; }
+  .st-full::before { background: #128C4B; }
+  .st-empty { background: #fdf0dc; color: #b26a00; }
+  .st-empty::before { background: #d97706; }
+  .st-broken { background: #fbe7e6; color: #d64541; }
+  .st-broken::before { background: #d64541; }
+  .st-unknown { background: #eef1ef; color: #5f6f66; }
+  .st-unknown::before { background: #9aa0a6; }
+
+  .popup { text-align: center; min-width: 210px; font-family: inherit; }
+  .popup img { width: 100%; max-height: 140px; object-fit: cover; border-radius: 10px; margin-bottom: 8px; }
+  .popup .pname { font-weight: 700; font-size: 15px; margin-bottom: 4px; }
+  .popup .ptime { font-size: 11px; color: #5f6f66; margin: 6px 0; }
+  .popup .pcounts { font-size: 11px; color: #5f6f66; margin-bottom: 8px; }
+  .popup .pbtns { display: flex; gap: 5px; margin-bottom: 6px; }
+  .popup .pbtns button {
+    flex: 1; padding: 9px 2px; border-radius: 10px; border: none;
+    font-size: 12px; font-weight: 700; font-family: inherit; cursor: pointer;
+    display: inline-flex; align-items: center; justify-content: center; gap: 4px; color: #fff;
+  }
+  .popup .btn-full { background: #1faa59; }
+  .popup .btn-empty { background: #d97706; }
+  .popup .btn-broken { background: #d64541; }
+  .popup .pdel { font-size: 11px; color: #9aa0a6; background: none; border: none; text-decoration: underline; font-family: inherit; }
+
+  .empty-hint {
+    position: absolute; top: 172px; right: 12px; left: 12px; z-index: 550;
+    background: rgba(255,255,255,.95); border-radius: 14px; padding: 12px 14px;
+    font-size: 13px; color: #44504a; box-shadow: 0 2px 8px rgba(0,0,0,.12); display: none;
+  }
+  .empty-hint.show { display: block; }
+
+  .addhint {
+    position: absolute; top: 172px; right: 12px; left: 12px; z-index: 550;
+    background: #128C4B; color: #fff; border-radius: 14px; padding: 12px 14px;
+    font-size: 14px; font-weight: 600; box-shadow: 0 2px 8px rgba(0,0,0,.2); display: none; text-align: center;
+  }
+  .addhint.show { display: block; }
+
+  #toast {
+    position: absolute; bottom: 150px; right: 50%; transform: translateX(50%); z-index: 900;
+    background: #26332c; color: #fff; padding: 10px 18px; border-radius: 24px;
+    font-size: 14px; display: none; white-space: nowrap; max-width: 92%;
+    overflow: hidden; text-overflow: ellipsis;
+  }
+  .leaflet-popup-content-wrapper { border-radius: 14px; }
+  html[dir=rtl] .leaflet-popup-content-wrapper { direction: rtl; }
+  html[dir=ltr] .leaflet-popup-content-wrapper { direction: ltr; }
+  .langrow { display: flex; gap: 8px; margin-bottom: 12px; }
+  .langrow button {
+    flex: 1; padding: 11px; border-radius: 12px; border: 1px solid #cfd8d3;
+    background: #f4f7f4; font-size: 15px; font-weight: 700; font-family: inherit; color: #1f2a24;
+  }
+  .langrow button.active { background: #e3f4ea; border-color: #128C4B; color: #128C4B; }
+  .verline { font-size: 12px; color: #9aa0a6; text-align: center; margin-top: 10px; }
+
+  #searchWrap { position: absolute; top: 64px; right: 12px; left: 12px; z-index: 640; }
+  #searchBox {
+    display: flex; align-items: center; gap: 8px; background: #fff;
+    border-radius: 24px; padding: 10px 14px; box-shadow: 0 2px 8px rgba(0,0,0,.18);
+  }
+  #searchBox > svg { flex: none; color: #5f6f66; }
+  #searchInput { flex: 1; min-width: 0; border: none; outline: none; font-family: inherit; font-size: 14px; background: transparent; color: #1f2a24; }
+  #searchClear { display: none; border: none; background: none; font-size: 15px; color: #9aa0a6; padding: 0 2px; font-family: inherit; }
+  #searchResults {
+    display: none; margin-top: 6px; background: #fff; border-radius: 14px;
+    box-shadow: 0 2px 10px rgba(0,0,0,.2); max-height: 280px; overflow-y: auto;
+  }
+  #searchResults .sr-item { display: flex; align-items: center; gap: 10px; padding: 11px 14px; border-bottom: 1px solid #eef1ef; cursor: pointer; }
+  #searchResults .sr-item:last-child { border-bottom: none; }
+  #searchResults .sr-ic { flex: none; color: #128C4B; display: flex; }
+  #searchResults .sr-tx { flex: 1; min-width: 0; }
+  #searchResults .sr-name { display: block; font-size: 14px; font-weight: 700; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  #searchResults .sr-meta { display: block; font-size: 11px; color: #5f6f66; }
+  #searchResults .sr-none { padding: 12px 14px; font-size: 13px; color: #5f6f66; }
+  #fabArea {
+    position: absolute; top: 122px; right: 50%; transform: translateX(50%); z-index: 630;
+    border: none; border-radius: 22px; background: #fff; color: #128C4B;
+    font-family: inherit; font-size: 13px; font-weight: 700; padding: 9px 16px;
+    box-shadow: 0 2px 8px rgba(0,0,0,.2); display: none; align-items: center; gap: 6px;
+    white-space: nowrap;
+  }
+  #fabArea.show { display: flex; }
+  .loc-h { font-size: 15px; color: #128C4B; margin: 14px 0 6px; }
+  .loclinks { display: flex; flex-direction: column; gap: 8px; margin: 10px 0 4px; }
+  .loclinks .loc-link {
+    display: flex; align-items: center; gap: 8px; padding: 11px 12px; border-radius: 12px;
+    border: 1px solid #cfd8d3; background: #f4f7f4; font-size: 14px; font-weight: 700;
+    font-family: inherit; color: #128C4B; text-align: start; width: 100%;
+  }
+  .loclinks .loc-link .ll-arr { margin-inline-start: auto; color: #9aa0a6; }
+  .leaflet-popup-content { margin: 12px; }
+
+  /* v1.9: spaced, responsive map-first interface */
+  :root { --green:#087d53; --ink:#183c30; }
+  html,body { background:#edf5f0; color:var(--ink); }
+  #map { top:0; bottom:0; }
+  .topbar { top:10px; left:12px; right:12px; height:72px; border-radius:24px; padding:10px 12px;
+    background:linear-gradient(115deg,#07543e,#0b8057); gap:10px; box-shadow:0 8px 28px #063d3029; justify-content:space-between; }
+  .topbar .brand { flex:1; min-width:0; gap:9px; }
+  .topbar .brand img { width:44px; height:44px; border-radius:15px; }
+  .brand-copy { display:flex; flex-direction:column; gap:5px; min-width:0; }
+  .topbar .brand .bname { font-size:18px; line-height:1.25; overflow:hidden; text-overflow:ellipsis; }
+  .brand-tagline { font-size:10px; color:#c6ebda; white-space:nowrap; }
+  #refreshData { flex:none; max-width:112px; min-height:44px; border:1px solid #ffffff35; border-radius:15px;
+    background:#ffffff18; color:#fff; padding:8px 10px; font-family:inherit; font-size:12px; font-weight:700; white-space:nowrap; }
+  #refreshData::before { content:'↻'; display:inline-block; font-size:19px; vertical-align:middle; margin-inline-end:5px; line-height:1; }
+  #refreshData:disabled::before { animation:turn 1.2s linear infinite; }
+  #refreshData:disabled { opacity:.7; }
+  #searchWrap { top:94px; left:14px; right:14px; }
+  #searchBox { border-radius:18px; min-height:50px; padding:12px 15px; border:1px solid #e0ece4; box-shadow:0 6px 22px #143f2518; }
+  #searchResults { border-radius:18px; border:1px solid #e2ede7; }
+  #fabArea { top:154px; background:#075e43; color:#fff; border:1px solid #ffffff80; box-shadow:0 5px 18px #123e312a; }
+  #loadBanner,.empty-hint,.addhint { top:202px; border-radius:18px; line-height:1.7; }
+  #dock { bottom:12px; left:12px; right:12px; height:72px; border-radius:24px; padding:5px;
+    background:#fffffff5; border:1px solid #e3ece6; box-shadow:0 8px 32px #113f3022; }
+  #dock button { border-radius:18px; font-size:10px; gap:5px; flex:1 1 0; min-width:0; }
+  #dock button.active { background:#e9f5ee; color:#087d53; }
+  #dock .dock-add { flex:0 0 52px; width:52px; height:52px; border-radius:18px; margin:0 5px;
+    background:linear-gradient(135deg,#0e9665,#076a4b); box-shadow:0 5px 12px #087d5333; color:#fff; }
+  #fabLoc { bottom:103px; left:16px; width:48px; height:48px; border-radius:17px; border:1px solid #e4ede7; }
+  .leaflet-bottom { bottom:94px; }
+  .leaflet-control-attribution { background:#ffffffe0!important; border-radius:6px; padding:2px 5px!important; }
+  #listPanel { top:88px; bottom:96px; padding:14px; background:#f0f6f2; border-radius:24px; margin:0 8px; }
+  .atm-card { border:1px solid #e1ece5; border-radius:20px; padding:14px; box-shadow:0 4px 14px #183e3010; }
+  .sheet { border-radius:28px 28px 0 0; padding:24px 20px 28px; box-shadow:0 -12px 48px #173c3028; }
+  .sheet::before { content:''; display:block; width:38px; height:4px; border-radius:4px; background:#cfddd4; margin:-12px auto 20px; }
+  .sheet.open { animation:sheet-in .23s ease-out; }
+  .sheet h2 { color:#087d53; margin-bottom:18px; font-size:20px; }
+  .sheet input[type=text],.sheet input[type=email],.sheet input[type=password] { background:#f7faf8; border-color:#dce8df; border-radius:15px; }
+  .sheet .actions button,.langrow button,.sheet .row .chipbtn { border-radius:15px; }
+  .btn-primary { background:linear-gradient(120deg,#0b895d,#076b4c); }
+  .leaflet-popup-content-wrapper { border-radius:22px; box-shadow:0 8px 32px #173c3030; }
+  #toast { bottom:105px; white-space:normal; text-align:center; line-height:1.6; width:max-content; border-radius:18px; box-shadow:0 6px 22px #173c3033; }
+  button { transition:transform .16s,background-color .16s,box-shadow .16s; cursor:pointer; }
+  button:active { transform:scale(.96); }
+  button:focus-visible,input:focus-visible { outline:3px solid #69bca0; outline-offset:2px; }
+  @keyframes sheet-in { from { opacity:0; transform:translateY(24px); } to { opacity:1; transform:translateY(0); } }
+  @keyframes turn { to { transform:rotate(360deg); } }
+  @media(max-width:340px) { .topbar { left:8px; right:8px; padding:10px; gap:6px; } .topbar .brand img { width:38px;height:38px; } .topbar .brand .bname { font-size:16px; } #refreshData { font-size:11px; padding:8px; } .brand-tagline { font-size:9px; } }
+  @media(prefers-reduced-motion:reduce) { *,*::before { animation:none!important; transition:none!important; } }
+
+
+  /* ===== Liquid glass (iOS-style) ===== */
+  :root { --glass: rgba(255,255,255,.42); --glass-strong: rgba(255,255,255,.62); --glass-edge: rgba(255,255,255,.75); --glass-shadow: 0 8px 32px rgba(20,60,45,.18), inset 0 1px 0 rgba(255,255,255,.9), inset 0 -1px 0 rgba(255,255,255,.25); }
+  .topbar, #dock, #searchBox, #searchResults, .sheet, #fabLoc, #loadBanner, .atm-card, #listPanel, .leaflet-popup-content-wrapper {
+    background: var(--glass) !important;
+    -webkit-backdrop-filter: blur(22px) saturate(180%); backdrop-filter: blur(22px) saturate(180%);
+    border: 1px solid var(--glass-edge) !important; box-shadow: var(--glass-shadow) !important;
+  }
+  .topbar { color: #0b3d2a !important; border-radius: 28px !important; }
+  .topbar .brand .bname, .topbar .brand-tagline { color: #0b3d2a !important; }
+  #refreshData { background: rgba(255,255,255,.55) !important; color: #0b6b47 !important; border: 1px solid rgba(255,255,255,.8) !important; border-radius: 999px !important; backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); box-shadow: inset 0 1px 0 #fff; }
+  #dock { border-radius: 32px !important; background: var(--glass-strong) !important; }
+  #dock button { color: #3f5a4d !important; transition: transform .18s ease, background .18s ease; }
+  #dock button:active { transform: scale(.92); }
+  #dock button.active { background: rgba(255,255,255,.7) !important; color: #0a7a52 !important; border-radius: 24px !important; box-shadow: inset 0 1px 0 #fff, 0 2px 10px rgba(10,122,82,.18); }
+  #dock .dock-add { background: linear-gradient(145deg, rgba(40,190,120,.95), rgba(12,130,85,.95)) !important; color: #fff !important; border: 1px solid rgba(255,255,255,.6) !important; border-radius: 50% !important; box-shadow: 0 6px 18px rgba(10,122,82,.45), inset 0 1px 0 rgba(255,255,255,.6) !important; }
+  #searchBox { border-radius: 26px !important; }
+  #searchResults { border-radius: 22px !important; }
+  #searchResults .sr-item { border-bottom: 1px solid rgba(255,255,255,.5) !important; }
+  #fabLoc { border-radius: 50% !important; }
+  .sheet { border-radius: 32px 32px 0 0 !important; background: var(--glass-strong) !important; -webkit-backdrop-filter: blur(30px) saturate(190%); backdrop-filter: blur(30px) saturate(190%); }
+  .sheet::before { background: rgba(60,80,70,.28) !important; }
+  .sheet input[type=text], .sheet input[type=email], .sheet input[type=password] { background: rgba(255,255,255,.55) !important; border: 1px solid rgba(255,255,255,.85) !important; border-radius: 18px !important; box-shadow: inset 0 1px 3px rgba(0,0,0,.06); }
+  .sheet .row .chipbtn { background: rgba(255,255,255,.5) !important; border: 1px solid rgba(255,255,255,.85) !important; border-radius: 18px !important; transition: transform .15s; }
+  .sheet .row .chipbtn:active, .btn-primary:active, .btn-muted:active { transform: scale(.96); }
+  .btn-primary { background: linear-gradient(145deg, #2dbd7a, #0d8456) !important; border-radius: 999px !important; box-shadow: 0 6px 16px rgba(13,132,86,.35), inset 0 1px 0 rgba(255,255,255,.45); }
+  .btn-muted { background: rgba(255,255,255,.6) !important; border-radius: 999px !important; }
+  #listPanel { border-radius: 30px !important; background: rgba(255,255,255,.3) !important; }
+  .atm-card { border-radius: 24px !important; background: rgba(255,255,255,.55) !important; }
+  .popup .pbtns button { border-radius: 999px !important; }
+  .leaflet-popup-content-wrapper { border-radius: 24px !important; background: rgba(255,255,255,.7) !important; }
+  .leaflet-popup-tip { background: rgba(255,255,255,.7) !important; }
+  #loadBanner.loading { background: rgba(232,240,254,.6) !important; }
+  #loadBanner.error { background: rgba(251,231,230,.65) !important; }
+  .leaflet-tile { filter: saturate(.85) brightness(1.05); }
+  #updBar { backdrop-filter: blur(20px); }
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="brand"><img src="logo.png" alt=""><div class="brand-copy"><span class="bname" id="brandName">فيها فلوس</span><span class="brand-tagline" id="brandTagline">ماكينات قريبة • بلاغات الناس</span></div></div>
+  <button id="refreshData">تحديث البيانات</button>
+</div>
+
+<div id="loadBanner"><span class="btxt" id="loadBannerTxt"></span><button id="loadBannerBtn"></button></div>
+
+<div id="map"></div>
+
+<div id="searchWrap">
+  <div id="searchBox">
+    <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.5" y2="16.5"/></svg>
+    <input type="text" id="searchInput" autocomplete="off">
+    <button id="searchClear" title="">✕</button>
+  </div>
+  <div id="searchResults"></div>
+</div>
+<button id="fabArea"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.5" y2="16.5"/></svg><span id="fabAreaLbl">ابحث في المنطقة دي</span></button>
+
+<div class="empty-hint" id="emptyHint">
+  <span id="emptyHintTxt">لسه مفيش ماكينات ATM هنا. دوس على زر الإضافة تحت وأضف أول ماكينة جنبك، أو </span><a href="#" id="linkLoadOsm" style="color:#128C4B; font-weight:700">حدّث الماكينات القريبة</a>.
+</div>
+
+<div class="addhint" id="addHint">دوس على أي نقطة في الخريطة عشان تحدد مكان المكنة</div>
+
+<button class="fab" id="fabLoc" title="موقعي"><svg class="icon-lg icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="7"/><circle cx="12" cy="12" r="2.5" fill="currentColor" stroke="none"/><line x1="12" y1="1" x2="12" y2="4"/><line x1="12" y1="20" x2="12" y2="23"/><line x1="1" y1="12" x2="4" y2="12"/><line x1="20" y1="12" x2="23" y2="12"/></svg></button>
+<div id="dock">
+  <button id="dockHome"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10.5 12 3l9 7.5"/><path d="M5 9.5V21h14V9.5"/></svg><span id="dockHomeLbl">الرئيسية</span></button>
+  <button id="dockList"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="9" y1="6" x2="21" y2="6"/><line x1="9" y1="12" x2="21" y2="12"/><line x1="9" y1="18" x2="21" y2="18"/><circle cx="4.5" cy="6" r="1.2" fill="currentColor" stroke="none"/><circle cx="4.5" cy="12" r="1.2" fill="currentColor" stroke="none"/><circle cx="4.5" cy="18" r="1.2" fill="currentColor" stroke="none"/></svg><span id="dockListLbl">الماكينات</span></button>
+  <button id="dockAdd" class="dock-add" title="أضف ماكينة"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
+  <button id="dockShare"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.6" y1="10.5" x2="15.4" y2="6.5"/><line x1="8.6" y1="13.5" x2="15.4" y2="17.5"/></svg><span id="dockShareLbl">مشاركة</span></button>
+  <button id="dockSettings"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .34 1.87l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.7 1.7 0 0 0-1.87-.34 1.7 1.7 0 0 0-1 1.55V21a2 2 0 1 1-4 0v-.09a1.7 1.7 0 0 0-1-1.55 1.7 1.7 0 0 0-1.87.34l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.7 1.7 0 0 0 .34-1.87 1.7 1.7 0 0 0-1.55-1H3a2 2 0 1 1 0-4h.09a1.7 1.7 0 0 0 1.55-1 1.7 1.7 0 0 0-.34-1.87l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.7 1.7 0 0 0 1.87.34h.01a1.7 1.7 0 0 0 1-1.55V3a2 2 0 1 1 4 0v.09a1.7 1.7 0 0 0 1 1.55h.01a1.7 1.7 0 0 0 1.87-.34l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a2 2 0 1 1 2.83 2.83l-.06.06a1.7 1.7 0 0 0-.34 1.87v.01a1.7 1.7 0 0 0 1.55 1H21a2 2 0 1 1 0 4h-.09a1.7 1.7 0 0 0-1.55 1z"/></svg><span id="dockSettingsLbl">الإعدادات</span></button>
+</div>
+
+<div class="sheet" id="addSheet">
+  <h2>أضف ماكينة ATM</h2>
+  <input type="text" id="atmName" placeholder="اسم البنك أو وصف المكان (اختياري)">
+  <div class="row">
+    <button class="chipbtn" id="btnPickPhoto"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8h3l2-3h6l2 3h3v12H4z"/><circle cx="12" cy="13" r="3.5"/></svg> أضف صورة للمكنة</button>
+    <input type="file" id="photoInput" accept="image/*" class="hidden-input">
+  </div>
+  <img class="photo-preview" id="photoPreview" alt="">
+  <div class="row">
+    <button class="chipbtn active" id="btnLocMe"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="7"/><circle cx="12" cy="12" r="2.5" fill="currentColor" stroke="none"/><line x1="12" y1="1" x2="12" y2="4"/><line x1="12" y1="20" x2="12" y2="23"/><line x1="1" y1="12" x2="4" y2="12"/><line x1="20" y1="12" x2="23" y2="12"/></svg> موقعي الحالي</button>
+    <button class="chipbtn" id="btnLocMap"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 4 3 6v14l6-2 6 2 6-2V4l-6 2-6-2z"/><line x1="9" y1="4" x2="9" y2="18"/><line x1="15" y1="6" x2="15" y2="20"/></svg> اختار من الخريطة</button>
+  </div>
+  <div class="locstate" id="locState">بنحدد موقعك...</div>
+  <div class="actions">
+    <button class="btn-muted" id="btnCancelAdd">إلغاء</button>
+    <button class="btn-primary" id="btnSaveAdd">حفظ المكنة</button>
+  </div>
+</div>
+
+<div class="sheet" id="syncSheet">
+  <h2><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.6" y1="10.5" x2="15.4" y2="6.5"/><line x1="8.6" y1="13.5" x2="15.4" y2="17.5"/></svg> مشاركة وبيانات</h2>
+  <div class="row">
+    <button class="chipbtn" id="btnLoadOsm"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 4 3 6v14l6-2 6 2 6-2V4l-6 2-6-2z"/><line x1="9" y1="4" x2="9" y2="18"/><line x1="15" y1="6" x2="15" y2="20"/></svg> <span id="btnLoadOsmLbl">حدّث الماكينات القريبة</span></button>
+  </div>
+  <p class="explain" style="margin-bottom:12px; font-size:12px" id="loadOsmExplain">
+    بيجيب الماكينات المعروفة على الخريطة العامة في محيط 3 كم من موقعك، وبيضيفها بدون تكرار.
+  </p>
+  <p class="explain" style="margin-bottom:12px">
+    شارك الماكينات والبلاغات اللي عندك مع صحابك: اعمل تصدير لملف البيانات، ابعته في واتساب، وهما يعملوا استيراد من عندهم. كده الكل يشوف نفس الماكينات من غير أي حسابات.
+  </p>
+  <div class="row">
+    <button class="chipbtn" id="btnExport"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 15V3"/><path d="M7 8l5-5 5 5"/><path d="M4 15v4a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-4"/></svg> تصدير بياناتي</button>
+    <button class="chipbtn" id="btnImport"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12"/><path d="M7 10l5 5 5-5"/><path d="M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2"/></svg> استيراد من ملف</button>
+    <input type="file" id="importInput" accept=".json,application/json" class="hidden-input">
+  </div>
+  <div class="actions" style="margin-top:6px">
+    <button class="btn-muted" id="btnCloseSync">رجوع</button>
+  </div>
+</div>
+
+<div class="sheet" id="settingsSheet">
+  <h2 id="settingsTitle">الإعدادات</h2>
+  <p id="dataRefreshState" class="explain" style="font-size:12px"></p><div id="accBox">
+    <h3 id="accTitle">الحساب والمزامنة</h3>
+    <p class="explain" id="accExplain"></p>
+    <p class="explain" id="accOff" style="display:none"></p>
+    <div id="accOut">
+      <input type="email" id="accEmail" autocomplete="email">
+      <input type="password" id="accPass" autocomplete="current-password">
+      <div class="row">
+        <button class="chipbtn" id="btnLogin">دخول</button>
+        <button class="chipbtn" id="btnSignup">إنشاء حساب</button>
+      </div>
+    </div>
+    <div id="accIn" style="display:none">
+      <p class="explain" id="accWho"></p>
+      <div class="row">
+        <button class="chipbtn" id="btnSyncNow">مزامنة دلوقتي</button>
+        <button class="chipbtn" id="btnLogout">تسجيل الخروج</button>
+      </div>
+    </div>
+    <p class="explain" id="accMsg"></p>
+  </div>
+  <div class="langrow">
+    <button id="langAr">العربية</button>
+    <button id="langEn">English</button>
+  </div>
+  <div class="row">
+    <button class="chipbtn" id="btnAbout2">عن التطبيق</button>
+  </div>
+  <div class="verline" id="verLine">الإصدار 2.2.1</div>
+  <div class="actions" style="margin-top:12px">
+    <button class="btn-muted" id="btnCloseSettings">رجوع</button>
+  </div>
+</div>
+
+<div class="sheet" id="aboutSheet">
+  <h2>عن تطبيق فيها فلوس</h2>
+  <p class="explain">
+    «فيها فلوس» بيساعدك تلاقي أقرب ماكينة ATM فيها كاش.
+    الخريطة بتوضحلك الماكينات اللي حواليك، وأي حد يقدر يضيف ماكينة جديدة بمكانها وصورتها.
+    لو ماكينة خلصت منها الفلوس بلّغ «فاضية»، ولو فيها عطل بلّغ «عطلانه»، ولما ترجع تشتغل وتتملي بلّغ «اتملت».
+    حالة كل ماكينة هي آخر بلاغ من المستخدمين ووقت البلاغ، مش ضمان إن الحالة لسه زي ما هي. الماكينة اللي مفيش عنها بلاغات بتظهر رمادية «غير معروفة».
+  </p>
+  <h3 class="loc-h" id="locTitle"></h3>
+  <p class="explain" id="locExplain" style="font-size:13px"></p>
+  <div class="loclinks"><button class="loc-link" data-url="https://www.geonames.org/">GeoNames · إحداثيات المناطق</button><button class="loc-link" data-url="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0 · ترخيص المناطق</button>
+    <button class="loc-link" data-url="https://www.banquemisr.com/ABOUT-US/Locations"><span>بنك مصر · Banque Misr</span><span class="ll-arr">↗</span></button>
+    <button class="loc-link" data-url="https://www.cibeg.com/en/branch-and-atm-finder"><span>البنك التجاري الدولي · CIB</span><span class="ll-arr">↗</span></button>
+    <button class="loc-link" data-url="https://www.bdc.com.eg/bdcwebsite/find-atm.html"><span>بنك القاهرة · Banque du Caire</span><span class="ll-arr">↗</span></button>
+  </div>
+  <div class="actions" style="margin-top:12px">
+    <button class="btn-primary" id="btnCloseAbout">تمام</button>
+  </div>
+</div>
+
+<div id="listPanel"></div>
+<div id="toast"></div>
+
+<script src="leaflet/leaflet.js"></script>
+<script>
+(function () {
+  var hasBridge = (typeof window.AndroidBridge !== 'undefined');
+
+  var ICON_ATM = '<svg class="icon-lg icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="6" width="19" height="12" rx="2.5"/><circle cx="12" cy="12" r="3"/><line x1="6" y1="9.5" x2="6" y2="14.5"/><line x1="18" y1="9.5" x2="18" y2="14.5"/></svg>';
+
+  // Status pin SVGs: pin shape in status color + white symbol
+  function pinSvg(color, inner) {
+    return '<svg width="30" height="42" viewBox="0 0 32 44">' +
+      '<path d="M16 1.5 C8.5 1.5 2.5 7.5 2.5 15 C2.5 25.5 16 42 16 42 C16 42 29.5 25.5 29.5 15 C29.5 7.5 23.5 1.5 16 1.5 Z" fill="' + color + '" stroke="#fff" stroke-width="2"/>' +
+      inner + '</svg>';
+  }
+  var PIN_INNER = {
+    full: '<path d="M9.5 15.5 l4.5 4.5 L22.5 10.5" stroke="#fff" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>',
+    empty: '<rect x="8" y="10.5" width="16" height="10" rx="2" stroke="#fff" stroke-width="2" fill="none"/>' +
+           '<circle cx="16" cy="15.5" r="2.4" stroke="#fff" stroke-width="1.8" fill="none"/>' +
+           '<line x1="8.5" y1="21.5" x2="23.5" y2="9.5" stroke="#fff" stroke-width="2.6" stroke-linecap="round"/>',
+    broken: '<path d="M10.5 10.5 L21.5 21.5 M21.5 10.5 L10.5 21.5" stroke="#fff" stroke-width="3" stroke-linecap="round"/>',
+    unknown: '<text x="16" y="20.5" font-size="17" font-weight="bold" fill="#fff" text-anchor="middle" font-family="sans-serif">؟</text>',
+    newpin: '<circle cx="16" cy="15" r="5" fill="#fff"/>'
+  };
+  var PIN_COLOR = { full: '#1faa59', empty: '#d97706', broken: '#d64541', unknown: '#9aa0a6', newpin: '#1c73d1' };
+  function pinIcon(st) {
+    return L.divIcon({
+      className: '',
+      html: pinSvg(PIN_COLOR[st] || PIN_COLOR.unknown, PIN_INNER[st] || PIN_INNER.unknown),
+      iconSize: [30, 42],
+      iconAnchor: [15, 41],
+      popupAnchor: [0, -38]
+    });
+  }
+
+  var DB = { atms: [] };
+  try {
+    var raw = hasBridge ? window.AndroidBridge.loadDb() : localStorage.getItem('feihaflous_db');
+    if (raw) {
+      var parsed = JSON.parse(raw);
+      if (parsed && parsed.atms) DB = parsed;
+    }
+  } catch (e) {}
+
+  function saveDb() {
+    var json = JSON.stringify(DB);
+    try {
+      if (hasBridge) window.AndroidBridge.saveDb(json);
+      else localStorage.setItem('feihaflous_db', json);
+    } catch (e) {}
+  }
+
+  // ---------- Language ----------
+  var STR = {
+    ar: {
+      brand: 'فيها فلوس', dockHome: 'الرئيسية', dockList: 'الماكينات', dockShare: 'مشاركة', dockSettings: 'الإعدادات',
+      settingsTitle: 'الإعدادات', aboutBtn: 'عن التطبيق', backBtn: 'رجوع', version: 'الإصدار 2.2.1',
+      searchPh: 'دوّر على بنك أو منطقة...', searchNoRes: 'مفيش نتائج مطابقة، جرّب اسم بنك أو منطقة تانية',
+      areaBtn: 'ابحث هنا · حتى 3 كم', srPlace: 'منطقة',
+      locTitle: 'مواقع ماكينات البنوك الرسمية',
+      locExplain: 'محددات مواقع البنوك للمراجعة مباشرة. بتفتح في المتصفح بره التطبيق، ومش ضمان لتغطية كاملة أو لتوافر الكاش. بحث المناطق محلي لقائمة محدودة. إحداثيات المناطق: GeoNames، بترخيص CC BY 4.0.',
+      noLoc: 'مش قادرين نحدد موقعك لسه، فبنعرض ماكينات منطقة تانية مؤقتاً. فعّل الـGPS واسمح للتطبيق بالموقع عشان تظهر الماكينات اللي حواليك.',
+      locBtn: 'تحديد موقعي',
+      accTitle: 'الحساب والمزامنة',
+      accExplain: 'مش محتاج حساب عشان تشوف الماكينات وبلاغات الناس. لازم حساب عشان تضيف ماكينة أو تبلّغ عن حالتها، عشان نعرف مين عمل إيه.',
+      accOff: 'المزامنة مش متاحة في النسخة دي.',
+      accEmailPh: 'البريد الإلكتروني', accPassPh: 'كلمة السر',
+      accLogin: 'دخول', accSignup: 'إنشاء حساب', accLogout: 'تسجيل الخروج', accSyncNow: 'مزامنة دلوقتي',
+      accLoggedAs: 'مسجل دخولك كـ', accWorking: 'لحظة...', accSyncing: 'بنزامن بياناتك...',
+      accSyncOk: 'اتزامنت بياناتك ✓', accSyncErr: 'المزامنة فشلت، حاول تاني',
+      accErrFill: 'اكتب الإيميل وكلمة السر الأول',
+      accErrExists: 'الإيميل ده مسجل قبل كده، جرّب «دخول»',
+      accErrCreds: 'الإيميل أو كلمة السر غلط',
+      accErrWeak: 'كلمة السر لازم تكون ٦ حروف على الأقل',
+      accErrEmail: 'الإيميل ده مش صحيح',
+      accErrNet: 'مفيش اتصال، تأكد من النت وحاول تاني',
+      accErrSession: 'جلسة دخولك انتهت، سجّل دخول تاني وهتتزامن بياناتك',
+      emptyHint: 'لسه مفيش ماكينات ATM هنا. دوس على زر الإضافة تحت وأضف أول ماكينة جنبك، أو ',
+      emptyHintLink: 'حدّث الماكينات القريبة',
+      addHint: 'دوس على أي نقطة في الخريطة عشان تحدد مكان المكنة',
+      addTitle: 'أضف ماكينة ATM', atmNamePh: 'اسم البنك أو وصف المكان (اختياري)',
+      pickPhoto: 'أضف صورة للمكنة', locMe: 'موقعي الحالي', locMap: 'اختار من الخريطة',
+      cancel: 'إلغاء', save: 'حفظ المكنة',
+      syncTitle: 'مشاركة وبيانات', loadOsmLbl: 'حدّث الماكينات القريبة',
+      loadOsmExplain: 'بيجيب الماكينات المعروفة على الخريطة العامة في محيط 3 كم من موقعك، وبيضيفها بدون تكرار.',
+      syncExplain: 'شارك الماكينات والبلاغات اللي عندك مع صحابك: اعمل تصدير لملف البيانات، ابعته في واتساب، وهما يعملوا استيراد من عندهم. كده الكل يشوف نفس الماكينات من غير أي حسابات.',
+      exportBtn: 'تصدير بياناتي', importBtn: 'استيراد من ملف',
+      aboutTitle: 'عن تطبيق فيها فلوس',
+      aboutText: '«فيها فلوس» بيساعدك تلاقي أقرب ماكينة ATM فيها كاش. الخريطة بتوضحلك الماكينات اللي حواليك، وأي حد يقدر يضيف ماكينة جديدة بمكانها وصورتها. لو ماكينة خلصت منها الفلوس بلّغ «فاضية»، ولو فيها عطل بلّغ «عطلانه»، ولما ترجع تشتغل وتتملي بلّغ «اتملت». حالة كل ماكينة هي آخر بلاغ من المستخدمين ووقت البلاغ، مش ضمان إن الحالة لسه زي ما هي. الماكينة اللي مفيش عنها بلاغات بتظهر رمادية «غير معروفة».',
+      okBtn: 'تمام',
+      stFull: 'فيها فلوس', stEmpty: 'فاضية', stBroken: 'عطلانه', stUnknown: 'غير معروفة',
+      atmDefault: 'ماكينة ATM', lastReport: 'آخر بلاغ: ', lastReportIn: ' · آخر بلاغ ',
+      cFull: 'اتملت', cEmpty: 'فاضية', cBroken: 'عطلانه',
+      delAtm: 'حذف المكنة', confirmDel: 'متأكد إنك عايز تحذف المكنة دي؟', deleted: 'اتحذفت',
+      toastFull: 'سجلنا إنها اتملت', toastEmpty: 'سجلنا إنها فاضية', toastBroken: 'سجلنا إنها عطلانه',
+      atmSaved: 'اتسجلت المكنة. شكراً!', pickFirst: 'حدد مكان المكنة الأول',
+      locWait: 'بنحدد موقعك... لو اتأخر، اختار المكان من الخريطة.', locTap: 'دوس على الخريطة عشان تحدد المكان', locAt: 'المكان: ',
+      locErr: 'مش قادر نحدد موقعك. فعّل الـ GPS واسمح للتطبيق باستخدام الموقع.', locating: 'بنحاول نحدد موقعك...',
+      listEmpty: 'مفيش ماكينات لسه.<br>دوس زر الإضافة وأضف أول ماكينة',
+      fromMap: ' · من الخريطة',
+      exportOk: 'اتحفظ الملف: ', exportFail: 'معرفناش نحفظ الملف', exportDl: 'اتنزّل ملف البيانات',
+      importEmpty: 'الملف مفيهوش ماكينات', importBad: 'الملف ده مش ملف بيانات صح',
+      importOk: 'الاستيراد تم: {n} ماكينة جديدة', importMerged: '، وتحديث {m}',
+      osmAdded: 'اتضافت {n} ماكينة من الخريطة', osmNone: 'مفيش ماكينات جديدة في المنطقة دي',
+      osmParseErr: 'حصلت مشكلة في قراءة بيانات الخريطة',
+      loading: 'بنحمّل الماكينات القريبة...', loadingSlow: 'لسه بنحمّل، السيرفر بطيء شوية. ممكن تستنى أو تدوس «حدِّث الماكينات القريبة» بعد شوية.',
+      errNet: 'المعذرة، تحميل الماكينات من الخريطة العامة مش شغال دلوقتي. لو في مكن محفوظ عندك هيفضل ظاهر، تقدر تحاول تاني بزر التحديث.',
+      cacheShowing: 'بنعرض آخر نسخة محفوظة من الماكينات وبنحدّثها في الخلفية...',
+      cacheStale: 'لسه مفيش تحديث من سيرفر الخريطة، والماكينات المحفوظة ظاهرة زي ما هي.',
+      seedShowing: 'بنعرض نسخة أولية من بيانات OpenStreetMap لحد ما يتم التحديث من السيرفر...',
+      errBusy: 'سيرفر الخريطة مشغول دلوقتي والماكينات ما اتحمّلتش. حاول تاني بعد دقيقة.',
+      errTimeout: 'تحميل الماكينات أخد وقت أطول من المسموح. حاول تاني.',
+      errHttp: 'حصلت مشكلة في سيرفر الخريطة والماكينات ما اتحمّلتش. حاول تاني بعد شوية.',
+      retry: 'حاول تاني',
+      now: 'دلوقتي', min1: 'من دقيقة', min2: 'من دقيقتين', minN: 'من {n} دقائق', minN2: 'من {n} دقيقة',
+      hr1: 'من ساعة', hr2: 'من ساعتين', hrN: 'من {n} ساعات', hrN2: 'من {n} ساعة',
+      day1: 'من يوم', day2: 'من يومين', dayN: 'من {n} أيام', dayN2: 'من {n} يوم',
+      distM: 'على بعد {n} متر', distKm: 'على بعد {n} كم',
+      langName: 'العربية'
+    },
+    en: {
+      brand: 'Feiha Flous', dockHome: 'Home', dockList: 'ATMs', dockShare: 'Share', dockSettings: 'Settings',
+      settingsTitle: 'Settings', aboutBtn: 'About the app', backBtn: 'Back', version: 'Version 2.2.1',
+      searchPh: 'Search for a bank or area...', searchNoRes: 'No matches - try another bank or area name',
+      areaBtn: 'Search here · up to 3 km', srPlace: 'Area',
+      locTitle: 'Official bank ATM locators',
+      locExplain: 'Bank locators open in your browser. They do not guarantee complete coverage or cash availability. Area search uses a limited offline list. Area coordinates: GeoNames, CC BY 4.0.',
+      noLoc: 'We could not locate you yet, so ATMs from another area are showing for now. Turn on GPS and allow location access to see the ATMs around you.',
+      locBtn: 'Locate me',
+      accTitle: 'Account & sync',
+      accExplain: 'No account is needed to view ATMs and community reports. An account is required to add an ATM or report its status.',
+      accOff: 'Sync is not available in this build.',
+      accEmailPh: 'Email', accPassPh: 'Password',
+      accLogin: 'Log in', accSignup: 'Sign up', accLogout: 'Log out', accSyncNow: 'Sync now',
+      accLoggedAs: 'Signed in as', accWorking: 'One moment...', accSyncing: 'Syncing your data...',
+      accSyncOk: 'Your data is synced ✓', accSyncErr: 'Sync failed, try again',
+      accErrFill: 'Enter your email and password first',
+      accErrExists: 'This email is already registered, try logging in',
+      accErrCreds: 'Wrong email or password',
+      accErrWeak: 'Password must be at least 6 characters',
+      accErrEmail: 'This email is not valid',
+      accErrNet: 'No connection, check your internet and try again',
+      accErrSession: 'Your sign-in session expired. Log in again and your data will sync.',
+      emptyHint: 'No ATMs here yet. Tap the add button below to add the first one near you, or ',
+      emptyHintLink: 'refresh nearby ATMs',
+      addHint: 'Tap any point on the map to set the ATM location',
+      addTitle: 'Add an ATM', atmNamePh: 'Bank name or place description (optional)',
+      pickPhoto: 'Add a photo', locMe: 'My location', locMap: 'Pick on map',
+      cancel: 'Cancel', save: 'Save ATM',
+      syncTitle: 'Share & data', loadOsmLbl: 'Refresh nearby ATMs',
+      loadOsmExplain: 'Fetches the ATMs known on the public map within 3 km of your location and adds them without duplicates.',
+      syncExplain: 'Share your ATMs and reports with friends: export the data file, send it on WhatsApp, and they import it on their side. Everyone sees the same ATMs, no accounts needed.',
+      exportBtn: 'Export my data', importBtn: 'Import from file',
+      aboutTitle: 'About Feiha Flous',
+      aboutText: 'Feiha Flous helps you find the nearest ATM that has cash. The map shows ATMs around you, and anyone can add a new ATM with its place and photo. If an ATM runs out of cash report it "Empty", if it has a fault report it "Broken", and when it works again report it "Refilled". An ATM\'s status is the latest user report and its time, not a guarantee it is still the same. ATMs with no reports show as gray "Unknown".',
+      okBtn: 'OK',
+      stFull: 'Has cash', stEmpty: 'Empty', stBroken: 'Broken', stUnknown: 'Unknown',
+      atmDefault: 'ATM', lastReport: 'Last report: ', lastReportIn: ' · last report ',
+      cFull: 'Refilled', cEmpty: 'Empty', cBroken: 'Broken',
+      delAtm: 'Delete ATM', confirmDel: 'Sure you want to delete this ATM?', deleted: 'Deleted',
+      toastFull: 'Reported: refilled', toastEmpty: 'Reported: empty', toastBroken: 'Reported: broken',
+      atmSaved: 'ATM saved. Thanks!', pickFirst: 'Set the ATM location first',
+      locWait: 'Locating you… if it takes long, pick the place on the map.', locTap: 'Tap the map to set the place', locAt: 'Place: ',
+      locErr: 'Could not determine your location. Turn on GPS and allow location access.', locating: 'Trying to locate you…',
+      listEmpty: 'No ATMs yet.<br>Tap the add button to add the first one',
+      fromMap: ' · from the map',
+      exportOk: 'File saved: ', exportFail: 'Could not save the file', exportDl: 'Data file downloaded',
+      importEmpty: 'The file has no ATMs', importBad: 'This is not a valid data file',
+      importOk: 'Import done: {n} new ATMs', importMerged: ', {m} updated',
+      osmAdded: 'Added {n} ATMs from the map', osmNone: 'No new ATMs in this area',
+      osmParseErr: 'Could not read the map data',
+      loading: 'Loading nearby ATMs…', loadingSlow: 'Still loading, the server is a bit slow. You can wait or tap refresh in a moment.',
+      errNet: 'Loading ATMs from the public map is not working right now. Saved ATMs stay visible you can retry with the refresh button.',
+      cacheShowing: 'Showing the last saved copy of ATMs while refreshing in the background...',
+      cacheStale: 'No update from the map server yet; your saved ATMs are still shown.',
+      seedShowing: 'Showing an initial OpenStreetMap data snapshot until the server update arrives...',
+      errBusy: 'The map server is busy right now and ATMs did not load. Try again in a minute.',
+      errTimeout: 'The ATM request timed out. Try again.',
+      errHttp: 'The map server had a problem and ATMs did not load. Try again later.',
+      retry: 'Retry',
+      now: 'now', min1: '1 min ago', min2: '2 min ago', minN: '{n} min ago', minN2: '{n} min ago',
+      hr1: '1 hr ago', hr2: '2 hr ago', hrN: '{n} hrs ago', hrN2: '{n} hrs ago',
+      day1: '1 day ago', day2: '2 days ago', dayN: '{n} days ago', dayN2: '{n} days ago',
+      distM: '{n} m away', distKm: '{n} km away',
+      langName: 'English'
+    }
+  };
+  var LANG = (DB.settings && DB.settings.lang) || 'ar';
+  function t(k) { return (STR[LANG] && STR[LANG][k]) || STR.ar[k] || k; }
+  function tn(k, n) { return t(k).replace('{n}', n); }
+
+  function iconOf(btn) { var s = btn.querySelector('svg'); return s ? s.outerHTML + ' ' : ''; }
+  function applyStatics() {
+    document.documentElement.dir = LANG === 'ar' ? 'rtl' : 'ltr';
+    document.documentElement.lang = LANG;
+    document.title = t('brand');
+    document.getElementById('brandName').textContent = t('brand');
+    document.getElementById('brandTagline').textContent = LANG==='ar'?'ماكينات قريبة • بلاغات الناس':'Nearby ATMs • Community';
+    document.getElementById('refreshData').textContent = LANG==='ar'?'تحديث البيانات':'Refresh data';
+    document.getElementById('dockHomeLbl').textContent = t('dockHome');
+    document.getElementById('dockListLbl').textContent = t('dockList');
+    document.getElementById('dockShareLbl').textContent = t('dockShare');
+    document.getElementById('dockSettingsLbl').textContent = t('dockSettings');
+    document.getElementById('dockAdd').title = t('addTitle');
+    document.getElementById('fabLoc').title = t('locMe');
+    document.getElementById('emptyHintTxt').textContent = t('emptyHint');
+    document.getElementById('linkLoadOsm').textContent = t('emptyHintLink');
+    document.getElementById('addHint').textContent = t('addHint');
+    document.querySelector('#addSheet h2').textContent = t('addTitle');
+    document.getElementById('atmName').placeholder = t('atmNamePh');
+    var bpp = document.getElementById('btnPickPhoto'); bpp.innerHTML = iconOf(bpp) + t('pickPhoto');
+    var blm = document.getElementById('btnLocMe'); blm.innerHTML = iconOf(blm) + t('locMe');
+    var blmap = document.getElementById('btnLocMap'); blmap.innerHTML = iconOf(blmap) + t('locMap');
+    document.getElementById('btnCancelAdd').textContent = t('cancel');
+    document.getElementById('btnSaveAdd').textContent = t('save');
+    var sh2 = document.querySelector('#syncSheet h2'); sh2.innerHTML = iconOf(sh2) + t('syncTitle');
+    document.getElementById('btnLoadOsmLbl').textContent = t('loadOsmLbl');
+    document.getElementById('loadOsmExplain').textContent = t('loadOsmExplain');
+    document.querySelectorAll('#syncSheet .explain')[1].textContent = t('syncExplain');
+    var be = document.getElementById('btnExport'); be.innerHTML = iconOf(be) + t('exportBtn');
+    var bi = document.getElementById('btnImport'); bi.innerHTML = iconOf(bi) + t('importBtn');
+    document.getElementById('btnCloseSync').textContent = t('backBtn');
+    document.getElementById('settingsTitle').textContent = t('settingsTitle');
+    document.getElementById('accTitle').textContent = t('accTitle');
+    document.getElementById('accExplain').textContent = t('accExplain');
+    document.getElementById('accOff').textContent = t('accOff');
+    document.getElementById('accEmail').placeholder = t('accEmailPh');
+    document.getElementById('accPass').placeholder = t('accPassPh');
+    document.getElementById('btnLogin').textContent = t('accLogin');
+    document.getElementById('btnSignup').textContent = t('accSignup');
+    document.getElementById('btnLogout').textContent = t('accLogout');
+    document.getElementById('btnSyncNow').textContent = t('accSyncNow');
+    document.getElementById('btnAbout2').textContent = t('aboutBtn');
+    document.getElementById('verLine').textContent = t('version');
+    document.getElementById('btnCloseSettings').textContent = t('backBtn');
+    document.getElementById('langAr').classList.toggle('active', LANG === 'ar');
+    document.getElementById('langEn').classList.toggle('active', LANG === 'en');
+    document.querySelector('#aboutSheet h2').textContent = t('aboutTitle');
+    document.querySelector('#aboutSheet .explain').textContent = t('aboutText');
+    document.getElementById('btnCloseAbout').textContent = t('okBtn');
+    document.getElementById('searchInput').placeholder = t('searchPh');
+    document.getElementById('fabAreaLbl').textContent = t('areaBtn');
+    document.getElementById('locTitle').textContent = t('locTitle');
+    document.getElementById('locExplain').textContent = t('locExplain');
+  }
+  function applyLang() {
+    applyStatics();
+    renderMarkers();
+    renderList();
+    updateLocState();
+    map.closePopup();
+  }
+  function setLang(l) {
+    LANG = l;
+    DB.settings = DB.settings || {};
+    DB.settings.lang = l;
+    saveDb();
+    applyLang();
+    if (window.__paintAccount) window.__paintAccount();
+  }
+
+  function toast(msg) {
+    var t = document.getElementById('toast');
+    t.textContent = msg;
+    t.style.display = 'block';
+    clearTimeout(t._h);
+    t._h = setTimeout(function () { t.style.display = 'none'; }, 2600);
+  }
+
+  // ---------- Location ----------
+  var myLoc = null;
+  window.onNativeLocation = function (loc) {
+    myLoc = { lat: loc.lat, lng: loc.lng };
+    if (locBannerOn) hideBanner();
+    updateMeMarker();
+    updateLocState();
+  };
+  window.onNativeLocationError = function () {
+    document.getElementById('locState').textContent = t('locErr');
+  };
+  if (hasBridge) {
+    window.AndroidBridge.startLocation();
+    var g = window.AndroidBridge.getLocation();
+    if (g) {
+      try { window.onNativeLocation(JSON.parse(g)); } catch (e) {}
+    }
+  }
+
+  // ---------- Map ----------
+  var DEFAULT_CENTER = [30.0444, 31.2357]; // Cairo
+  var map = L.map('map', { zoomControl: false, attributionControl: false });
+  L.control.attribution({ prefix: false }).addTo(map);
+  map.setView(DEFAULT_CENTER, 12);
+  L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    maxZoom: 19,
+    attribution: '© OpenStreetMap'
+  }).addTo(map);
+
+  var meMarker = null;
+  function updateMeMarker() {
+    if (!myLoc) return;
+    if (meMarker) meMarker.setLatLng([myLoc.lat, myLoc.lng]);
+    else meMarker = L.marker([myLoc.lat, myLoc.lng], {
+      icon: L.divIcon({ className: '', html: '<div class="me"></div>', iconSize: [18, 18] }),
+      interactive: false
+    }).addTo(map);
+    if (!map._centeredOnce) {
+      map._centeredOnce = true;
+      map.setView([myLoc.lat, myLoc.lng], 15);
+      loadOsmAtms(false, myLoc);
+    }
+  }
+
+  // ---------- Status ----------
+  function statusOf(atm) {
+    if (!atm.reports || !atm.reports.length) return 'unknown';
+    var t = atm.reports[atm.reports.length - 1].type;
+    return (t === 'full' || t === 'empty' || t === 'broken') ? t : 'unknown';
+  }
+  function statusLabel(st) {
+    return st === 'full' ? t('stFull') : st === 'empty' ? t('stEmpty') : st === 'broken' ? t('stBroken') : t('stUnknown');
+  }
+  function timeAgo(ts) {
+    var s = Math.floor((Date.now() - ts) / 1000);
+    if (s < 60) return t('now');
+    var m = Math.floor(s / 60);
+    if (m < 60) return m === 1 ? t('min1') : m === 2 ? t('min2') : tn(m <= 10 ? 'minN' : 'minN2', m);
+    var h = Math.floor(m / 60);
+    if (h < 24) return h === 1 ? t('hr1') : h === 2 ? t('hr2') : tn(h <= 10 ? 'hrN' : 'hrN2', h);
+    var d = Math.floor(h / 24);
+    return d === 1 ? t('day1') : d === 2 ? t('day2') : tn(d <= 10 ? 'dayN' : 'dayN2', d);
+  }
+  function distTo(atm) {
+    if (!myLoc) return null;
+    var R = 6371000, dLat = (atm.lat - myLoc.lat) * Math.PI / 180, dLng = (atm.lng - myLoc.lng) * Math.PI / 180;
+    var a = Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+      Math.cos(myLoc.lat * Math.PI / 180) * Math.cos(atm.lat * Math.PI / 180) *
+      Math.sin(dLng / 2) * Math.sin(dLng / 2);
+    return R * 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+  }
+  function fmtDist(m) {
+    if (m === null) return '';
+    if (m < 1000) return tn('distM', Math.round(m));
+    return tn('distKm', (m / 1000).toFixed(1));
+  }
+
+  // ---------- Markers ----------
+  var markers = {};
+  function renderMarkers() {
+    for (var id in markers) { map.removeLayer(markers[id]); }
+    markers = {};
+    DB.atms.forEach(function (atm) {
+      var st = statusOf(atm);
+      var m = L.marker([atm.lat, atm.lng], { icon: pinIcon(st) }).addTo(map);
+      m.on('click', function () { openPopup(atm); });
+      markers[atm.id] = m;
+    });
+    document.getElementById('emptyHint').classList.toggle('show', DB.atms.length === 0);
+  }
+
+  function counts(atm) {
+    var c = { full: 0, empty: 0, broken: 0 };
+    (atm.reports || []).forEach(function (r) { if (c[r.type] !== undefined) c[r.type]++; });
+    return c;
+  }
+
+  function openPopup(atm) {
+    var st = statusOf(atm);
+    var c = counts(atm);
+    var last = (atm.reports && atm.reports.length) ? atm.reports[atm.reports.length - 1] : null;
+    var html = '<div class="popup">';
+    if (atm.photo) html += '<img src="' + atm.photo + '" alt="">';
+    html += '<div class="pname">' + escapeHtml(atm.name || t('atmDefault')) + '</div>';
+    html += '<span class="status-chip st-' + st + '">' + statusLabel(st) + '</span>';
+    if (last) html += '<div class="ptime">' + t('lastReport') + timeAgo(last.ts) + '</div>';
+    html += '<div class="pcounts">' + t('cFull') + ': ' + c.full + ' · ' + t('cEmpty') + ': ' + c.empty + ' · ' + t('cBroken') + ': ' + c.broken + '</div>';
+    html += '<div class="pbtns">';
+    html += '<button class="btn-full" onclick="window.report(\'' + atm.id + '\',\'full\')">' + pinSvg('#fff', PIN_INNER.full).replace('width="30" height="42"', 'class="icon-sm icon"') + ' ' + t('cFull') + '</button>';
+    html += '<button class="btn-empty" onclick="window.report(\'' + atm.id + '\',\'empty\')">' + pinSvg('#fff', PIN_INNER.empty).replace('width="30" height="42"', 'class="icon-sm icon"') + ' ' + t('cEmpty') + '</button>';
+    html += '<button class="btn-broken" onclick="window.report(\'' + atm.id + '\',\'broken\')">' + pinSvg('#fff', PIN_INNER.broken).replace('width="30" height="42"', 'class="icon-sm icon"') + ' ' + t('cBroken') + '</button>';
+    html += '</div>';
+    html += '<button class="pdel" onclick="window.delAtm(\'' + atm.id + '\')">' + t('delAtm') + '</button>';
+    html += '</div>';
+    L.popup({ maxWidth: 280, closeButton: true })
+      .setLatLng([atm.lat, atm.lng])
+      .setContent(html)
+      .openOn(map);
+    // Remote ATM photo: load on demand from the shared DB
+    if (!atm.photo && atm.photoId && BACKEND_ON && AUTH) {
+      withToken(function (ok) {
+        if (!ok) return;
+        fsGet(atm.photoId, function (err, data) {
+          if (err || !data || !data.data) return;
+          atm.photo = 'data:image/jpeg;base64,' + data.data;
+          saveDb(); renderList();
+        });
+      });
+    }
+  }
+
+  function escapeHtml(s) {
+    return String(s).replace(/[&<>"']/g, function (ch) {
+      return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[ch];
+    });
+  }
+
+  function needAccount() {
+    if (typeof BACKEND_ON !== 'undefined' && BACKEND_ON && (!AUTH || AUTH.guest)) {
+      toast(LANG === 'ar' ? 'لازم تسجّل حساب الأول عشان تضيف ماكينة أو تبلّغ عن حالتها' : 'Please create an account first to add an ATM or report its status');
+      document.getElementById('settingsSheet').classList.add('open');
+      return true;
+    }
+    return false;
+  }
+  function reportToast(type) { return type === 'full' ? t('toastFull') : type === 'empty' ? t('toastEmpty') : t('toastBroken'); }
+  window.report = function (id, type) {
+    if (needAccount()) return;
+    var atm = DB.atms.find(function (a) { return a.id === id; });
+    if (!atm) return;
+    atm.reports = atm.reports || [];
+    var rep = { type: type, ts: Date.now() };
+    atm.reports.push(rep);
+    saveDb();
+    renderMarkers();
+    renderList();
+    map.closePopup();
+    toast(reportToast(type));
+    syncReport(atm, rep);
+  };
+
+  window.delAtm = function (id) {
+    if (!confirm(t('confirmDel'))) return;
+    var atm = DB.atms.find(function (a) { return a.id === id; });
+    DB.atms = DB.atms.filter(function (a) { return a.id !== id; });
+    if (atm && atm.serverId) {
+      if (atm.remote) { DB.hidden = DB.hidden || []; if (DB.hidden.indexOf(atm.serverId) < 0) DB.hidden.push(atm.serverId); }
+      else if (BACKEND_ON && AUTH) withToken(function (ok) {
+        if (!ok) return;
+        fsDelete(atm.serverId, function () {});
+        if (atm.photoId) fsDelete(atm.photoId, function () {});
+      });
+    }
+    saveDb();
+    renderMarkers();
+    renderList();
+    map.closePopup();
+    toast(t('deleted'));
+  };
+
+  // ---------- Add flow ----------
+  var addSheet = document.getElementById('addSheet');
+  var addHint = document.getElementById('addHint');
+  var pendingLatLng = null;
+  var pickFromMap = false;
+  var newMarker = null;
+  var pendingPhoto = null;
+
+  function openAdd() {
+    if (needAccount()) return;
+    addSheet.classList.add('open');
+    pendingLatLng = myLoc ? { lat: myLoc.lat, lng: myLoc.lng } : null;
+    pendingPhoto = null;
+    document.getElementById('atmName').value = '';
+    document.getElementById('photoPreview').style.display = 'none';
+    setPickFromMap(false);
+    updateLocState();
+  }
+  function closeAdd() {
+    addSheet.classList.remove('open');
+    addHint.classList.remove('show');
+    if (newMarker) { map.removeLayer(newMarker); newMarker = null; }
+    pickFromMap = false;
+  }
+  function setPickFromMap(on) {
+    pickFromMap = on;
+    document.getElementById('btnLocMe').classList.toggle('active', !on);
+    document.getElementById('btnLocMap').classList.toggle('active', on);
+    addHint.classList.toggle('show', on);
+    updateLocState();
+  }
+  function updateLocState() {
+    var el = document.getElementById('locState');
+    if (pendingLatLng) {
+      el.textContent = t('locAt') + pendingLatLng.lat.toFixed(5) + ', ' + pendingLatLng.lng.toFixed(5);
+    } else if (pickFromMap) {
+      el.textContent = t('locTap');
+    } else {
+      el.textContent = t('locWait');
+    }
+  }
+  function setNewMarker(ll) {
+    if (newMarker) map.removeLayer(newMarker);
+    newMarker = L.marker([ll.lat, ll.lng], { icon: pinIcon('newpin') }).addTo(map);
+  }
+
+  map.on('click', function (e) {
+    if (!pickFromMap) return;
+    pendingLatLng = { lat: e.latlng.lat, lng: e.latlng.lng };
+    setNewMarker(pendingLatLng);
+    updateLocState();
+  });
+
+  document.getElementById('dockAdd').onclick = function () {
+    setDock('dockAdd');
+    if (addSheet.classList.contains('open')) closeAdd(); else openAdd();
+  };
+  document.getElementById('btnCancelAdd').onclick = closeAdd;
+  document.getElementById('btnLocMe').onclick = function () {
+    if (hasBridge) window.AndroidBridge.startLocation();
+    pendingLatLng = myLoc ? { lat: myLoc.lat, lng: myLoc.lng } : null;
+    if (pendingLatLng) setNewMarker(pendingLatLng);
+    setPickFromMap(false);
+  };
+  document.getElementById('btnLocMap').onclick = function () { setPickFromMap(true); };
+  document.getElementById('btnPickPhoto').onclick = function () {
+    document.getElementById('photoInput').click();
+  };
+  document.getElementById('photoInput').addEventListener('change', function (e) {
+    var file = e.target.files && e.target.files[0];
+    if (!file) return;
+    var reader = new FileReader();
+    reader.onload = function () {
+      var img = new Image();
+      img.onload = function () {
+        var canvas = document.createElement('canvas');
+        var scale = Math.min(1, 800 / Math.max(img.width, img.height));
+        canvas.width = Math.round(img.width * scale);
+        canvas.height = Math.round(img.height * scale);
+        canvas.getContext('2d').drawImage(img, 0, 0, canvas.width, canvas.height);
+        pendingPhoto = canvas.toDataURL('image/jpeg', 0.72);
+        var prev = document.getElementById('photoPreview');
+        prev.src = pendingPhoto;
+        prev.style.display = 'block';
+      };
+      img.src = reader.result;
+    };
+    reader.readAsDataURL(file);
+  });
+
+  document.getElementById('btnSaveAdd').onclick = function () {
+    if (!pendingLatLng) {
+      toast(t('pickFirst'));
+      return;
+    }
+    var name = document.getElementById('atmName').value.trim();
+    var newAtm = {
+      id: 'atm_' + Date.now() + '_' + Math.floor(Math.random() * 10000),
+      name: name,
+      lat: pendingLatLng.lat,
+      lng: pendingLatLng.lng,
+      photo: pendingPhoto,
+      createdAt: Date.now(),
+      reports: []
+    };
+    DB.atms.push(newAtm);
+    saveDb();
+    renderMarkers();
+    renderList();
+    closeAdd();
+    toast(t('atmSaved'));
+    syncAtm(newAtm);
+  };
+
+  // ---------- OpenStreetMap import ----------
+  var cacheShown = false, seedShown = false, hadLiveResult = false;
+  function saveOsmCache(json, center, radius) {
+    try { localStorage.setItem('feihaflous_osm_cache', JSON.stringify({ ts: Date.now(), lat: center.lat, lng: center.lng, radius: radius, json: json })); } catch (e) {}
+  }
+  function loadOsmCache() {
+    try {
+      var c = JSON.parse(localStorage.getItem('feihaflous_osm_cache') || 'null');
+      if (c && c.json && (Date.now() - c.ts) < 14 * 24 * 3600 * 1000) return c;
+    } catch (e) {}
+    return null;
+  }
+  function importOsmData(data) {
+    var added = 0;
+    (data.elements || []).forEach(function (el) {
+      var lat = (typeof el.lat === 'number') ? el.lat : (el.center && el.center.lat);
+      var lng = (typeof el.lon === 'number') ? el.lon : (el.center && el.center.lon);
+      if (typeof lat !== 'number' || typeof lng !== 'number') return;
+      var osmKey = el.type + '_' + el.id;
+      if (DB.atms.some(function (a) { return a.osmId === osmKey; })) return;
+      if (DB.atms.some(function (a) { return Math.abs(a.lat - lat) < 0.0003 && Math.abs(a.lng - lng) < 0.0003; })) return;
+      var tags = el.tags || {};
+      var name = tags['name:ar'] || tags.name || tags['operator:ar'] || tags.operator || '';
+      DB.atms.push({
+        id: 'osm_' + osmKey,
+        osmId: osmKey,
+        name: name,
+        lat: lat,
+        lng: lng,
+        photo: null,
+        createdAt: Date.now(),
+        reports: [],
+        source: 'osm'
+      });
+      added++;
+    });
+    saveDb();
+    renderMarkers();
+    renderList();
+    if (added || importOsmData.manual) toast(added ? tn('osmAdded', added) : t('osmNone'));
+    importOsmData.manual = false;
+  }
+
+  // ---------- Load banner ----------
+  var banner = document.getElementById('loadBanner');
+  var bannerTxt = document.getElementById('loadBannerTxt');
+  var bannerBtn = document.getElementById('loadBannerBtn');
+  var bannerMode = null;
+  var locBannerOn = false;
+  function showBanner(mode, text, btnText) {
+    bannerMode = mode;
+    banner.className = 'show ' + mode;
+    bannerTxt.textContent = text;
+    if (btnText) {
+      bannerBtn.style.display = '';
+      bannerBtn.textContent = btnText;
+    } else if (mode === 'error') {
+      bannerBtn.style.display = '';
+      bannerBtn.textContent = t('retry');
+    } else {
+      bannerBtn.style.display = 'none';
+    }
+  }
+  function hideBanner() { bannerMode = null; locBannerOn = false; banner.className = ''; }
+
+  window.onOsmResult = function (json) {
+    try {
+      var doneFetch = pendingFetch;
+      lastFetch = pendingFetch;
+      pendingFetch = null;
+      hideBanner();
+      areaPillUpdate();
+      importOsmData(JSON.parse(json));
+      if (doneFetch) saveOsmCache(json, doneFetch, doneFetch.radius);
+      hadLiveResult = true;
+    } catch (e) {
+      showBanner('error', t('osmParseErr'));
+    }
+  };
+  window.onOsmError = function (reason) {
+    pendingFetch = null;
+    areaPillUpdate();
+    reason = String(reason || 'net');
+    if ((cacheShown || seedShown) && !hadLiveResult) {
+      showBanner('loading', t('cacheStale'));
+      return;
+    }
+    if (reason === 'timeout') showBanner('error', t('errTimeout'));
+    else if (reason === 'net') showBanner('error', t('errNet'));
+    else if (reason === 'http-429' || reason === 'http-502' || reason === 'http-503' || reason === 'http-504') showBanner('error', t('errBusy'));
+    else showBanner('error', t('errHttp') + ' (' + reason + ')');
+  };
+  window.onOsmSeed = function (json) {
+    try {
+      importOsmData(JSON.parse(json));
+      seedShown = true;
+      saveOsmCache(json, map.getCenter(), 50000);
+      if (!hadLiveResult && !pendingFetch) showBanner('loading', t('seedShowing'));
+    } catch (e) {}
+  };
+  bannerBtn.onclick = function () {
+    if (locBannerOn) {
+      if (hasBridge) window.AndroidBridge.startLocation();
+      toast(t('locating'));
+    } else {
+      loadOsmAtms(true);
+    }
+  };
+
+  var lastFetch = null;
+  var pendingFetch = null;
+  function fetchRadius(center) {
+    try {
+      var r = Math.ceil(map.distance(center, map.getBounds().getNorthEast()));
+      return Math.min(3000, Math.max(800, r));
+    } catch (e) { return 3000; }
+  }
+  function loadOsmAtms(manual, at) {
+    importOsmData.manual = !!manual;
+    var center = at || map.getCenter();
+    var radius = fetchRadius(center);
+    pendingFetch = { lat: center.lat, lng: center.lng, radius: radius };
+    showBanner('loading', t('loading'));
+    clearTimeout(loadOsmAtms._slow);
+    loadOsmAtms._slow = setTimeout(function () {
+      if (pendingFetch) showBanner('loading', t('loadingSlow'));
+    }, 20000);
+    if (hasBridge && window.AndroidBridge.loadOsmAtms) {
+      window.AndroidBridge.loadOsmAtms(center.lat, center.lng, radius);
+      return;
+    }
+    // Browser fallback (outside the app): try public Overpass endpoints
+    var q = '[out:json][timeout:25];(node["amenity"="atm"](around:' + radius + ',' + center.lat + ',' + center.lng + ');way["amenity"="atm"](around:' + radius + ',' + center.lat + ',' + center.lng + '););out center 400;';
+    var endpoints = [
+      'https://overpass.openstreetmap.fr/api/interpreter?data=',
+      'https://overpass-api.de/api/interpreter?data='
+    ];
+    var i = 0;
+    function tryNext() {
+      if (i >= endpoints.length) { window.onOsmError('net'); return; }
+      var ctrl = new AbortController();
+      var timer = setTimeout(function () { ctrl.abort(); }, 30000);
+      fetch(endpoints[i++] + encodeURIComponent(q), { signal: ctrl.signal })
+        .then(function (r) { if (!r.ok) throw new Error('http'); return r.json(); })
+        .then(function (data) { clearTimeout(timer); window.onOsmResult(JSON.stringify(data)); })
+        .catch(function () { clearTimeout(timer); tryNext(); });
+    }
+    tryNext();
+  }
+  var moveTimer = null;
+  var fabArea = document.getElementById('fabArea');
+  function areaPillUpdate() {
+    if (pendingFetch) { fabArea.classList.remove('show'); return; }
+    var c = map.getCenter();
+    var need = !lastFetch || map.distance(c, L.latLng(lastFetch.lat, lastFetch.lng)) >= lastFetch.radius * 0.35;
+    fabArea.classList.toggle('show', !!need);
+  }
+  map.on('moveend', function () {
+    clearTimeout(moveTimer);
+    moveTimer = setTimeout(areaPillUpdate, 500);
+  });
+  fabArea.onclick = function () {
+    fabArea.classList.remove('show');
+    loadOsmAtms(true);
+  };
+
+  // ---------- Local search (banks / areas, no network) ----------
+  // Place coordinates: GeoNames Egypt, CC BY 4.0, 2026-11-23.
+  var PLACES = [["القاهرة", "Cairo", 30.06263, 31.24967], ["الجيزة", "Giza", 30.00944, 31.20861], ["الإسكندرية", "Alexandria", 31.20176, 29.91582], ["شبرا الخيمة", "Shubra El Kheima", 30.12511, 31.25053], ["بورسعيد", "Port Said", 31.26531, 32.3019], ["السويس", "Suez", 29.97371, 32.52627], ["الأقصر", "Luxor", 25.69893, 32.6421], ["أسوان", "Aswan", 24.09082, 32.89942], ["أسيوط", "Asyut", 27.18096, 31.18368], ["المنيا", "Minya", 28.09193, 30.75813], ["بني سويف", "Beni Suef", 29.07441, 31.09785], ["الفيوم", "Faiyum", 29.30995, 30.8418], ["قنا", "Qena", 26.16418, 32.72671], ["سوهاج", "Sohag", 26.55695, 31.69478], ["المنصورة", "Mansoura", 31.03637, 31.38069], ["طنطا", "Tanta", 30.78847, 31.00192], ["المحلة الكبرى", "El Mahalla El Kubra", 30.97063, 31.1669], ["الزقازيق", "Zagazig", 30.58768, 31.502], ["الإسماعيلية", "Ismailia", 30.60427, 32.27225], ["دمياط", "Damietta", 31.41648, 31.81332], ["دمنهور", "Damanhur", 31.03408, 30.46823], ["بنها", "Banha", 30.45977, 31.1842], ["كفر الشيخ", "Kafr El Sheikh", 31.11174, 30.93991], ["العريش", "Arish", 31.13159, 33.79844], ["ملوي", "Mallawi", 27.73264, 30.84129], ["الغردقة", "Hurghada", 27.25738, 33.81291], ["شرم الشيخ", "Sharm El Sheikh", 27.91582, 34.32995], ["مرسى مطروح", "Marsa Matruh", 31.3529, 27.23725], ["السادس من أكتوبر", "6th of October City", 29.94644, 30.91687], ["الشيخ زايد", "Sheikh Zayed City", 30.02, 31.0], ["القاهرة الجديدة", "New Cairo", 30.03, 31.47], ["المعادي", "Maadi", 29.96667, 31.25], ["حلوان", "Helwan", 29.84144, 31.30084], ["الشروق", "El Shorouk City", 30.13806, 31.61556], ["العاشر من رمضان", "10th of Ramadan City", 30.29636, 31.74633], ["العبور", "Obour City", 30.22886, 31.48149], ["العين السخنة", "Ain Sokhna", 29.60018, 32.31671]];
+  var ICON_PLACE = '<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-5.5-7-11a7 7 0 0 1 14 0c0 5.5-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg>';
+  var searchWrap = document.getElementById('searchWrap');
+  var searchInput = document.getElementById('searchInput');
+  var searchClear = document.getElementById('searchClear');
+  var searchResults = document.getElementById('searchResults');
+  function normTxt(x) {
+    return String(x || '').toLowerCase()
+      .replace(/[أإآٱ]/g, 'ا').replace(/ة/g, 'ه').replace(/ى/g, 'ي').replace(/[ؤئ]/g, 'ي')
+      .replace(/\s+/g, ' ').trim();
+  }
+  function hideSearch() { searchResults.style.display = 'none'; }
+  function renderSearchResults(items) {
+    if (!items.length) {
+      searchResults.innerHTML = '<div class="sr-none">' + t('searchNoRes') + '</div>';
+    } else {
+      var html = '';
+      items.forEach(function (it) {
+        if (it.kind === 'atm') {
+          var d = distTo(it.atm);
+          html += '<div class="sr-item" data-atm="' + escapeHtml(it.atm.id) + '"><span class="sr-ic">' + ICON_ATM + '</span><span class="sr-tx"><span class="sr-name">' + escapeHtml(it.atm.name || t('atmDefault')) + '</span><span class="sr-meta">' + (d !== null ? fmtDist(d) : statusLabel(statusOf(it.atm))) + '</span></span></div>';
+        } else {
+          var nm = LANG === 'ar' ? it.p[0] : it.p[1];
+          html += '<div class="sr-item" data-place="' + it.idx + '"><span class="sr-ic">' + ICON_PLACE + '</span><span class="sr-tx"><span class="sr-name">' + escapeHtml(nm) + '</span><span class="sr-meta">' + t('srPlace') + '</span></span></div>';
+        }
+      });
+      searchResults.innerHTML = html;
+      searchResults.querySelectorAll('.sr-item').forEach(function (el) {
+        el.onclick = function () {
+          var aid = el.getAttribute('data-atm');
+          var pid = el.getAttribute('data-place');
+          hideSearch();
+          searchInput.blur();
+          if (aid) { flyToAtm(aid); return; }
+          if (pid !== null && pid !== '' && pid !== undefined) {
+            var pl = PLACES[+pid];
+            fabArea.classList.remove('show');
+            map.flyTo([pl[2], pl[3]], 13);
+            loadOsmAtms(false, { lat: pl[2], lng: pl[3] });
+          }
+        };
+      });
+    }
+    searchResults.style.display = 'block';
+  }
+  function doSearch() {
+    var nq = normTxt(searchInput.value);
+    searchClear.style.display = searchInput.value ? 'block' : 'none';
+    if (nq.length < 2) { hideSearch(); return; }
+    var atmHits = [];
+    DB.atms.forEach(function (a) {
+      if (a.name && normTxt(a.name).indexOf(nq) !== -1) atmHits.push(a);
+    });
+    atmHits.sort(function (a, b) { return (distTo(a) || 1e15) - (distTo(b) || 1e15); });
+    var items = atmHits.slice(0, 20).map(function (a) { return { kind: 'atm', atm: a }; });
+    var placeHits = [];
+    PLACES.forEach(function (pl, i) {
+      if (normTxt(pl[0]).indexOf(nq) !== -1 || normTxt(pl[1]).indexOf(nq) !== -1) placeHits.push({ kind: 'place', p: pl, idx: i });
+    });
+    items = items.concat(placeHits.slice(0, 4));
+    renderSearchResults(items);
+  }
+  searchInput.addEventListener('input', doSearch);
+  searchClear.onclick = function () { searchInput.value = ''; searchClear.style.display = 'none'; hideSearch(); };
+  document.addEventListener('click', function (e) {
+    if (!searchWrap.contains(e.target)) hideSearch();
+  });
+  document.getElementById('btnLoadOsm').onclick = function () { loadOsmAtms(true); };
+  var linkOsm = document.getElementById('linkLoadOsm');
+  if (linkOsm) linkOsm.onclick = function (e) { e.preventDefault(); loadOsmAtms(true); };
+
+  // ---------- Sync (export / import) ----------
+  var syncSheet = document.getElementById('syncSheet');
+  document.getElementById('dockShare').onclick = function () { setDock('dockShare'); syncSheet.classList.add('open'); };
+  document.getElementById('btnCloseSync').onclick = function () { syncSheet.classList.remove('open'); };
+
+  document.getElementById('btnExport').onclick = function () {
+    var json = JSON.stringify(DB, null, 2);
+    if (hasBridge && window.AndroidBridge.exportDb) {
+      var res = window.AndroidBridge.exportDb(json);
+      if (res && res.indexOf('ok:') === 0) {
+        toast(t('exportOk') + res.substring(3));
+      } else {
+        toast(t('exportFail'));
+      }
+    } else {
+      var blob = new Blob([json], { type: 'application/json' });
+      var a = document.createElement('a');
+      a.href = URL.createObjectURL(blob);
+      a.download = 'feiha-flous-data.json';
+      a.click();
+      toast(t('exportDl'));
+    }
+  };
+
+  document.getElementById('btnImport').onclick = function () {
+    document.getElementById('importInput').click();
+  };
+  document.getElementById('importInput').addEventListener('change', function (e) {
+    var file = e.target.files && e.target.files[0];
+    if (!file) return;
+    var reader = new FileReader();
+    reader.onload = function () {
+      try {
+        var imported = JSON.parse(reader.result);
+        if (!imported || !imported.atms || !imported.atms.length) {
+          toast(t('importEmpty'));
+          return;
+        }
+        var result = mergeDb(imported);
+        saveDb();
+        renderMarkers();
+        renderList();
+        syncSheet.classList.remove('open');
+        toast(tn('importOk', result.added) + (result.merged ? t('importMerged').replace('{m}', result.merged) : ''));
+      } catch (err) {
+        toast(t('importBad'));
+      }
+    };
+    reader.readAsText(file);
+    e.target.value = '';
+  });
+
+  function mergeDb(imported) {
+    var added = 0, merged = 0;
+    imported.atms.forEach(function (imp) {
+      if (!imp || !imp.id || typeof imp.lat !== 'number' || typeof imp.lng !== 'number') return;
+      imp.reports = imp.reports || [];
+      var local = DB.atms.find(function (a) { return a.id === imp.id; });
+      if (!local) {
+        DB.atms.push(imp);
+        added++;
+      } else {
+        merged++;
+        var seen = {};
+        (local.reports || []).forEach(function (r) { seen[r.ts + ':' + r.type] = 1; });
+        imp.reports.forEach(function (r) {
+          if (r && r.ts && r.type && !seen[r.ts + ':' + r.type]) local.reports.push(r);
+        });
+        local.reports.sort(function (a, b) { return a.ts - b.ts; });
+        if (!local.photo && imp.photo) local.photo = imp.photo;
+        if (!local.name && imp.name) local.name = imp.name;
+      }
+    });
+    return { added: added, merged: merged };
+  }
+
+  // ---------- List ----------
+  var listPanel = document.getElementById('listPanel');
+  function renderList() {
+    var items = DB.atms.slice();
+    items.sort(function (a, b) {
+      var da = distTo(a), db = distTo(b);
+      if (da === null && db === null) return b.createdAt - a.createdAt;
+      if (da === null) return 1;
+      if (db === null) return -1;
+      return da - db;
+    });
+    var html = '';
+    if (!items.length) {
+      html = '<div style="text-align:center; padding:40px 20px; color:#5f6f66; font-size:14px">' + t('listEmpty') + '</div>';
+    }
+    items.forEach(function (atm) {
+      var st = statusOf(atm);
+      var last = (atm.reports && atm.reports.length) ? atm.reports[atm.reports.length - 1] : null;
+      html += '<div class="atm-card" onclick="window.flyToAtm(\'' + atm.id + '\')">';
+      html += atm.photo ? '<img src="' + atm.photo + '" alt="">' : '<div class="nophoto">' + ICON_ATM + '</div>';
+      html += '<div class="info">';
+      html += '<div class="name">' + escapeHtml(atm.name || t('atmDefault')) + '</div>';
+      html += '<div class="meta"><span class="status-chip st-' + st + '">' + statusLabel(st) + '</span></div>';
+      html += '<div class="meta">' + fmtDist(distTo(atm)) + (last ? t('lastReportIn') + timeAgo(last.ts) : '') + (atm.source === 'osm' ? t('fromMap') : '') + '</div>';
+      html += '</div></div>';
+    });
+    listPanel.innerHTML = html;
+  }
+  window.flyToAtm = function (id) {
+    var atm = DB.atms.find(function (a) { return a.id === id; });
+    if (!atm) return;
+    listPanel.classList.remove('open');
+    map.flyTo([atm.lat, atm.lng], 17);
+    setTimeout(function () { openPopup(atm); }, 600);
+  };
+  document.getElementById('dockList').onclick = function () {
+    setDock('dockList');
+    renderList();
+    listPanel.classList.toggle('open');
+  };
+  document.getElementById('fabLoc').onclick = function () {
+    if (hasBridge) window.AndroidBridge.startLocation();
+    if (myLoc) map.flyTo([myLoc.lat, myLoc.lng], 16);
+    else toast(t('locating'));
+  };
+
+  // ---------- Dock & settings ----------
+  function setDock(id) {
+    ['dockHome', 'dockList', 'dockShare', 'dockSettings'].forEach(function (b) {
+      document.getElementById(b).classList.toggle('active', b === id);
+    });
+  }
+  document.getElementById('dockHome').onclick = function () {
+    setDock('dockHome');
+    listPanel.classList.remove('open');
+    syncSheet.classList.remove('open');
+    document.getElementById('settingsSheet').classList.remove('open');
+    document.getElementById('aboutSheet').classList.remove('open');
+    closeAdd();
+    if (myLoc) map.flyTo([myLoc.lat, myLoc.lng], 15);
+    else map.flyTo(DEFAULT_CENTER, 12);
+  };
+  document.getElementById('dockSettings').onclick = function () {
+    setDock('dockSettings');
+    document.getElementById('settingsSheet').classList.add('open');
+  };
+  document.getElementById('btnCloseSettings').onclick = function () {
+    document.getElementById('settingsSheet').classList.remove('open');
+  };
+  document.getElementById('btnAbout2').onclick = function () {
+    document.getElementById('settingsSheet').classList.remove('open');
+    document.getElementById('aboutSheet').classList.add('open');
+  };
+  document.getElementById('langAr').onclick = function () { setLang('ar'); };
+  document.getElementById('langEn').onclick = function () { setLang('en'); };
+  document.getElementById('btnCloseAbout').onclick = function () {
+    document.getElementById('aboutSheet').classList.remove('open');
+  };
+
+  // ---------- Account & sync (Firebase) ----------
+  // Injected at build time. The API key is a public client identifier (security is enforced
+  // by Firestore rules server-side); account tokens live ONLY in the app's private native store
+  // (loadAuth/saveAuth) and are never written into the exportable DB, logs, or share files.
+  var FIREBASE_API_KEY = 'AIzaSyCiQeWU_TVH3aLF4Q9JfF0cZls4my69iZU';
+  var FIREBASE_PROJECT_ID = 'feiha-flous';
+  var BACKEND_ON = FIREBASE_API_KEY.indexOf('__') !== 0;
+  var AUTH = null; // {uid, email, idToken, refreshToken, expiresAt}
+  var FS_BASE = 'https://firestore.googleapis.com/v1/projects/' + FIREBASE_PROJECT_ID + '/databases/(default)/documents';
+  var FS_V1 = 'https://firestore.googleapis.com/v1/';
+
+  var backendSeq = 0, backendCbs = {};
+  window.onBackendResult = function (id, code, body) {
+    var cb = backendCbs[id]; delete backendCbs[id];
+    if (cb) cb(code, body, null);
+  };
+  window.onBackendError = function (id, reason) {
+    var cb = backendCbs[id]; delete backendCbs[id];
+    if (cb) cb(0, null, reason || 'net');
+  };
+  function backendCall(method, url, body, contentType, cb) {
+    if (!hasBridge || !window.AndroidBridge.backendRequest) { cb(0, null, 'net'); return; }
+    var id = 'r' + (++backendSeq) + '_' + Date.now();
+    backendCbs[id] = cb;
+    window.AndroidBridge.backendRequest(id, method, url, body || '', (AUTH && AUTH.idToken) || '', contentType || 'application/json');
+  }
+  // Auth endpoints (identitytoolkit / securetoken) REJECT any Authorization header,
+  // even a stale app token, with 401 UNAUTHENTICATED. Always call them bearer-free.
+  function backendCallNoAuth(method, url, body, contentType, cb) {
+    if (!hasBridge || !window.AndroidBridge.backendRequest) { cb(0, null, 'net'); return; }
+    var id = 'r' + (++backendSeq) + '_' + Date.now();
+    backendCbs[id] = cb;
+    window.AndroidBridge.backendRequest(id, method, url, body || '', '', contentType || 'application/json');
+  }
+  function saveAuth() { if (hasBridge && window.AndroidBridge.saveAuth) window.AndroidBridge.saveAuth(JSON.stringify(AUTH)); }
+  function restoreAuth() {
+    if (!hasBridge || !window.AndroidBridge.loadAuth) return;
+    try { var s = window.AndroidBridge.loadAuth(); if (s) { var a = JSON.parse(s); if (a && a.refreshToken) AUTH = a; } } catch (e) {}
+  }
+  function refreshAuthToken(cb) {
+    backendCallNoAuth('POST', 'https://securetoken.googleapis.com/v1/token?key=' + FIREBASE_API_KEY,
+      'grant_type=refresh_token&refresh_token=' + encodeURIComponent(AUTH.refreshToken),
+      'application/x-www-form-urlencoded',
+      function (code, body, err) {
+        if (err || code !== 200) { cb(false); return; }
+        try {
+          var r = JSON.parse(body);
+          AUTH.idToken = r.id_token; AUTH.refreshToken = r.refresh_token;
+          AUTH.expiresAt = Date.now() + (parseInt(r.expires_in, 10) || 3600) * 1000;
+          saveAuth(); cb(true);
+        } catch (e) { cb(false); }
+      });
+  }
+  var guestBusy = false, guestWaiters = [];
+  function ensureGuest(cb) {
+    if (AUTH) { withToken(cb); return; }
+    guestWaiters.push(cb);
+    if (guestBusy) return;
+    guestBusy = true;
+    backendCallNoAuth('POST', 'https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=' + FIREBASE_API_KEY,
+      JSON.stringify({returnSecureToken:true}), 'application/json', function(code, body) {
+        try {
+          var r=JSON.parse(body||'{}');
+          if(code===200 && r.idToken) {
+            AUTH={uid:r.localId,email:'',guest:true,idToken:r.idToken,refreshToken:r.refreshToken,expiresAt:Date.now()+Number(r.expiresIn||3600)*1000};
+            saveAuth();
+          }
+        } catch(e) {}
+        guestBusy=false; var wait=guestWaiters;guestWaiters=[];
+        wait.forEach(function(f){f(!!AUTH);});
+        if(window.__paintAccount) window.__paintAccount();
+      });
+  }
+  function withToken(cb) {
+    if (!AUTH) { ensureGuest(cb); return; }
+    if (Date.now() < AUTH.expiresAt - 60000) { cb(true); return; }
+    refreshAuthToken(cb);
+  }
+  function authErrKey(code) {
+    if (code === 'EMAIL_EXISTS') return 'accErrExists';
+    if (code === 'INVALID_PASSWORD' || code === 'EMAIL_NOT_FOUND' || code === 'INVALID_LOGIN_CREDENTIALS') return 'accErrCreds';
+    if (code && code.indexOf('WEAK_PASSWORD') === 0) return 'accErrWeak';
+    if (code === 'INVALID_EMAIL') return 'accErrEmail';
+    if (code === 'net' || code === 'timeout') return 'accErrNet';
+    if (code === 'auth' || code === 'http-401' || code === 'http-403') return 'accErrSession';
+    return 'accSyncErr';
+  }
+  function signInOrUp(path, email, pass, cb) {
+    backendCallNoAuth('POST', 'https://identitytoolkit.googleapis.com/v1/accounts:' + path + '?key=' + FIREBASE_API_KEY,
+      JSON.stringify({ email: email, password: pass, returnSecureToken: true }), 'application/json',
+      function (code, body, err) {
+        if (err) { cb(err); return; }
+        var r; try { r = JSON.parse(body || '{}'); } catch (e) { cb('net'); return; }
+        if (code !== 200 || !r.idToken) { cb((r.error && r.error.message) || ('http-' + code)); return; }
+        AUTH = { uid: r.localId, email: r.email, idToken: r.idToken, refreshToken: r.refreshToken,
+          expiresAt: Date.now() + (parseInt(r.expiresIn, 10) || 3600) * 1000 };
+        saveAuth(); cb(null);
+      });
+  }
+
+  function linkGuestAccount(email, pass, cb) {
+    withToken(function(ok){
+      if(!ok){cb('auth');return;}
+      backendCallNoAuth('POST','https://identitytoolkit.googleapis.com/v1/accounts:update?key='+FIREBASE_API_KEY,
+        JSON.stringify({idToken:AUTH.idToken,email:email,password:pass,returnSecureToken:true}),'application/json',function(code,body){
+          var r;try{r=JSON.parse(body||'{}');}catch(e){cb('net');return;}
+          if(code!==200){cb((r.error&&r.error.message)||'net');return;}
+          AUTH.email=email;AUTH.guest=false;AUTH.idToken=r.idToken||AUTH.idToken;AUTH.refreshToken=r.refreshToken||AUTH.refreshToken;AUTH.expiresAt=Date.now()+Number(r.expiresIn||3600)*1000;saveAuth();cb(null);
+        });
+    });
+  }
+  function fsVal(v) {
+    if (v === null || v === undefined) return { nullValue: null };
+    if (typeof v === 'number') return { doubleValue: v };
+    if (typeof v === 'boolean') return { booleanValue: v };
+    return { stringValue: String(v) };
+  }
+  function fsFields(o) { var f = {}; for (var k in o) f[k] = fsVal(o[k]); return f; }
+  function fsRead(f) {
+    var o = {};
+    for (var k in (f || {})) {
+      var v = f[k];
+      if ('stringValue' in v) o[k] = v.stringValue;
+      else if ('doubleValue' in v) o[k] = v.doubleValue;
+      else if ('integerValue' in v) o[k] = Number(v.integerValue);
+      else if ('booleanValue' in v) o[k] = v.booleanValue;
+      else if ('timestampValue' in v) o[k] = v.timestampValue;
+      else o[k] = null;
+    }
+    return o;
+  }
+  function fsCreate(coll, data, cb) {
+    backendCall('POST', FS_BASE + '/' + coll, JSON.stringify({ fields: fsFields(data) }), 'application/json',
+      function (code, body, err) {
+        if (err || code !== 200) { cb(err || ('http-' + code)); return; }
+        try { cb(null, JSON.parse(body).name); } catch (e) { cb('parse'); }
+      });
+  }
+  function fsList(coll, cb) {
+    var all=[];
+    function page(token){
+      backendCall('GET',FS_BASE+'/'+coll+'?pageSize=1000'+(token?'&pageToken='+encodeURIComponent(token):''),'','application/json',function(code,body,err){
+        if(err||code!==200){cb(err||('http-'+code));return;}
+        try {var r=JSON.parse(body||'{}');(r.documents||[]).forEach(function(d){var o=fsRead(d.fields);o._name=d.name;all.push(o);});
+          if(r.nextPageToken){page(r.nextPageToken);return;}cb(null,all);
+        }catch(e){cb('parse');}
+      });
+    }page('');
+  }
+  function fsGet(name, cb) {
+    backendCall('GET', FS_V1 + name, '', 'application/json',
+      function (code, body, err) {
+        if (err || code !== 200) { cb(err || ('http-' + code)); return; }
+        try { cb(null, fsRead(JSON.parse(body).fields)); } catch (e) { cb('parse'); }
+      });
+  }
+  function fsDelete(name, cb) {
+    backendCall('DELETE', FS_V1 + name, '', 'application/json',
+      function (code, body, err) { cb(err || (code === 200 ? null : 'http-' + code)); });
+  }
+
+  function atmKey(atm) { return atm.osmId ? ('osm:' + atm.osmId) : (atm.serverId ? ('atm:' + atm.serverId) : null); }
+  function isUserAtm(a) { return !a.osmId; }
+
+  function syncAtm(atm, done) {
+    if (!BACKEND_ON || !isUserAtm(atm) || atm.serverId) { if (done) done(); return; }
+    withToken(function (ok) {
+      if (!ok) { if (done) done(); return; }
+      function pushDoc(photoId) {
+        fsCreate('atms', { uid: AUTH.uid, name: atm.name || '', lat: atm.lat, lng: atm.lng,
+            photoId: photoId, osmKey: null,
+            createdAt: new Date(atm.createdAt || Date.now()).toISOString(), updatedAt: new Date().toISOString() },
+          function (err, name) { if (!err) { atm.serverId = name; atm.photoId = photoId || null; saveDb(); } if (done) done(); });
+      }
+      if (atm.photo) {
+        fsCreate('photos', { uid: AUTH.uid, data: String(atm.photo).replace(/^data:image\/\w+;base64,/, ''), createdAt: new Date().toISOString() },
+          function (err, name) { pushDoc(err ? null : name); });
+      } else pushDoc(null);
+    });
+  }
+  function syncReport(atm, rep) {
+    if (!BACKEND_ON || !rep || rep.serverId) return;
+    var key = atmKey(atm);
+    if (!key) { syncAtm(atm, function () { if(atm.serverId) syncReport(atm, rep); }); return; }
+    withToken(function (ok) {
+      if (!ok) return;
+      fsCreate('reports', { uid: AUTH.uid, atmKey: key, status: rep.type, createdAt: new Date(rep.ts || Date.now()).toISOString() },
+        function (err, name) { if (!err) { rep.serverId = name; saveDb(); } });
+    });
+  }
+  var syncRunning = false;
+  function syncAll(cb) {
+    if (!BACKEND_ON || syncRunning) { if (cb) cb(syncRunning ? 'busy' : 'off'); return; }
+    syncRunning = true;
+    withToken(function (ok) {
+      if (!ok) { syncRunning = false; if (cb) cb('auth'); return; }
+      var pending = DB.atms.filter(function (a) { return isUserAtm(a) && !a.serverId; });
+      var i = 0;
+      (function nextAtm() {
+        if (i >= pending.length) { pushReports(); return; }
+        syncAtm(pending[i++], nextAtm);
+      })();
+      function pushReports() {
+        var reps = [];
+        DB.atms.forEach(function (a) {
+          (a.reports || []).forEach(function (r) { if (!r.serverId) reps.push({ a: a, r: r }); });
+        });
+        var j = 0;
+        (function nextRep() {
+          if (j >= reps.length) { pull(); return; }
+          var it = reps[j++];
+          var key = atmKey(it.a);
+          if (!key) { nextRep(); return; }
+          fsCreate('reports', { uid: AUTH.uid, atmKey: key, status: it.r.type, createdAt: new Date(it.r.ts || Date.now()).toISOString() },
+            function (err, name) { if (!err) it.r.serverId = name; nextRep(); });
+        })();
+      }
+      function pull() {
+        fsList('atms', function (err, docs) {
+          if (!err) {
+            DB.hidden = DB.hidden || [];
+            docs.forEach(function (s) {
+              if (DB.hidden.indexOf(s._name) >= 0) return;
+              if (DB.atms.some(function (a) { return a.serverId === s._name; })) return;
+              DB.atms.push({
+                id: 'srv_' + s._name.split('/').pop(), serverId: s._name,
+                name: s.name || '', lat: s.lat, lng: s.lng,
+                photo: null, photoId: s.photoId || null,
+                createdAt: Date.parse(s.createdAt) || Date.now(), reports: [], remote: true
+              });
+            });
+            // Propagate deletions: a synced ATM missing from a COMPLETE server list was
+            // deleted by its owner (possibly on another device) -> remove locally.
+            if (docs.length < 1000) {
+              var seen = {};
+              docs.forEach(function (s) { seen[s._name] = true; });
+              DB.atms = DB.atms.filter(function (a) {
+                if (!a.serverId) return true;   // local-only, pending push
+                return !!seen[a.serverId];      // dropped when deleted server-side
+              });
+            }
+          }
+          fsList('reports', function (err2, rdocs) {
+            if (!err2) {
+              rdocs.forEach(function (s) {
+                if (!s.atmKey) return;
+                var target;
+                if (s.atmKey.indexOf('osm:') === 0) target = DB.atms.find(function (a) { return a.osmId === s.atmKey.slice(4); });
+                else target = DB.atms.find(function (a) { return a.serverId === s.atmKey.slice(4); });
+                if (!target) return;
+                target.reports = target.reports || [];
+                if (target.reports.some(function (r) { return r.serverId === s._name; })) return;
+                target.reports.push({ type: s.status, ts: Date.parse(s.createdAt) || Date.now(), serverId: s._name });
+                target.reports.sort(function (a, b) { return a.ts - b.ts; });
+              });
+            }
+            saveDb(); renderMarkers(); renderList();
+            syncRunning = false; if (cb) cb(err || err2 || null);
+          });
+        });
+      }
+    });
+  }
+
+  function initAccount() {
+    restoreAuth();
+    var out = document.getElementById('accOut'), inn = document.getElementById('accIn'),
+        msg = document.getElementById('accMsg'), off = document.getElementById('accOff');
+    var lastMsgKey = '';
+    function paint() {
+      off.style.display = BACKEND_ON ? 'none' : '';
+      if (!BACKEND_ON) { out.style.display = 'none'; inn.style.display = 'none'; return; }
+      out.style.display = AUTH && !AUTH.guest ? 'none' : '';
+      inn.style.display = AUTH && !AUTH.guest ? '' : 'none';
+      if (AUTH && !AUTH.guest) document.getElementById('accWho').textContent = t('accLoggedAs') + ' ' + AUTH.email;
+      msg.textContent = lastMsgKey ? t(lastMsgKey) : '';
+    }
+    function setMsg(k) { lastMsgKey = k || ''; msg.textContent = k ? t(k) : ''; }
+    function doAuth(path) {
+      var email = document.getElementById('accEmail').value.trim();
+      var pass = document.getElementById('accPass').value;
+      if (!email || !pass) { setMsg('accErrFill'); return; }
+      setMsg('accWorking');
+      var authenticate = (path === 'signUp' && AUTH && AUTH.guest) ? linkGuestAccount : function(e,p,cb){signInOrUp(path,e,p,cb);};
+      authenticate(email, pass, function (err) {
+        if (err) { setMsg(authErrKey(err)); return; }
+        setMsg('accSyncing'); paint();
+        syncAll(function (e) { setMsg(e ? authErrKey(e) : 'accSyncOk'); });
+      });
+    }
+    document.getElementById('btnLogin').onclick = function () { doAuth('signInWithPassword'); };
+    document.getElementById('btnSignup').onclick = function () { doAuth('signUp'); };
+    document.getElementById('btnLogout').onclick = function () {
+      AUTH = null; if (hasBridge && window.AndroidBridge.clearAuth) window.AndroidBridge.clearAuth();
+      lastMsgKey = ''; paint(); ensureGuest(function(ok){if(ok) syncAll(function(){});});
+    };
+    document.getElementById('btnSyncNow').onclick = function () {
+      setMsg('accSyncing');
+      syncAll(function (e) { setMsg(e ? authErrKey(e) : 'accSyncOk'); });
+    };
+    paint();
+    window.__paintAccount = paint;
+    ensureGuest(function(ok){if(ok) syncAll(function(){});});
+  }
+
+  document.querySelectorAll('.loc-link').forEach(function (b) {
+    b.onclick = function () {
+      var u = b.getAttribute('data-url');
+      if (hasBridge && window.AndroidBridge.openUrl) { window.AndroidBridge.openUrl(u); return; }
+      window.open(u, '_blank');
+    };
+  });
+
+  document.getElementById('refreshData').onclick = function(){
+    var b=this, m=document.getElementById('dataRefreshState');
+    if(b.disabled)return;b.disabled=true;b.textContent=LANG==='ar'?'بنحدّث...':'Refreshing...';
+    loadOsmAtms(true);
+    ensureGuest(function(ok){
+      if(!ok){finish('auth');return;}
+      syncAll(finish);
+    });
+    function finish(err){b.disabled=false;b.textContent=LANG==='ar'?'تحديث البيانات':'Refresh data';
+      var text=err?(LANG==='ar'?'تحديث إضافات الناس ما اكتملش. المحفوظ لسه ظاهر، حاول تاني.':'Community refresh failed. Saved data remains available.'):(LANG==='ar'?'اتحدّثت إضافات وبلاغات الناس':'Community places and reports refreshed');
+      m.textContent=text+' · '+new Date().toLocaleTimeString();toast(text);
+    }
+  };
+
+  // ---- In-app update (version file on GitHub release) ----
+  window.onUpdateResult = function (status, json, manual) {
+    var info = {}; try { info = JSON.parse(json); } catch (e) {}
+    var old = document.getElementById('updBar'); if (old) old.remove();
+    if (status === 'available') {
+      var bar = document.createElement('div'); bar.id = 'updBar';
+      bar.style.cssText = 'position:fixed;left:12px;right:12px;bottom:84px;z-index:99999;background:#0f6b4f;color:#fff;border-radius:16px;padding:12px 14px;display:flex;align-items:center;gap:10px;box-shadow:0 6px 24px rgba(0,0,0,.3);font-size:14px';
+      var tx = document.createElement('span'); tx.style.flex = '1';
+      tx.textContent = (LANG === 'ar' ? 'فيه تحديث جديد ' : 'New version ') + (info.versionName || '') + (info.notes ? ' - ' + info.notes : '');
+      var go = document.createElement('button'); go.textContent = LANG === 'ar' ? 'حدّث دلوقتي' : 'Update now';
+      go.style.cssText = 'background:#fff;color:#0f6b4f;border:0;border-radius:12px;padding:9px 12px;font-weight:700';
+      go.onclick = function () { if (hasBridge) window.AndroidBridge.installUpdate(); bar.remove(); };
+      var x = document.createElement('button'); x.textContent = '✕'; x.style.cssText = 'background:none;border:0;color:#fff;font-size:16px';
+      x.onclick = function () { bar.remove(); };
+      bar.appendChild(tx); bar.appendChild(go); bar.appendChild(x); document.body.appendChild(bar);
+    } else if (manual) {
+      toast(status === 'latest' ? (LANG === 'ar' ? 'أنت على آخر إصدار' : 'You are on the latest version') : (LANG === 'ar' ? 'مش قادر أتشيك على التحديث دلوقتي' : 'Could not check for updates'));
+    }
+  };
+  (function () {
+    var v = document.getElementById('verLine');
+    if (v && hasBridge) { v.style.textDecoration = 'underline'; v.onclick = function () { window.AndroidBridge.checkUpdate(); }; }
+  })();
+  setDock('dockHome');
+  applyStatics();
+  renderMarkers();
+  renderList();
+  initAccount();
+  // Show the last saved OSM copy right away; a live refresh fires once location arrives.
+  (function () {
+    var c = loadOsmCache();
+    if (c) {
+      try {
+        importOsmData(JSON.parse(c.json));
+        cacheShown = true;
+        showBanner('loading', t('cacheShowing'));
+      } catch (e) {}
+      return;
+    }
+    // No saved copy yet: load the bundled OpenStreetMap snapshot once.
+    if (hasBridge && window.AndroidBridge.loadOsmSeed) {
+      window.AndroidBridge.loadOsmSeed();
+    } else {
+      fetch('osm_seed_eg.json').then(function (r) { return r.ok ? r.text() : null; })
+        .then(function (j) { if (j) window.onOsmSeed(j); }).catch(function () {});
+    }
+  })();
+  loadOsmAtms();
+  setTimeout(function () {
+    if (!myLoc) {
+      locBannerOn = true;
+      showBanner('error', t('noLoc'), t('locBtn'));
+    }
+  }, 9000);
+})();
+</script>
+</body>
+</html>
